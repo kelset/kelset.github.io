@@ -6,6 +6,8 @@
 
 Please ignore this repo until I actually want to start using Gatsby or something similar and proper domain etc.
 
+Maybe that will never happen. I'm planning to use pure HTML5 for now.
+
 ### History
 
 - created repo, published via GitHubPages ⛴
