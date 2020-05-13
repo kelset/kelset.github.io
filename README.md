@@ -12,3 +12,4 @@ Maybe that will never happen. I'm planning to use pure HTML5 for now.
 
 - created repo, published via GitHubPages ⛴
 - I've finally decided to get a domain. I've used NameCheap & Netlify 👨‍🍳👌
+- finally moved away from pure HTML5 to NextJs & Typescript
