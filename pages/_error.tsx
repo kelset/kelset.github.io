@@ -1,12 +1,17 @@
-//TODO: enhance this
+import Layout from "../components/layout";
 
 function Error({ statusCode }) {
   return (
-    <p>
-      {statusCode
-        ? `An error ${statusCode} occurred on server`
-        : "An error occurred on client"}
-    </p>
+    <Layout>
+      <h1>...yikes</h1>
+      <p>I honestly have no idea how you managed to get a 500, but welp.</p>
+      <p>
+        Here are the details:{" "}
+        {statusCode
+          ? `An error ${statusCode} occurred on server`
+          : "An error occurred on client"}
+      </p>
+    </Layout>
   );
 }
 
