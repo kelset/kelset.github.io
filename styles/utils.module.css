@@ -25,6 +25,10 @@
   line-height: 1.5;
 }
 
+.citingText {
+  text-align: justify;
+}
+
 .borderCircle {
   border-radius: 9999px;
 }
@@ -45,6 +49,16 @@
 
 .listItem {
   margin: 0 0 1.25rem;
+}
+
+.eventsList {
+  list-style: none;
+  column-count: 2;
+  margin: 1.25rem 0;
+}
+
+.eventsListItem {
+  font-size: 0.9rem;
 }
 
 .lightText {

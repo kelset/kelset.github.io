@@ -6,6 +6,17 @@ import Link from "next/link";
 import Date from "../components/date";
 import { GetStaticProps } from "next";
 
+const talksTypes = [
+  "Keynotes",
+  "Talks",
+  "Panels",
+  "Moderation",
+  "Podcasts",
+  "Q&A",
+  "Posts",
+  "Video series",
+];
+
 export default function Home({
   allPostsData,
 }: {
@@ -20,15 +31,45 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <cite className={utilStyles.citingText}>
+        Lorenzo is a Software Engineer at Formidable UK — a few years ago he
+        decided to use React Native for a project. He hasn’t stopped since: he
+        became an Open Source maintainer for the core project, helping the
+        Facebook team. He also cares a lot about mental health, so he decided to
+        help his local OSS community with a dedicated meetup, ProvidedAsIs.
+      </cite>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
+        <h2 className={utilStyles.headingLg}>Online presence</h2>
+        <p>I have an account on a lot of websites, here are some nice icons:</p>
+        <p>[TODO: add 'em]</p>
+      </section>
+      <section className={utilStyles.headingMd}>
+        <h2 className={utilStyles.headingLg}>Speaking at things</h2>
         <p>
-          (This is a sample website - you’ll be building a site like this in{" "}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          Over the last few years I've spoken to multiple events - all around
+          the world and even a few remote ones. And a few podcasts too!
+        </p>
+        <p>
+          I'm available for any of these:
+          <ul className={utilStyles.eventsList}>
+            {talksTypes.map((eventType) => (
+              <li className={utilStyles.eventsListItem}>{eventType}</li>
+            ))}
+          </ul>
+          on the topics of React Native, being a Software Engineer, dealing with
+          Mental Health and Open Source (and any intersection of these).
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}>I write stuff, sometimes</h2>
+        <p>
+          Sometimes - but I've mostly stopped - I write articles and blog posts.
+          You can find some examples over at
+          <a href="https://medium.com/@Kelset"> Medium </a>
+          and
+          <a href="https://dev.to/kelset"> Dev.To</a>.
+        </p>
+        <p>Probably I'll starting working more here, you can check this out:</p>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
@@ -41,6 +82,21 @@ export default function Home({
               </small>
             </li>
           ))}
+        </ul>
+      </section>
+      <section className={utilStyles.headingMd}>
+        <h2 className={utilStyles.headingLg}>Want to reach out?</h2>
+        <p>
+          I usually reply within 24/48 hrs if you are kind in your messages. You
+          can pick either one:
+        </p>
+        <ul>
+          <li>
+            <a href="https://twitter.com/Kelset">DMs on Twitter</a>
+          </li>
+          <li>
+            <a href="mailto: notkelset@kelset.dev">An old-school email</a>
+          </li>
         </ul>
       </section>
     </Layout>
