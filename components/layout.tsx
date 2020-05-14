@@ -62,6 +62,9 @@ export default function Layout({
           </Link>
         </div>
       )}
+      <footer>
+        Powered by NextJs - and kept on GitHub. It's still pretty much a WIP
+      </footer>
     </div>
   );
 }
