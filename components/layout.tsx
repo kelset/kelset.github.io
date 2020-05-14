@@ -1,10 +1,12 @@
 import Head from "next/head";
-import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
-const name = "Lorenzo Sciandra";
-export const siteTitle = "Next.js Sample Website";
+import styles from "./layout.module.css";
+
+import utilStyles from "../styles/utils.module.css";
+
+const name = "@kelset";
+export const siteTitle = "Kelset's";
 
 export default function Layout({
   children,
@@ -17,10 +19,7 @@ export default function Layout({
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
+        <meta name="description" content="Kelset's personal website" />
         <meta property="og:image" content={`/public/favicon.ico`} />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -33,7 +32,8 @@ export default function Layout({
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <h1 className={utilStyles.headingLg}>{name}</h1>
+            <h1 className={utilStyles.headingMd}>a.k.a. Lorenzo Sciandra</h1>
           </>
         ) : (
           <>
@@ -41,7 +41,7 @@ export default function Layout({
               <a>
                 <img
                   src="/images/profile.png"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
+                  className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
                   alt={name}
                 />
               </a>
