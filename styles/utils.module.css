@@ -61,6 +61,20 @@
   font-size: 0.9rem;
 }
 
+.websitesList {
+  display: flex-wrap;
+  justify-content: space-evenly;
+  columns: 3;
+  margin: 1.25rem 0;
+  list-style: none;
+}
+
+.websitesListItem {
+  /* display: inline-block; */
+  font-size: 0.9rem;
+  margin: 0 1.25rem;
+}
+
 .lightText {
   color: #999;
 }

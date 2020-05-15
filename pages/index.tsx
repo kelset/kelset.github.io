@@ -1,10 +1,13 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
-import utilStyles from "../styles/utils.module.css";
-import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
-import Date from "../components/date";
 import { GetStaticProps } from "next";
+
+import Layout, { siteTitle } from "../components/layout";
+import Date from "../components/date";
+
+import { getSortedPostsData } from "../lib/posts";
+
+import utilStyles from "../styles/utils.module.css";
 
 const talksTypes = [
   "Keynotes",
@@ -15,6 +18,18 @@ const talksTypes = [
   "Q&A",
   "Posts",
   "Video series",
+];
+
+const websitesTypes = [
+  { website: "Twitter", url: "https://twitter.com/Kelset" },
+  { website: "Medium", url: "https://medium.com/@Kelset" },
+  { website: "Dev.To", url: "https://dev.to/kelset" },
+  { website: "GitHub", url: "https://github.com/kelset" },
+  { website: "LinkedIn", url: "https://www.linkedin.com/in/lorenzo-sciandra/" },
+  { website: "SpeakerDeck", url: "https://speakerdeck.com/kelset" },
+  { website: "Calendly", url: "https://calendly.com/kelset" },
+  { website: "HashNode", url: "https://hashnode.com/@kelset" },
+  { website: "ProductHunt", url: "https://www.producthunt.com/@kelset" },
 ];
 
 export default function Home({
@@ -31,6 +46,15 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <section className={utilStyles.headingMd}>
+        <ul className={utilStyles.websitesList}>
+          {websitesTypes.map((websiteType) => (
+            <li className={utilStyles.websitesListItem}>
+              <a href={websiteType.url}> {websiteType.website}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
       <cite className={utilStyles.citingText}>
         Lorenzo is a Software Engineer at Formidable UK — a few years ago he
         decided to use React Native for a project. He hasn’t stopped since: he
@@ -38,11 +62,6 @@ export default function Home({
         Facebook team. He also cares a lot about mental health, so he decided to
         help his local OSS community with a dedicated meetup, ProvidedAsIs.
       </cite>
-      <section className={utilStyles.headingMd}>
-        <h2 className={utilStyles.headingLg}>Online presence</h2>
-        <p>I have an account on a lot of websites, here are some nice icons:</p>
-        <p>[TODO: add 'em]</p>
-      </section>
       <section className={utilStyles.headingMd}>
         <h2 className={utilStyles.headingLg}>Speaking at things</h2>
         <p>

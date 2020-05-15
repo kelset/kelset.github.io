@@ -62,8 +62,11 @@ export default function Layout({
           </Link>
         </div>
       )}
-      <footer>
-        Powered by NextJs - and kept on GitHub. It's still pretty much a WIP
+      <footer className={utilStyles.footer}>
+        <Link href="/">
+          <a>Repo on Github</a>
+        </Link>
+        . It's still pretty much a WIP
       </footer>
     </div>
   );
