@@ -65,8 +65,9 @@ export default function Home({
       <section className={utilStyles.headingMd}>
         <h2 className={utilStyles.headingLg}>Speaking at things</h2>
         <p>
-          Over the last few years I've spoken to multiple events - all around
-          the world and even a few remote ones. And a few podcasts too!
+          Over the last 1.5 years I've spoken to multiple events all around the
+          world and even a few remote ones. I've also been a guest on a couple
+          podcasts.
         </p>
         <p>
           I'm available for any of these:
@@ -105,10 +106,7 @@ export default function Home({
       </section>
       <section className={utilStyles.headingMd}>
         <h2 className={utilStyles.headingLg}>Want to reach out?</h2>
-        <p>
-          I usually reply within 24/48 hrs if you are kind in your messages. You
-          can pick either one:
-        </p>
+        <p>You can pick either one:</p>
         <ul>
           <li>
             <a href="https://twitter.com/Kelset">DMs on Twitter</a>
