@@ -9,7 +9,7 @@ import { getSortedPostsData } from "../lib/posts";
 
 import utilStyles from "../styles/utils.module.css";
 
-const talksTypes = [
+const kindsOfTalks = [
   "Keynotes",
   "Talks",
   "Panels",
@@ -20,7 +20,7 @@ const talksTypes = [
   "Video series",
 ];
 
-const websitesTypes = [
+const websitesWithAccounts = [
   { website: "Twitter", url: "https://twitter.com/Kelset" },
   { website: "Medium", url: "https://medium.com/@Kelset" },
   { website: "Dev.To", url: "https://dev.to/kelset" },
@@ -30,6 +30,12 @@ const websitesTypes = [
   { website: "Calendly", url: "https://calendly.com/kelset" },
   { website: "HashNode", url: "https://hashnode.com/@kelset" },
   { website: "ProductHunt", url: "https://www.producthunt.com/@kelset" },
+  { website: "Sessionize", url: "https://sessionize.com/kelset/" },
+  { website: "GitLab", url: "https://gitlab.com/kelset" },
+  {
+    website: "Mastodon",
+    url: "https://mastodon.technology/web/accounts/327655",
+  },
 ];
 
 export default function Home({
@@ -48,8 +54,11 @@ export default function Home({
       </Head>
       <section className={utilStyles.headingMd}>
         <ul className={utilStyles.websitesList}>
-          {websitesTypes.map((websiteType) => (
-            <li className={utilStyles.websitesListItem}>
+          {websitesWithAccounts.map((websiteType) => (
+            <li
+              className={utilStyles.websitesListItem}
+              key={websiteType.website}
+            >
               <a href={websiteType.url}> {websiteType.website}</a>
             </li>
           ))}
@@ -72,7 +81,7 @@ export default function Home({
         <p>
           I'm available for any of these:
           <ul className={utilStyles.eventsList}>
-            {talksTypes.map((eventType) => (
+            {kindsOfTalks.map((eventType) => (
               <li className={utilStyles.eventsListItem}>{eventType}</li>
             ))}
           </ul>
