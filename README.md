@@ -19,3 +19,7 @@ Honestly, I'm really bad at this. Feel free to ignore this website and this repo
 - push it all up the standard way
 
 _(This is actually just for me because I forget how to even use this stuff)_
+
+### License
+
+As per usual, classic [MIT license](./LICENSE).
