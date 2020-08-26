@@ -82,7 +82,9 @@ export default function Home({
           I'm available for any of these:
           <ul className={utilStyles.eventsList}>
             {kindsOfTalks.map((eventType) => (
-              <li className={utilStyles.eventsListItem}>{eventType}</li>
+              <li className={utilStyles.eventsListItem} key={eventType}>
+                {eventType}
+              </li>
             ))}
           </ul>
           on the topics of React Native, being a Software Engineer, dealing with
@@ -117,10 +119,10 @@ export default function Home({
         <h2 className={utilStyles.headingLg}>Want to reach out?</h2>
         <p>You can pick either one:</p>
         <ul>
-          <li>
+          <li key={"twitter"}>
             <a href="https://twitter.com/Kelset">DMs on Twitter</a>
           </li>
-          <li>
+          <li key={"email"}>
             <a href="mailto: notkelset@kelset.dev">An old-school email</a>
           </li>
         </ul>
