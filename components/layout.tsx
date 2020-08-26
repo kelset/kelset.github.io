@@ -63,7 +63,7 @@ export default function Layout({
         </div>
       )}
       <footer className={utilStyles.footer}>
-        <Link href="/">
+        <Link href="https://github.com/kelset/kelset.github.io">
           <a>Repo on Github</a>
         </Link>
         . It's still pretty much a WIP
