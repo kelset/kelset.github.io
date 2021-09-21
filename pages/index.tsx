@@ -1,9 +1,7 @@
 import Head from "next/head";
-import Link from "next/link";
 import { GetStaticProps } from "next";
 
 import Layout, { siteTitle } from "../components/layout";
-import Date from "../components/date";
 
 import { getSortedPostsData } from "../lib/posts";
 
@@ -100,20 +98,6 @@ export default function Home({
           and
           <a href="https://dev.to/kelset"> Dev.To</a>.
         </p>
-        <p>Probably I'll starting working more here, you can check this out:</p>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
       </section>
       <section className={utilStyles.headingMd}>
         <h2 className={utilStyles.headingLg}>Want to reach out?</h2>
