@@ -65,12 +65,11 @@ export default function Home({
         </ul>
       </section>
       <cite className={utilStyles.citingText}>
-        Lorenzo is a Senior Software Engineer at Microsoft — a few years ago he
-        decided to use React Native for a project. He hasn’t stopped since: he
-        became an Open Source maintainer for the core project, helping the
-        Facebook team. He also cares a lot about mental health, so he decided to
-        help his local OSS community with a dedicated meetup, ProvidedAsIs
-        (currently paused indefinitely 'cause Covid).
+        Lorenzo is a Senior Software Engineer at Microsoft. A few years ago he
+        decided to use React Native for a project, and he hasn’t stopped since:
+        he became an Open Source maintainer and releaser for the core project in
+        2018. He also cares a lot about OSS and mental health, so he tries to be
+        an advocate for sustainability & balance.
       </cite>
       <section className={utilStyles.headingMd}>
         <h2 className={utilStyles.headingLg}>Speaking at things</h2>
