@@ -51,6 +51,7 @@ export default function Home() {
           ))}
         </ul>
       </section>
+
       <cite className={utilStyles.citingText}>
         Lorenzo is a Senior Software Engineer at Microsoft. A few years ago he
         decided to use React Native for a project, and he hasn’t stopped since:
@@ -58,6 +59,7 @@ export default function Home() {
         2018. He also cares a lot about OSS and mental health, so he tries to be
         an advocate for sustainability & balance.
       </cite>
+
       <section className={utilStyles.headingMd}>
         <h2 className={utilStyles.headingLg}>Speaking at things</h2>
         <p>
@@ -78,7 +80,8 @@ export default function Home() {
           Mental Health and Open Source (and any intersection of these).
         </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+
+      {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>I write stuff, sometimes</h2>
         <p>
           Sometimes - but I have mostly stopped - I write articles and blog posts.
@@ -87,7 +90,8 @@ export default function Home() {
           and
           <a href="https://dev.to/kelset"> Dev.To</a>.
         </p>
-      </section>
+      </section> */}
+
       <section className={utilStyles.headingMd}>
         <h2 className={utilStyles.headingLg}>Want to reach out?</h2>
         <p>You can pick either one:</p>

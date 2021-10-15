@@ -7,7 +7,7 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 
 const name = '@kelset'
-export const siteTitle = "Kelset's"
+export const siteTitle = "Lorenzo Sciandra's Homepage"
 
 export default function Layout({
   children,
@@ -19,11 +19,18 @@ export default function Layout({
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Kelset's personal website" />
-        <meta property="og:image" content={`/public/favicon.ico`} />
-        <meta name="og:title" content={siteTitle} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Lorenzo's homepage" />
+        <meta name="author" content="Lorenzo Sciandra" />
+        <meta name="author" content="kelset" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={name} />
+        <meta name="twitter:creator" content={name} />
+        <meta property="og:site_name" content={siteTitle} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`/public/favicon.ico`} />
+        <title>Lorenzo Sciandra - Homepage</title>
       </Head>
       <header className={styles.header}>
         {home ? (
