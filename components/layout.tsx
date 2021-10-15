@@ -1,19 +1,20 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head'
+import Link from 'next/link'
+import Image from 'next/image'
 
-import styles from "./layout.module.css";
+import styles from './layout.module.css'
 
-import utilStyles from "../styles/utils.module.css";
+import utilStyles from '../styles/utils.module.css'
 
-const name = "@kelset";
-export const siteTitle = "Kelset's";
+const name = '@kelset'
+export const siteTitle = "Kelset's"
 
 export default function Layout({
   children,
-  home,
+  home
 }: {
-  children: React.ReactNode;
-  home?: boolean;
+  children: React.ReactNode
+  home?: boolean
 }) {
   return (
     <div className={styles.container}>
@@ -27,10 +28,12 @@ export default function Layout({
       <header className={styles.header}>
         {home ? (
           <>
-            <img
+            <Image
               src="/images/profile.png"
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
+              width={150}
+              height={150}
             />
             <h1 className={utilStyles.headingLg}>{name}</h1>
             <h1 className={utilStyles.headingMd}>a.k.a. Lorenzo Sciandra</h1>
@@ -39,10 +42,12 @@ export default function Layout({
           <>
             <Link href="/">
               <a>
-                <img
+                <Image
                   src="/images/profile.png"
                   className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
                   alt={name}
+                  width={150}
+                  height={150}
                 />
               </a>
             </Link>
@@ -66,8 +71,7 @@ export default function Layout({
         <Link href="https://github.com/kelset/kelset.github.io">
           <a>Repo on Github</a>
         </Link>
-        . It's still pretty much a WIP
       </footer>
     </div>
-  );
+  )
 }
