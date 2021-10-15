@@ -63,9 +63,9 @@ export default function Home() {
       <section className={utilStyles.headingMd}>
         <h2 className={utilStyles.headingLg}>Speaking at things</h2>
         <p>
-          Over the last few years I have spoken to multiple events all around the
-          world and even a few remote ones. I have also been a guest on a couple
-          podcasts.
+          Over the last few years I have spoken to multiple events all around
+          the world and even a few remote ones. I have also been a guest on a
+          couple podcasts.
         </p>
         <p>
           I am available for any of these:
