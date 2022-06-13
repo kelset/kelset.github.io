@@ -8,10 +8,13 @@
 colorScheme = "congo"
 defaultAppearance = "light" # valid options: light or dark
 autoSwitchAppearance = true
-showAppearanceSwitcher = false
+showAppearanceSwitcher = true
 
 enableSearch = false
 enableCodeCopy = false
+
+baseURL = "https://kelset.dev/"
+languageCode = "en"
 
 # mainSections = ["section1", "section2"]
 # robots = ""

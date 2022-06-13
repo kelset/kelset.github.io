@@ -5,33 +5,33 @@ isoCode = "en"
 weight = 1
 rtl = false
 
-title = "Congo"
-# logo = "img/logo.jpg"
-# description = "My awesome website"
-# copyright = "Copy, _right?_ :thinking_face:"
+title = "Kelset"
+logo = "profile.png"
+description = "My awesome website"
+copyright = "© 2022 Lorenzo Sciandra - All rights reserved."
 
 dateFormat = "2 January 2006"
 
 [author]
-  # name = "Your name here"
-  # image = "img/author.jpg"
-  # headline = "I'm only human"
-  # bio = "A little bit about you"
-  # links = [
-  #   { email = "mailto:hello@your_domain.com" },
+  name = "Lorenzo Sciandra"
+  image = "profile.png"
+  headline = "I'm only human"
+  bio = "A little bit about you"
+  links = [
+     { email = "mailto:notkelset@kelset.dev" },
   #   { link = "https://link-to-some-website.com/" },
   #   { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
   #   { apple = "https://www.apple.com" },
   #   { blogger = "https://username.blogspot.com/" },
   #   { codepen = "https://codepen.io/username" },
-  #   { dev = "https://dev.to/username" },
+     { dev = "https://dev.to/kelset" },
   #   { discord = "https://discord.gg/invitecode" },
   #   { dribbble = "https://dribbble.com/username" },
   #   { facebook = "https://facebook.com/username" },
   #   { flickr = "https://www.flickr.com/photos/username/" },
   #   { foursquare = "https://foursquare.com/username" },
-  #   { github = "https://github.com/username" },
-  #   { gitlab = "https://gitlab.com/username" },
+     { github = "https://github.com/kelset" },
+     { gitlab = "https://gitlab.com/kelset" },
   #   { google = "https://www.google.com/" },
   #   { hashnode = "https://username.hashnode.dev" },
   #   { instagram = "https://instagram.com/username" },
@@ -40,7 +40,7 @@ dateFormat = "2 January 2006"
   #   { lastfm = "https://lastfm.com/user/username" },
   #   { linkedin = "https://linkedin.com/in/username" },
   #   { mastodon = "https://mastodon.instance/@username" },
-  #   { medium = "https://medium.com/username" },
+     { medium = "https://medium.com/kelset" },
   #   { microsoft = "https://www.microsoft.com/" },
   #   { orcid = "https://orcid.org/userid" },
   #   { patreon = "https://www.patreon.com/username" },
@@ -56,7 +56,7 @@ dateFormat = "2 January 2006"
   #   { tiktok = "https://tiktok.com/@username" },
   #   { tumblr = "https://username.tumblr.com" },
   #   { twitch = "https://twitch.tv/username" },
-  #   { twitter = "https://twitter.com/username" },
+     { twitter = "https://twitter.com/kelset" },
   #   { whatsapp = "https://wa.me/phone-number" },
   #   { youtube = "https://youtube.com/username" },
-  # ]
+   ]
