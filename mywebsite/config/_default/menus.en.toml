@@ -11,7 +11,7 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-name = "Posts & Projects"
+name = "Posts"
 pageRef = "posts"
 weight = 10
 
@@ -22,7 +22,7 @@ weight = 20
 
 [[main]]
 name = "About me"
-pageRef = "about"
+pageRef = "about-me"
 weight = 30
 
 # -- Footer Menu --
