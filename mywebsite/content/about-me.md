@@ -3,7 +3,7 @@ title: "About me"
 layout: "simple"
 ---
 
-I am called Lorenzo Sciandra, and I am a Senior Software Engineer currently working for a small startup - *you probably never heard of it* - called [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}}. I've been hammering hands on keyboards for the good part of 10 years now, and been living in London 🇬🇧 for half of it.
+I am called Lorenzo Sciandra, and I am a Senior Software Engineer currently working for a small startup - *you probably never heard of it* - called [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}}. I've been hammering hands on keyboards for almost 8 years now, and been living in London 🇬🇧 for half of it.
 
 When I'm not busy trying to address company-wide, multi-layered problems, I very much enjoy [speaking at conference and meetups](/talks), writing [blogposts](/posts) and in general doing what I can to help and elevate those around me - reason why I'm also a big supporter of mental health and I've been sharing my experience with burnout and going to therapy over the last few years (*you can find some of that in both the [posts](/posts) and [talks](/talks) sections*).
 
