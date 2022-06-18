@@ -1,5 +1,5 @@
 ---
-title: "Talks & Podcasts"
+title: "Talks & Podcasts & Interviews & etc etc"
 description: "A page with a list of my talks, podcast guest appearences and similar content."
 
 cascade:

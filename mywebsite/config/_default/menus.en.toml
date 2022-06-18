@@ -16,7 +16,7 @@ pageRef = "posts"
 weight = 10
 
 [[main]]
-name = "Talks & Podcasts"
+name = "Talks & co"
 pageRef = "talks"
 weight = 20
 
