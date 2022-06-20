@@ -7,7 +7,7 @@ weight = 1
 
 title = "kelset.dev"
 # logo = "profile.png"
-copyright = "© 2022 Lorenzo Sciandra - All rights reserved."
+copyright = "© 2022 Lorenzo Sciandra - All rights reserved. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/)."
 description = "Lorenzo Sciandra's personal website."
 
 dateFormat = "2 January 2006"
