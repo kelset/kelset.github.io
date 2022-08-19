@@ -1,6 +1,12 @@
 # kelset.github.io
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bb974a55-c950-4200-993b-a4cbfe73abea/deploy-status)](https://app.netlify.com/sites/xenodochial-northcutt-74ba42/deploys) ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen) ![Twitter Follow](https://img.shields.io/twitter/follow/kelset?style=social)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bb974a55-c950-4200-993b-a4cbfe73abea/deploy-status)](https://app.netlify.com/sites/xenodochial-northcutt-74ba42/deploys) ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen) 
+<a href="https://github.com/kelset?tab=followers">
+    <img src="https://img.shields.io/github/followers/kelset?label=Follow%20%40kelset&style=social" />
+  </a>
+  <a href="https://twitter.com/kelset">
+    <img src="https://img.shields.io/twitter/follow/kelset?label=Follow%20%40kelset&style=social" />
+  </a>
 
 Personal website ([kelset.dev](https://kelset.dev/)) made with [Hugo](https://gohugo.io/) & [Congo](https://github.com/jpanther/congo).
 
