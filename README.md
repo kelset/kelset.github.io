@@ -14,7 +14,7 @@ Personal website ([kelset.dev](https://kelset.dev/)) made with [Hugo](https://go
 
 First off, thanks for deciding to work on this codebase! In case you need to test out stuff locally, after git cloning the repo, you need to just run `hugo server`.
 
-This of course implies that your machine is setup to [work with Hugo](https://gohugo.io/getting-started/quick-start/).
+This of course implies that your machine is setup to [work with Hugo](https://gohugo.io/getting-started/quick-start/) and you also need to follow the [installation guide](https://jpanther.github.io/congo/docs/installation/) for the theme (which basically boils down to [installing Go](https://go.dev/dl/)).
 
 ### License
 
