@@ -1,6 +1,6 @@
 # kelset.github.io
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bb974a55-c950-4200-993b-a4cbfe73abea/deploy-status)](https://app.netlify.com/sites/xenodochial-northcutt-74ba42/deploys) ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen) 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bb974a55-c950-4200-993b-a4cbfe73abea/deploy-status)](https://app.netlify.com/sites/xenodochial-northcutt-74ba42/deploys) ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
 <a href="https://github.com/kelset?tab=followers">
     <img src="https://img.shields.io/github/followers/kelset?label=Follow%20%40kelset&style=social" />
   </a>
