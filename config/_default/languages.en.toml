@@ -21,13 +21,12 @@ image = "profile.png"
 links = [
   {github = "https://github.com/kelset"},
   {linkedin = "https://www.linkedin.com/in/lorenzo-sciandra/"},
-  {polywork = "https://poly.me/kelset"},
   {twitter = "https://twitter.com/kelset"},
   {mastodon = "https://mastodon.online/@kelset"},
+  {youtube = "https://www.youtube.com/@kelset"},
   {reddit = "https://www.reddit.com/user/kelsetdev"},
   {threads = "https://www.threads.net/@kelset.dev"},
   {medium = "https://medium.com/@kelset"},
-  {dev = "https://dev.to/kelset"},
   {keybase = "https://keybase.io/kelset"},
   {email = "mailto:notkelset@kelset.dev"},
 ]
