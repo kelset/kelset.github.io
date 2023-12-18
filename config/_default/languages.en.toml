@@ -15,7 +15,7 @@ dateFormat = "2 January 2006"
 
 [author]
 name = "Lorenzo Sciandra"
-bio = "Lorenzo is a Senior Software Engineer at Microsoft. A few years ago he decided to use React Native for a project, and he hasn’t stopped since: he became an Open Source maintainer and releaser for the core project in 2018. He also cares a lot about OSS and mental health, so he tries to be an advocate for sustainability & balance."
+bio = "Lorenzo is a Senior Software Engineer at Microsoft. A few years ago he decided to use React Native for a project, and he has not stopped since: he became an Open Source maintainer and releaser for the core project in 2018. He also cares a lot about OSS and mental health, so he tries to be an advocate for sustainability & balance."
 headline = "React Native, Open Source and Mental Health"
 image = "profile.png"
 links = [
