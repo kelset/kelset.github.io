@@ -5,9 +5,6 @@ languageCode = "en"
 languageName = "English"
 rtl = false
 weight = 1
-
-
-
 dateFormat = "2 January 2006"
 
 [author]

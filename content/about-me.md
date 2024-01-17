@@ -5,7 +5,7 @@ layout: "simple"
 
 My name is Lorenzo Sciandra _(he/him)_, and I am a Senior Software Engineer currently working for a smaaaaall startup - _you probably never heard of it_ - called [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}}. I've been hammering hands on keyboards for almost 10 years now, and been living in London 🇬🇧 for over half a decade.
 
-When I'm not busy trying to address industry-wide, multi-layered challenges, I very much enjoy [speaking at conference and meetups](/talks), creating [content](/posts) and in general doing what I can to help and elevate those around me - reason why I'm also a big supporter of mental health and I've been sharing my experience with burnout and going to therapy over the last few years (_you can find some of that in both the [posts](/posts) and [talks](/talks) sections_).
+When I'm not busy trying to address industry-wide, multi-layered challenges, I very much enjoy speaking at conference and meetups, creating content and in general doing what I can to help and elevate those around me - reason why I'm also a big supporter of mental health and I've been sharing my experience with burnout and going to therapy over the last few years.
 
 If you want to learn more about me, please check out my [LinkedIn profile](https://www.linkedin.com/in/lorenzo-sciandra/){{< icon "linkedin" >}}.
 
