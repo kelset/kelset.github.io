@@ -9,7 +9,7 @@ When I'm not busy trying to address industry-wide, multi-layered challenges, I v
 
 If you want to learn more about me, please check out my [LinkedIn profile](https://www.linkedin.com/in/lorenzo-sciandra/){{< icon "linkedin" >}}.
 
-You can also reach out to me [via email](mailto:notkelset@kelset.dev){{< icon "email" >}}, or via [Twitter DMs](https://twitter.com/kelset){{< icon "twitter" >}}.
+You can also reach out to me [via email](mailto:notkelset@kelset.dev){{< icon "email" >}}, or via [Twitter DMs](https://twitter.com/kelset){{< icon "x-twitter" >}}.
 
 ### My involvement in Open Source
 

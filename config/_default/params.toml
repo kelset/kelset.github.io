@@ -31,10 +31,10 @@ robots = "all"
   showPagination = true
   invertPagination = false
   showReadingTime = true
-  showTableOfContents = false
+  showTableOfContents = true
   showTaxonomies = false
-  showWordCount = false
-  # sharingLinks = ["facebook", "twitter", "pinterest", "reddit", "linkedin", "email"]
+  showWordCount = true
+  # sharingLinks = ["twitter", "reddit", "linkedin", "email"]
 
 [list]
   showBreadcrumbs = false
