@@ -12,9 +12,6 @@ autoSwitchAppearance = true
 enableSearch = false
 enableCodeCopy = false
 
-baseURL = "https://kelset.dev/"
-languageCode = "en"
-
 # mainSections = ["section1", "section2"]
 robots = "all"
 
