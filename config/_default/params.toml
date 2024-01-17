@@ -11,11 +11,13 @@ autoSwitchAppearance = true
 
 enableSearch = false
 enableCodeCopy = false
+enableImageLazyLoading = true
+enableImageWebp = true
 
 robots = "all"
 
 [homepage]
-  layout = "profile" # valid options: page, profile, custom
+  layout = "custom" # valid options: page, profile, custom
   showRecent = false
 
 [article]
