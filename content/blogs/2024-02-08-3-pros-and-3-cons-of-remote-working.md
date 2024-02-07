@@ -1,6 +1,6 @@
 ---
-title: "Finding a Therapist is EASY (for a Software Engineer)"
-date: 2024-02-02
+title: "3 Pros And 3 Cons (After 3 Years) Of Remote Working"
+date: 2024-02-08
 summary: "A few pointers to help start your mental health journey"
 showReadingTime: false
 _build:
@@ -8,9 +8,7 @@ _build:
   list: "local"
 ---
 
-This week, I found myself discussing therapy with another developer. What started as a few pointers quickly turned into a wall of text. So, here it is, slightly tweaked for broader use. I hope it helps!
-
-_Remember, this is all from my personal experience. Your mileage may vary._
+_I realized that I've been full remotely for more 3 years, working on a weekly basis with teammates from all over the world, from Seattle to Oslo to Bangalore. Being remote with such a widespread team is a unique position._
 
 ## The Approach: How To Think About Therapy If You Are A Developer
 
