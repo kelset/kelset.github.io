@@ -1,8 +1,8 @@
 ---
 title: "Finding a Therapist is EASY (for a Software Engineer)"
 date: 2024-02-02
+lastmod: 2024-02-08
 summary: "A few pointers to help start your mental health journey"
-showReadingTime: false
 _build:
   render: "false"
   list: "local"
@@ -61,6 +61,8 @@ Once you have decided on all the above, it's finally actually time to look for a
 Unless there's clear incompatibility right from the get-go, I recommend committing to at least 3/4 sessions to truly gauge the relationship you are creating with this other person and the effectiveness of the therapy type. Trust the therapist about the frequency (ex. weekly, every other week, etc.).
 
 If possible, opt for in-person sessions: a physical office can provide a safe and conducive environment for therapy, enhancing the overall experience. I think this is key especially at the start of a therapy journey; once you have created that relationship, you can evaluate doing remote sessions but I've found it hard to find a space as safe and distraction-free.
+
+> If you want some more pointers, [Mike McQuaid](https://twitter.com/MikeMcQuaid) shared some guidelines as well in his ["How To Find A Therapist"](https://mikemcquaid.com/how-to-find-a-therapist/).
 
 ## The Money Bit, Aka Why I Said "EASY" In The Title
 

@@ -22,7 +22,7 @@ robots = "all"
 
 [article]
   showDate = true
-  showDateUpdated = false
+  showDateUpdated = true
   showAuthor = true
   showBreadcrumbs = false
   showDraftLabel = true
@@ -35,7 +35,7 @@ robots = "all"
   showReadingTime = true
   showTableOfContents = true
   showTaxonomies = false
-  showWordCount = true
+  showWordCount = false
   sharingLinks = ["twitter", "reddit", "linkedin", "email"]
 
 [list]
