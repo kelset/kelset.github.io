@@ -7,8 +7,6 @@ _build:
   list: "local"
 ---
 
-![header](thumb-3-pros-and-3-cons-of-remote-working.jpeg)
-
 _I realized that I've been fully remote for more than 3 years now, collaborating weekly with teammates from all corners of the globe, from Seattle to Oslo to Bangalore. Being part of such a diverse and widespread team offers a unique set of challenges and rewards._
 
 ### The Pros
