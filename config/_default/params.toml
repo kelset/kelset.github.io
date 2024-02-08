@@ -17,7 +17,7 @@ enableImageWebp = true
 robots = "all"
 
 [homepage]
-  layout = "custom" # valid options: page, profile, custom
+  layout = "profile" # valid options: page, profile, custom
   showRecent = false
 
 [article]
@@ -36,7 +36,7 @@ robots = "all"
   showTableOfContents = true
   showTaxonomies = false
   showWordCount = true
-  # sharingLinks = ["twitter", "reddit", "linkedin", "email"]
+  sharingLinks = ["twitter", "reddit", "linkedin", "email"]
 
 [list]
   showBreadcrumbs = false
