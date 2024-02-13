@@ -42,7 +42,7 @@ And if you want to learn more about how we use React Native at Microsoft, you sh
 My passion extends beyond the realm of coding into various projects and advocacy initiatives that resonate with my core values:
 
 - 💬 [My Content Universe](/tags): Explore a curated collection of my engagements across the digital landscape, from insightful talks and blog posts to thought-provoking podcast interviews.
-- 🧠 [Untitled Mental Health Project](https://www.youtube.com/playlist?list=PLiD6R_aXkpLiMfS2YrhSgtSj09JJCaP2y): Join me as I converse with tech personalities about mental health, sharing stories and insights on my YouTube series.
+- 🧠 [debug:mind](https://www.youtube.com/channel/UCbw5AHyRBNUFzTHCVuO5q9w?sub_confirmation=1): Join me as I converse with tech personalities about mental health, sharing stories and insights on my YouTube series.
 - 📚 [Managing Mental Health](https://www.notion.so/lifeiswhat/Managing-Mental-Health-adb0fb63a8144951b304bfb3bb7ed482): Dive into a carefully curated Notion board compiling valuable resources and insights at the intersection of mental health and technology.
 - 🌍 [React Native Community Map](https://www.notion.so/lifeiswhat/The-React-Native-Community-Map-07f3221c294d4c8ab65a13cf1dee6901): Discover the global spread and connective tissue of the React Native community through an interactive Notion map.
 
