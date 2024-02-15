@@ -1,15 +1,15 @@
 ---
 title: "My Guide for Crafting Tech Talks in 2024"
 date: 2024-02-15
-summary: "Dive into my comprehensive approach to creating memorable tech talks, blending insights from years of experience with a dash of GPT magic."
+summary: "My process and self-imposed rules for writing tech talks. Because it's 2024, it's also a GPT you can play with."
 _build:
   render: "false"
   list: "local"
 ---
 
-My tech talk journey starts back in Jan 2019 and it's been a wild ride. I've delivered over 20 talks and learned heaps along the way. This guide shares those lessons, aiming to help you craft talks that resonate and engage.
+My tech talk journey starts back in Jan 2019 - and it's been a wild ride so far: I've delivered over 20 talks in many different countries and learned heaps along the way. This guide shares those lessons, aiming to help you craft talks that resonate and engage.
 
-_Quick note: This guide reflects my personal approach. It's not one-size-fits-all, so feel free to adapt it to your style. You can check out [my past talks](https://kelset.dev/tags/talk/) for a taste of what I'm talking about._
+_Quick note: This guide reflects my personal approach. It's not one-size-fits-all, so feel free to adapt it to your style. You can check out [my past talks](https://kelset.dev/tags/talk/) for a taste of what I've made._
 
 ## Approach to Crafting a Tech Talk 🛠️
 
@@ -19,9 +19,7 @@ Creating a tech talk for me is akin to storytelling, where the audience's engage
 2. **Clarity:** Simplifying complex concepts into bite-sized, understandable pieces is key to accessibility.
 3. **Engagement:** I weave a narrative that educates and entertains, making the learning journey enjoyable.
 
-Adding to these, there's a fourth, somewhat "secret" principle guiding my process: ensuring my talks align with my thought patterns. Memorizing talks isn't my forte. Instead, I craft each slide to naturally lead into the next, trusting that the me that wrote the talk and the me on stage think the same way, and that to go from A to B they will do A, F, K, T, B.
-
-Remember: each presentation is a narrative journey, weaving insights and visions, aimed at inspiring and engaging the audience with the endless possibilities technology offers.
+Adding to these, there's a fourth, somewhat "secret" principle guiding my process: ensuring my talks align with my thought patterns. Memorizing talks isn't my forte. Instead, I craft each slide to naturally lead into the next, trusting that the "me that wrote the talk" and the "me on stage" think the same way, and that to go from A to B they will do A, F, K, T, B.
 
 ## From Idea to Outline 📝
 
@@ -99,10 +97,12 @@ Remember, each talk is an opportunity to share your passion, insights, and disco
 
 ## Acknowledgments 🙏
 
-A huge shoutout to all the conference organizers and attendees who've supported me. Your engagement fuels my growth and contributions 🙇‍♂️
+I'd like to extend my heartfelt gratitude to all the conference organizers who believed in me and gave me a platform to share my thoughts and experiences. Your faith in my ability to contribute meaningfully to our community has been a constant source of motivation. To every individual who attended my talks, offered feedback, and engaged in enriching discussions, thank you. Your insights and questions have not only helped me grow as a speaker but have also deepened my understanding and passion for technology. This journey wouldn't have been the same without your support 🙇‍♂️
 
 ## One More Thing 🔮
 
 Embracing the spirit of 2024, I've created "Tech Talk Writer Assistant," a custom GPT tool designed to streamline the tech talk crafting process. It embodies my experience and insights into a resource for all - basically, all the things I've written above plus a sparkle of making it help you step-by-step. And, to be clear, it doesn't use/include the resources I linked as my inspirations: it will only give you the exact same list of links if you ask for more resources.
 
-You can check it out here: [Tech Talk Writer Assistant](https://chat.openai.com/g/g-ZaUKNNgYb-tech-talk-writer-assistant) _(it requires ChatGPT Plus)_.
+You can check it out here ➡️ [Tech Talk Writer Assistant](https://chat.openai.com/g/g-ZaUKNNgYb-tech-talk-writer-assistant).
+
+_Keep in mind that it requires ChatGPT Plus, and that GPTs don't always behave super consistently. If you have any feedback, do reach out! I really want to make it better so that I can also leverage it myself ahah_.
