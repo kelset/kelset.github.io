@@ -11,9 +11,9 @@ _build:
 
 Embarking on my tech talk journey back in January 2019 has been nothing short of an adventure. With over 20 talks under my belt since _(and more coming up)_, each one has been a learning curve, offering invaluable insights. This guide is a distillation of those lessons, tailored for my fellow developers and colleagues, aiming to provide a practical roadmap for crafting (at least) "good enough" talks.
 
-_For a glimpse into my speaking adventures, feel free to visit [my collection](https://kelset.dev/tags/talk/)._
+_Usual disclaimer: these are MY personal rules that I use for MY talks. This guide is not a silver bullet for everyone. Please pick and choose what you want from it. To get an idea of comes out, check [my past talks](https://kelset.dev/tags/talk/)._
 
-## My Approach to Crafting a Tech Talk
+## Approach to Crafting a Tech Talk
 
 Creating a tech talk for me is akin to storytelling, where the audience's engagement and takeaway are paramount. My strategy revolves around a few core principles:
 
@@ -27,25 +27,35 @@ Remember: each presentation is a narrative journey, weaving insights and visions
 
 ## From Idea to Outline
 
-The inception of a talk starts with an idea that sparks curiosity. Here's my process:
+Turning a spark of inspiration into a structured talk is a journey filled with ups and downs. That said, I usually know the start and ending point of this phase: I start with an idea of something I want to talk about, and end with a bullet point list of slides.
 
-1. **Refining the Idea:** I begin with broad brainstorming to fine-tune the core message.
-2. **Understanding the Audience:** Tailoring the talk to the audience's knowledge level ensures relevance and impact.
-3. **Crafting the Title and Abstract:** These are the first impressions of the talk, needing to intrigue and promise value.
-4. **Developing the Outline:** This acts as a blueprint, guiding the creation of content that tells a coherent story.
-5. **Planning the Slides:** I focus on a balance of content and clarity, ensuring each slide supports the talk's flow and keeps the audience engaged.
+1. **Finding My Focus:** Every talk begins with that "aha" moment – an idea I can’t wait to dive into. But first, I take a step back to ensure it's something that will not only captivate me but also resonate with my audience.
 
-This structured approach aids in crafting a presentation that's both informative and memorable.
+2. **Understanding the Playing Field:** I always consider who'll be in the room and what they're hoping to take away. This helps me tailor my message, whether I'm addressing newcomers or seasoned pros, in a 20-minute sprint or a longer deep-dive.
 
-## My Rules For Making the Slides
+3. **Crafting the Hook:** Next up, finding a title and abstract that act as my north star. This isn’t about being catchy for the sake of it; it's about clarity and setting expectations right from the get-go.
 
-Creating slides for my tech talks once I have the skeleton ready is relatively simple. But, in a way, it's also a complete rewrite; sometimes I might notice that things flow better in a certain way, or that I have to move a few things around to keep the ideas floating. Either way, I do follow a series of specific rules:
+4. **Laying the Groundwork:** With my direction clear, I sketch out an outline. This isn't set in stone but guides me to ensure I cover all bases without wandering off track. This first outline is usually just a rough unnumbered bullet point list of the key things I want to talk about.
+
+5. **Building the Story:** I think of my talk in three acts - setting the scene, tackling the challenge, and revealing the solution. It's about taking the audience on a journey that feels as natural to them as it does to me. I take the previous bullet points and tweak them until they fit in this "story approach".
+
+6. **Writing the Skeleton:** Once I think I'm in a good spot, I move to making a numbered bullet point list. On this list, each top level bullet point is numbered and represent a slide. Nested bullet point within each of those are unnumbered and serve as the notes with the details about content of the slide.
+
+7. **Iterate and Refine:** I brainstorm each section, not in isolation but as pieces of a larger puzzle. It's a back-and-forth process, tweaking and adjusting until everything clicks.
+
+8. **Seeking Feedback:** Once I have a skeleton I am happy with, I bounce ideas off friends or colleagues. Fresh eyes can spot what I might have missed and offer new perspectives.
+
+And once I think the skeleton has a good flow, it's time to turn it into slides.
+
+## Rules For Making the Slides
+
+Once I have the skeleton ready, making the slides is relatively simple. But, in a way, it's also a complete rewrite; sometimes I might notice that things flow better in a certain way, or that I have to move a few things around to keep the ideas floating. Either way, I do follow a series of specific rules:
 
 - **Timing is Key:** I aim for a slide per minute to maintain a comfortable pace, avoiding overloading the audience with too much information or too many transitions.
 
 - **Choosing the Right Tools:** Preferring offline tools like PowerPoint or Keynote ensures I'm prepared for any internet connectivity issues at conferences.
 
-- **Breaks for Clarity:** Using "title only" slides to segment my talk helps give the audience a moment to process the information, making the overall experience more digestible.
+- **Breaks for Clarity:** Using "title only" slides to segment my talk helps give the audience a moment to process the information, making the overall experience more digestible. _(these don't add to the 1min=1slide count)_
 
 - **A Dash of Humor:** While I enjoy incorporating a meme or two (limiting myself to one per ten slides, circa), it's about striking the right balance between humor and content.
 
@@ -53,11 +63,11 @@ Creating slides for my tech talks once I have the skeleton ready is relatively s
 
 - **Designing for Visibility:** Ensuring slides are legible from the back of the room is a priority, with a clear font and space at the bottom for better visibility.
 
-- **Personal Branding:** Adding my name or social handle along with the event name on each slide helps in making connections and enhancing recall.
+- **Personal Branding:** Adding my name or social handle along with the event name on each slide helps in making connections and enhancing recall. I usually only skip the title one at the start.
 
 - **Optimal Format:** Adhering to a 16:9 slide format for consistency and compatibility across different screens.
 
-- **Let S Not Live Demo:** Jumping right into the content keeps the momentum going, with pre-recorded demos or animations to explain complex concepts without relying on risky live demos. In other words: don't challenge the live demo gods, unless strictly necessary.
+- **Lets NOT Live Demo:** Jumping right into the content keeps the momentum going, with pre-recorded demos or animations to explain complex concepts without relying on risky live demos. In other words: don't challenge the live demo gods, unless strictly necessary.
 
 - **Who Am I == Thank You:** The slide where I introduce myself is visually very similar to the last slide, with both my name, contacts and avatar (in the latter I also add links to other resources and the slides, usually). You can't introduce yourself at the start and expect everyone to still remember you at the end!
 
@@ -98,6 +108,6 @@ My deepest thanks go to all the conference organizers and attendees who've suppo
 
 ## One More Thing
 
-Embracing the spirit of 2024, I've created "Tech Talk Writer Assistant," a custom GPT tool designed to streamline the tech talk crafting process. It embodies my experience and insights into a resource for all - basically, all the things I've written above plus a sparkle of making it help you step-by-step. (and, to be clear, it doesn't use/include the resources I linked as my inspirations: it will only give you the exact same list of links if you ask for more resources)
+Embracing the spirit of 2024, I've created "Tech Talk Writer Assistant," a custom GPT tool designed to streamline the tech talk crafting process. It embodies my experience and insights into a resource for all - basically, all the things I've written above plus a sparkle of making it help you step-by-step. And, to be clear, it doesn't use/include the resources I linked as my inspirations: it will only give you the exact same list of links if you ask for more resources.
 
 You can check it out here: [Tech Talk Writer Assistant](https://chat.openai.com/g/g-ZaUKNNgYb-tech-talk-writer-assistant) _(it requires ChatGPT Plus)_.
