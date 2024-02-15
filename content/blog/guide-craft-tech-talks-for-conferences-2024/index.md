@@ -23,7 +23,7 @@ Adding to these, there's a fourth, somewhat "secret" principle guiding my proces
 
 ## From Idea to Outline 📝
 
-Turning a spark of inspiration into a structured talk is a journey filled with ups and downs. That said, I usually know the start and ending point of this phase: I start with an idea of something I want to talk about, and end with a bullet point list of slides.
+Turning a spark of inspiration into a structured talk is a journey filled with ups and downs. That said, I usually know the beginning and ending of this phase: I start with an idea of something I want to talk about, and end with a bullet point list of slides.
 
 1. **Finding My Focus:** Every talk begins with that "aha" moment – an idea I can’t wait to dive into. But first, I take a step back to ensure it's something that will not only captivate me but also resonate with my audience.
 
@@ -61,8 +61,6 @@ Once I have the skeleton ready, making the slides is relatively simple. But, in 
 
 - **Personal Branding:** Adding my name or social handle along with the event name on each slide helps in making connections and enhancing recall. I usually only skip the title one at the start.
 
-- **Optimal Format:** Adhering to a 16:9 slide format for consistency and compatibility across different screens.
-
 - **Lets NOT Live Demo:** Jumping right into the content keeps the momentum going, with pre-recorded demos or animations to explain complex concepts without relying on risky live demos. In other words: don't challenge the live demo gods, unless strictly necessary.
 
 - **Who Am I == Thank You:** The slide where I introduce myself is visually very similar to the last slide, with both my name, contacts and avatar (in the latter I also add links to other resources and the slides, usually). You can't introduce yourself at the start and expect everyone to still remember you at the end!
@@ -85,7 +83,7 @@ I've learned a lot from others in the field. Here are some resources that have i
 1. [Jo Franchetti](https://bsky.app/profile/thisisjofrank.bsky.social) for [Samsung Internet Dev](https://medium.com/samsung-internet-dev) on [public speaking for beginners](https://medium.com/samsung-internet-dev/public-speaking-for-beginners-8bdee16123ba).
 1. [Kevin Dickinson](https://bigthink.com/people/kevin-dickinson/) for [Big Think](https://bigthink.com/the-learning-curve/3-rules-express-your-thoughts-clearly/) on [expressing your thoughts clearly](https://bigthink.com/the-learning-curve/3-rules-express-your-thoughts-clearly/).
 1. [Gant Laborde's](https://twitter.com/GantLaborde)'s [Public Speaking Hits](https://github.com/GantMan/Public_Speaking_Hits) on GitHub.
-1. [Rachel Nabors](https://twitter.com/rachelnabors) on [thoughts for new speakers](https://www.linkedin.com/pulse/thoughts-new-speakers-rachel-nabors/).
+1. [Rachel Nabors](https://twitter.com/rachelnabors)'s [thoughts for new speakers](https://www.linkedin.com/pulse/thoughts-new-speakers-rachel-nabors/).
 
 ## Conclusion 🎉
 
