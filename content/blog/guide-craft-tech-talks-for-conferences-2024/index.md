@@ -1,7 +1,7 @@
 ---
-title: "My Guide For Crafting Tech Talks in 2024"
+title: "Crafting Engaging Tech Talks in 2024: A Personal Guide"
 date: 2024-02-15
-summary: "My process and self-imposed rules for writing tech talks. Because it's 2024, it's also a GPT you can play with."
+summary: "Dive into my comprehensive approach to creating memorable tech talks, blending insights from years of experience with a dash of GPT magic."
 _build:
   render: "false"
   list: "local"
@@ -9,55 +9,59 @@ _build:
 
 ## Introduction
 
-Since kicking off my side quest in doing tech talks in January 2019, I've given over 20 talks, learning something new each time. This blog post distills those lessons into a practical guide for crafting tech talks here in 2024. It's the essence of what I've learned from speaking to fellow devs and the feedback loop that's followed.
+Embarking on my tech talk journey back in January 2019 has been nothing short of an adventure. With over 20 talks under my belt since _(and more coming up)_, each one has been a learning curve, offering invaluable insights. This guide is a distillation of those lessons, tailored for my fellow developers and colleagues, aiming to provide a practical roadmap for crafting (at least) "good enough" talks.
 
-_For a look at my journey and the talks themselves, check out [my collection](https://kelset.dev/tags/talk/)._
+_For a glimpse into my speaking adventures, feel free to visit [my collection](https://kelset.dev/tags/talk/)._
 
-## My General Approach/Thought Process for a Talk
+## My Approach to Crafting a Tech Talk
 
-When I set out to create a tech talk, my starting point is always the audience. What I aim for is a clear, impactful message that resonates well with them, whether it's shedding light on a complex problem, unveiling a novel solution, or simply sharing a journey of discovery in the tech landscape. The goal is not just to inform but to engage and inspire action or further exploration.
+Creating a tech talk for me is akin to storytelling, where the audience's engagement and takeaway are paramount. My strategy revolves around a few core principles:
 
-To achieve this, I focus on a few key principles:
+1. **Relevance:** I make sure the topic resonates with current trends and challenges that my audience faces.
+2. **Clarity:** Simplifying complex concepts into bite-sized, understandable pieces is key to accessibility.
+3. **Engagement:** I weave a narrative that educates and entertains, making the learning journey enjoyable.
 
-1. **Relevance:** Ensuring the topic is timely and of interest to the audience. This involves understanding the current trends, challenges, and questions that occupy the minds of my peers.
-2. **Clarity:** Breaking down complex ideas into digestible chunks, making the content accessible to everyone, regardless of their expertise level.
-3. **Engagement:** Crafting a narrative that not only educates but also entertains, making the learning process a non-dreadful experience.
+Adding to these, there's a fourth, somewhat "secret" principle guiding my process: ensuring my talks align with my thought patterns. Memorizing talks isn't my forte. Instead, I craft each slide to naturally lead into the next, trusting that the me that wrote the talk and the me on stage think the same way, and that to go from A to B they will do A, F, K, T, B.
 
-Each talk is a story, a carefully woven tapestry of insights, experiences, and visions for the future. It's about painting a picture that captivates the audience, drawing them into a world where technology not only solves problems but also opens doors to endless possibilities.
+Remember: each presentation is a narrative journey, weaving insights and visions, aimed at inspiring and engaging the audience with the endless possibilities technology offers.
 
-## Creating the Talk - From Idea to Skeleton
+## From Idea to Outline
 
-The journey of creating a talk begins with a spark - an idea that you're eager to share. This idea doesn't just emerge fully formed; it's the result of curiosity, exploration, and a deep dive into subjects that fascinate both you and your potential audience. Here's how I navigate from that initial spark to a structured presentation:
+The inception of a talk starts with an idea that sparks curiosity. Here's my process:
 
-1. **Idea Refinement:** It starts with broad brainstorming, asking, "What message do I want to leave with my audience?" This phase is about refining your idea to ensure it's both engaging and informative.
+1. **Refining the Idea:** I begin with broad brainstorming to fine-tune the core message.
+2. **Understanding the Audience:** Tailoring the talk to the audience's knowledge level ensures relevance and impact.
+3. **Crafting the Title and Abstract:** These are the first impressions of the talk, needing to intrigue and promise value.
+4. **Developing the Outline:** This acts as a blueprint, guiding the creation of content that tells a coherent story.
+5. **Planning the Slides:** I focus on a balance of content and clarity, ensuring each slide supports the talk's flow and keeps the audience engaged.
 
-2. **Understanding the Audience:** Knowing who you're speaking to is crucial. It shapes not just what you say but how you say it. Whether they're beginners or advanced in the field, tailoring your talk to the audience's level makes it more impactful.
+This structured approach aids in crafting a presentation that's both informative and memorable.
 
-3. **Title and Abstract Crafting:** With a clear idea and audience in mind, the next step is creating a compelling title and abstract. These elements are your talk's first impression, so they need to intrigue and inform, promising value to your attendees.
+## My Rules For Making the Slides
 
-4. **Outline Creation:** Armed with a title and abstract, I sketch a broad outline of the talk. This includes the key points I want to cover, structured in a way that tells a coherent story from introduction to conclusion. This skeleton serves as the foundation for my slides, guiding the development of each section to ensure it contributes to the overall narrative.
+Creating slides for my tech talks once I have the skeleton ready is relatively simple. But, in a way, it's also a complete rewrite; sometimes I might notice that things flow better in a certain way, or that I have to move a few things around to keep the ideas floating. Either way, I do follow a series of specific rules:
 
-5. **Slide Skeleton:** Moving from a general outline to a detailed slide plan, I aim for a balance between content and clarity. Each slide is crafted to convey a single idea, ensuring the talk progresses smoothly and keeps the audience engaged. This stage involves deciding what visual aids, examples, or stories will best illustrate each point.
+- **Timing is Key:** I aim for a slide per minute to maintain a comfortable pace, avoiding overloading the audience with too much information or too many transitions.
 
-In creating the skeleton of your talk, remember it's not just about what you say; it's about how you guide your audience through the journey of your presentation. This structured approach helps in delivering a talk that's both informative and memorable.
+- **Choosing the Right Tools:** Preferring offline tools like PowerPoint or Keynote ensures I'm prepared for any internet connectivity issues at conferences.
 
-## From Skeleton to Slides - My Visual Rules
+- **Breaks for Clarity:** Using "title only" slides to segment my talk helps give the audience a moment to process the information, making the overall experience more digestible.
 
-With a solid outline in hand, the next phase is turning that skeleton into a set of slides that will visually captivate and clarify the points I'm trying to make. Here's my approach to slide creation, guided by a few key visual rules:
+- **A Dash of Humor:** While I enjoy incorporating a meme or two (limiting myself to one per ten slides, circa), it's about striking the right balance between humor and content.
 
-1. **Simplicity and Clarity:** Each slide focuses on one main idea. Overloading slides with text or complex visuals can dilute the message. Instead, I use clear, concise text and meaningful imagery to reinforce my points.
+- **Simplicity and Focus:** My slides are straightforward, focusing on the essence of the message with minimal text, making sure the key points stand out.
 
-2. **Consistent Format:** Using a consistent format for slides helps maintain a professional appearance and aids in audience comprehension. This includes a uniform color scheme, font styles, and slide layouts.
+- **Designing for Visibility:** Ensuring slides are legible from the back of the room is a priority, with a clear font and space at the bottom for better visibility.
 
-3. **Visual Engagement:** To break up the monotony and keep the audience engaged, I incorporate visuals like diagrams, code snippets, and occasional memes (sparingly). These elements are not just decorative; they're integral to explaining concepts and adding moments of light-heartedness.
+- **Personal Branding:** Adding my name or social handle along with the event name on each slide helps in making connections and enhancing recall.
 
-4. **Readability:** Ensuring slides are easily readable from the back of the room is paramount. This means using large, legible fonts and leaving ample space around text and images. The bottom part of the slide is kept relatively free of content to accommodate visibility from all angles.
+- **Optimal Format:** Adhering to a 16:9 slide format for consistency and compatibility across different screens.
 
-5. **Personal Touch:** The first and last slides are personal bookmarks of sorts - introducing me and concluding with a thank you while inviting further connection. These slides include my contact information, reinforcing the opportunity for ongoing dialogue beyond the talk.
+- **Let S Not Live Demo:** Jumping right into the content keeps the momentum going, with pre-recorded demos or animations to explain complex concepts without relying on risky live demos. In other words: don't challenge the live demo gods, unless strictly necessary.
 
-6. **Adaptability:** Finally, I prepare by ensuring my slides can be shared and accessed in various formats. This means having a PDF version ready as a backup and for distribution, allowing the audience to revisit the content at their leisure.
+- **Who Am I == Thank You:** The slide where I introduce myself is visually very similar to the last slide, with both my name, contacts and avatar (in the latter I also add links to other resources and the slides, usually). You can't introduce yourself at the start and expect everyone to still remember you at the end!
 
-Creating slides is a balancing act between conveying information effectively and keeping the audience's attention. By adhering to these visual rules, I aim to create presentations that are not only informative but also engaging and memorable.
+Once I am happy with the slides and have them ready for stage time, I export a PDF version, to have as backup if something goes horribly wrong at the event. This export also serves another purpose: after having done the talk on stage, I'll upload them to [SpeakerDeck](https://speakerdeck.com/) for easy access and sharing.
 
 ## Further Resources and Inspirations
 
@@ -78,22 +82,22 @@ In crafting talks, I draw inspiration and guidance from a wide array of resource
 13. [Gant Laborde's](https://twitter.com/GantLaborde) [Public Speaking Hits on GitHub](https://github.com/GantMan/Public_Speaking_Hits).
 14. [Rachel Nabors](https://www.linkedin.com/in/rachelnabors/) on [thoughts for new speakers](https://www.linkedin.com/pulse/thoughts-new-speakers-rachel-nabors/).
 
-These resources offer a range of perspectives on creating and delivering successful tech talks.
-
 Each of these resources offers a unique perspective on the elements that contribute to a successful talk, from engaging storytelling techniques to practical advice on slide preparation. Whether you're a seasoned speaker or preparing for your first tech talk, these resources can provide a wealth of knowledge to help you make a lasting impact on your audience.
 
-## Conclusions
+## Conclusion
 
-In wrapping up, it's important to acknowledge that while this guide covers the core aspects of crafting and delivering tech talks, there are several facets of the speaking journey I haven't delved into. Topics such as navigating Call for Papers (CFPs), selecting the right conference, practicing your delivery, and managing stage presence are equally critical to your success as a speaker.
+While this guide covers the fundamentals of tech talk creation, I deliberately avoided talking about aspects like call for papers, conference selection, and practicing. _If you would like a "part 2" on those topics, let me know._
 
-My hope is that this guide serves as a starting point for you to explore, experiment, and ultimately find your unique voice in the tech speaking circuit. The journey from an idea to the applause at the end of a well-received talk is both challenging and rewarding. Remember, each talk is an opportunity to share your passion, insights, and discoveries with a community eager to learn.
+My hope is that this guide serves as a starting point for you to explore, experiment, and ultimately find your unique voice in the tech speaking circuit. The journey from an idea to the applause at the end of a well-received talk is both challenging and rewarding.
 
-Thank you for joining me on this exploration of tech talk creation in 2024. Whether you're a seasoned speaker or just starting out, remember that your stories and experiences have the power to inspire and transform. Here's to creating presentations that resonate, educate, and illuminate the path for others in our ever-evolving tech landscape.
+Remember, each talk is an opportunity to share your passion, insights, and discoveries with a community eager to learn. Don't hold back just because you have never done it before - everyone was in your position when they started!
 
 ## Acknowledgments
 
-I'd like to extend my heartfelt gratitude to all the conference organizers who believed in me and gave me a platform to share my thoughts and experiences. Your faith in my ability to contribute meaningfully to our community has been a constant source of motivation. To every individual who attended my talks, offered feedback, and engaged in enriching discussions, thank you. Your insights and questions have not only helped me grow as a speaker but have also deepened my understanding and passion for technology. This journey wouldn't have been the same without your support.
+My deepest thanks go to all the conference organizers and attendees who've supported my journey. Your trust and engagement have been invaluable, driving me to grow and contribute more to our community.
 
 ## One More Thing
 
-And because we're in 2024, where sharing knowledge and tools has become the norm, I've channeled all my experience into something special. Meet the "Tech Talk Writer Assistant", a custom GPT designed to help craft compelling tech talks. It's my way of putting everything I've learned into a tool that everyone can use. Give it a spin and start creating your own talks: [Tech Talk Writer Assistant](https://chat.openai.com/g/g-ZaUKNNgYb-tech-talk-writer-assistant).
+Embracing the spirit of 2024, I've created "Tech Talk Writer Assistant," a custom GPT tool designed to streamline the tech talk crafting process. It embodies my experience and insights into a resource for all - basically, all the things I've written above plus a sparkle of making it help you step-by-step. (and, to be clear, it doesn't use/include the resources I linked as my inspirations: it will only give you the exact same list of links if you ask for more resources)
+
+You can check it out here: [Tech Talk Writer Assistant](https://chat.openai.com/g/g-ZaUKNNgYb-tech-talk-writer-assistant) _(it requires ChatGPT Plus)_.
