@@ -9,17 +9,11 @@ _build:
 
 ## Introduction
 
-- Begin with your motivation for sharing your process in 2024, highlighting the evolution of tech talks and your passion for contributing to the community.
-- Mention your experience and credentials briefly to establish credibility.
-
 Since kicking off my side quest in doing tech talks in January 2019, I've given over 20 talks, learning something new each time. This blog post distills those lessons into a practical guide for crafting tech talks here in 2024. It's the essence of what I've learned from speaking to fellow devs and the feedback loop that's followed.
 
 _For a look at my journey and the talks themselves, check out [my collection](https://kelset.dev/tags/talk/)._
 
 ## My General Approach/Thought Process for a Talk
-
-- Discuss your overarching goal for any talk: to educate, inspire, or solve a problem.
-- Highlight the importance of understanding your audience and tailoring your message to their needs and interests.
 
 When I set out to create a tech talk, my starting point is always the audience. What I aim for is a clear, impactful message that resonates well with them, whether it's shedding light on a complex problem, unveiling a novel solution, or simply sharing a journey of discovery in the tech landscape. The goal is not just to inform but to engage and inspire action or further exploration.
 
@@ -32,10 +26,6 @@ To achieve this, I focus on a few key principles:
 Each talk is a story, a carefully woven tapestry of insights, experiences, and visions for the future. It's about painting a picture that captivates the audience, drawing them into a world where technology not only solves problems but also opens doors to endless possibilities.
 
 ## Creating the Talk - From Idea to Skeleton
-
-- Idea Generation: Reflect on the process of finding a core idea that excites you and is relevant to your audience, utilizing questions and brainstorming techniques to narrow down topics​​.
-- Title and Abstract: Emphasize the significance of crafting compelling titles and abstracts to attract the right audience, providing guidelines and examples for effective titles​​.
-- Skeleton of Slides: Share how you transition from a broad idea to a structured outline, creating a slide per minute of talk time as a general rule, and segmenting your talk into digestible sections​​.
 
 The journey of creating a talk begins with a spark - an idea that you're eager to share. This idea doesn't just emerge fully formed; it's the result of curiosity, exploration, and a deep dive into subjects that fascinate both you and your potential audience. Here's how I navigate from that initial spark to a structured presentation:
 
@@ -52,8 +42,6 @@ The journey of creating a talk begins with a spark - an idea that you're eager t
 In creating the skeleton of your talk, remember it's not just about what you say; it's about how you guide your audience through the journey of your presentation. This structured approach helps in delivering a talk that's both informative and memorable.
 
 ## From Skeleton to Slides - My Visual Rules
-
-- Discuss your specific rules for slide creation, including design principles for clarity, engagement, and memorability, and software recommendations for reliability​​.
 
 With a solid outline in hand, the next phase is turning that skeleton into a set of slides that will visually captivate and clarify the points I'm trying to make. Here's my approach to slide creation, guided by a few key visual rules:
 
@@ -73,31 +61,28 @@ Creating slides is a balancing act between conveying information effectively and
 
 ## Further Resources and Inspirations
 
-- Provide a curated list of resources, including articles, blogs, and tools that have shaped your approach to creating tech talks​​.
+In crafting talks, I draw inspiration and guidance from a wide array of resources. Here are some that have been instrumental:
 
-In crafting talks, I draw inspiration and guidance from a wide array of resources. These articles, blogs, and platforms have been instrumental in refining my approach to public speaking, offering invaluable insights into storytelling, slide design, and engaging with the audience. Here's a curated list of resources that have influenced my process:
+1. [Hynek Schlawack's](https://mastodon.social/@hynek) article on [the art of speaking and its impact](https://hynek.me/articles/speaking/).
+2. [David Neal (ReverentGeek)](https://twitter.com/reverentgeek)'s guide on [creating awesome tech talks](http://reverentgeek.com/5-essential-ingredients-for-an-awesome-tech-talk/).
+3. The team at [Speaking.io](https://twitter.com/speakingio) offers tips on [public speaking in tech](https://speaking.io/).
+4. [Deconstruct](https://www.deconstructconf.com/) shares insights on [how to prepare a talk](https://www.deconstructconf.com/blog/how-to-prepare-a-talk).
+5. [Tanya Janca (shehackspurple)](https://twitter.com/shehackspurple) provides [presentation tips for technical talks](https://dev.to/shehackspurple/presentation-tips-for-technical-talks-1fni).
+6. [Derek Sivers](https://sivers.org/) on [how to communicate effectively](https://sivers.org/d22).
+7. [Léonie Watson](https://twitter.com/LeonieWatson)'s advice on [helping accessibility at conferences as a speaker](https://dev.to/lkopacz/10-ways-to-help-accessibility-at-conferences-as-a-speaker-5dfp).
+8. [CFPLand](https://www.cfpland.com/) offers a [guide to speaking](https://www.cfpland.com/guides/speaking/).
+9. [Dan Abramov](https://twitter.com/dan_abramov) discusses [preparing for tech talks](https://overreacted.io/preparing-for-tech-talk-part-1-motivation/) in a three-part series.
+10. [LocalGhost](https://localghost.dev/) blog on [things experienced speakers wish they'd known](https://localghost.dev/blog/things-experienced-speakers-wish-they-d-known/).
+11. [Samsung Internet Dev](https://medium.com/samsung-internet-dev) on [public speaking for beginners](https://medium.com/samsung-internet-dev/public-speaking-for-beginners-8bdee16123ba).
+12. [Big Think](https://bigthink.com/the-learning-curve/3-rules-express-your-thoughts-clearly/) on [expressing your thoughts clearly](https://bigthink.com/the-learning-curve/3-rules-express-your-thoughts-clearly/).
+13. [Gant Laborde's](https://twitter.com/GantLaborde) [Public Speaking Hits on GitHub](https://github.com/GantMan/Public_Speaking_Hits).
+14. [Rachel Nabors](https://www.linkedin.com/in/rachelnabors/) on [thoughts for new speakers](https://www.linkedin.com/pulse/thoughts-new-speakers-rachel-nabors/).
 
-1. [Hynek Schlawack's article on the art of speaking and its impact](https://hynek.me/articles/speaking/)
-2. [ReverentGeek's guide on creating awesome tech talks](http://reverentgeek.com/5-essential-ingredients-for-an-awesome-tech-talk/)
-3. [Speaking.io for tips on public speaking specifically in tech](https://speaking.io/)
-4. [Deconstruct's blog on preparing a talk](https://www.deconstructconf.com/blog/how-to-prepare-a-talk)
-5. [Tanya Janca's presentation tips for technical talks](https://dev.to/shehackspurple/presentation-tips-for-technical-talks-1fni)
-6. [Derek Sivers' advice on how to communicate effectively](https://sivers.org/d22)
-7. [Léonie Watson's tips for making conferences more accessible as a speaker](https://dev.to/lkopacz/10-ways-to-help-accessibility-at-conferences-as-a-speaker-5dfp)
-8. [CFPLand's guides on the speaking circuit](https://www.cfpland.com/guides/speaking/)
-9. [Dan Abramov's series on preparing for tech talks, focusing on motivation, content, and delivery](https://overreacted.io/preparing-for-tech-talk-part-1-motivation/)
-10. [Advice from experienced speakers on what they wish they had known earlier](https://localghost.dev/blog/things-experienced-speakers-wish-they-d-known/)
-11. [Samsung Internet Dev's guide for public speaking beginners](https://medium.com/samsung-internet-dev/public-speaking-for-beginners-8bdee16123ba)
-12. [Big Think's rules to express your thoughts clearly](https://bigthink.com/the-learning-curve/3-rules-express-your-thoughts-clearly/)
-13. [Gant Laborde's Public Speaking Hits on GitHub](https://github.com/GantMan/Public_Speaking_Hits)
-14. [Rachel Nabors' thoughts on new speakers on LinkedIn](https://www.linkedin.com/pulse/thoughts-new-speakers-rachel-nabors/)
+These resources offer a range of perspectives on creating and delivering successful tech talks.
 
 Each of these resources offers a unique perspective on the elements that contribute to a successful talk, from engaging storytelling techniques to practical advice on slide preparation. Whether you're a seasoned speaker or preparing for your first tech talk, these resources can provide a wealth of knowledge to help you make a lasting impact on your audience.
 
 ## Conclusions
-
-- Acknowledge areas not covered in the post, like the logistics of applying to conferences, practicing, and the actual presentation day.
-- Encapsulate your philosophy on the importance of sharing knowledge and encouraging others to step into the spotlight.
 
 In wrapping up, it's important to acknowledge that while this guide covers the core aspects of crafting and delivering tech talks, there are several facets of the speaking journey I haven't delved into. Topics such as navigating Call for Papers (CFPs), selecting the right conference, practicing your delivery, and managing stage presence are equally critical to your success as a speaker.
 
@@ -106,8 +91,6 @@ My hope is that this guide serves as a starting point for you to explore, experi
 Thank you for joining me on this exploration of tech talk creation in 2024. Whether you're a seasoned speaker or just starting out, remember that your stories and experiences have the power to inspire and transform. Here's to creating presentations that resonate, educate, and illuminate the path for others in our ever-evolving tech landscape.
 
 ## Acknowledgments
-
-- Express gratitude towards those who've inspired and supported your journey in public speaking and tech community engagement.
 
 I'd like to extend my heartfelt gratitude to all the conference organizers who believed in me and gave me a platform to share my thoughts and experiences. Your faith in my ability to contribute meaningfully to our community has been a constant source of motivation. To every individual who attended my talks, offered feedback, and engaged in enriching discussions, thank you. Your insights and questions have not only helped me grow as a speaker but have also deepened my understanding and passion for technology. This journey wouldn't have been the same without your support.
 
