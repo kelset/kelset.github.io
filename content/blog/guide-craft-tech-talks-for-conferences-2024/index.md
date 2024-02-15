@@ -1,5 +1,5 @@
 ---
-title: "Crafting Engaging Tech Talks in 2024: A Personal Guide"
+title: "My Guide for Crafting Tech Talks in 2024"
 date: 2024-02-15
 summary: "Dive into my comprehensive approach to creating memorable tech talks, blending insights from years of experience with a dash of GPT magic."
 _build:
@@ -7,13 +7,11 @@ _build:
   list: "local"
 ---
 
-## Introduction
+My tech talk journey starts back in Jan 2019 and it's been a wild ride. I've delivered over 20 talks and learned heaps along the way. This guide shares those lessons, aiming to help you craft talks that resonate and engage.
 
-Embarking on my tech talk journey back in January 2019 has been nothing short of an adventure. With over 20 talks under my belt since _(and more coming up)_, each one has been a learning curve, offering invaluable insights. This guide is a distillation of those lessons, tailored for my fellow developers and colleagues, aiming to provide a practical roadmap for crafting (at least) "good enough" talks.
+_Quick note: This guide reflects my personal approach. It's not one-size-fits-all, so feel free to adapt it to your style. You can check out [my past talks](https://kelset.dev/tags/talk/) for a taste of what I'm talking about._
 
-_Usual disclaimer: these are MY personal rules that I use for MY talks. This guide is not a silver bullet for everyone. Please pick and choose what you want from it. To get an idea of comes out, check [my past talks](https://kelset.dev/tags/talk/)._
-
-## Approach to Crafting a Tech Talk
+## Approach to Crafting a Tech Talk 🛠️
 
 Creating a tech talk for me is akin to storytelling, where the audience's engagement and takeaway are paramount. My strategy revolves around a few core principles:
 
@@ -25,7 +23,7 @@ Adding to these, there's a fourth, somewhat "secret" principle guiding my proces
 
 Remember: each presentation is a narrative journey, weaving insights and visions, aimed at inspiring and engaging the audience with the endless possibilities technology offers.
 
-## From Idea to Outline
+## From Idea to Outline 📝
 
 Turning a spark of inspiration into a structured talk is a journey filled with ups and downs. That said, I usually know the start and ending point of this phase: I start with an idea of something I want to talk about, and end with a bullet point list of slides.
 
@@ -47,7 +45,7 @@ Turning a spark of inspiration into a structured talk is a journey filled with u
 
 And once I think the skeleton has a good flow, it's time to turn it into slides.
 
-## Rules For Making the Slides
+## Rules For Making the Slides 🖼️
 
 Once I have the skeleton ready, making the slides is relatively simple. But, in a way, it's also a complete rewrite; sometimes I might notice that things flow better in a certain way, or that I have to move a few things around to keep the ideas floating. Either way, I do follow a series of specific rules:
 
@@ -73,9 +71,9 @@ Once I have the skeleton ready, making the slides is relatively simple. But, in 
 
 Once I am happy with the slides and have them ready for stage time, I export a PDF version, to have as backup if something goes horribly wrong at the event. This export also serves another purpose: after having done the talk on stage, I'll upload them to [SpeakerDeck](https://speakerdeck.com/) for easy access and sharing.
 
-## Further Resources and Inspirations
+## Further Resources and Inspirations 📘
 
-In crafting talks, I draw inspiration and guidance from a wide array of resources. Here are some that have been instrumental:
+I've learned a lot from others in the field. Here are some resources that have inspired me:
 
 1. [Hynek Schlawack's](https://mastodon.social/@hynek) article on [the art of speaking and its impact](https://hynek.me/articles/speaking/).
 2. [David Neal (ReverentGeek)](https://twitter.com/reverentgeek)'s guide on [creating awesome tech talks](http://reverentgeek.com/5-essential-ingredients-for-an-awesome-tech-talk/).
@@ -92,9 +90,7 @@ In crafting talks, I draw inspiration and guidance from a wide array of resource
 13. [Gant Laborde's](https://twitter.com/GantLaborde) [Public Speaking Hits on GitHub](https://github.com/GantMan/Public_Speaking_Hits).
 14. [Rachel Nabors](https://www.linkedin.com/in/rachelnabors/) on [thoughts for new speakers](https://www.linkedin.com/pulse/thoughts-new-speakers-rachel-nabors/).
 
-Each of these resources offers a unique perspective on the elements that contribute to a successful talk, from engaging storytelling techniques to practical advice on slide preparation. Whether you're a seasoned speaker or preparing for your first tech talk, these resources can provide a wealth of knowledge to help you make a lasting impact on your audience.
-
-## Conclusion
+## Conclusion 🎉
 
 While this guide covers the fundamentals of tech talk creation, I deliberately avoided talking about aspects like call for papers, conference selection, and practicing. _If you would like a "part 2" on those topics, let me know._
 
@@ -102,11 +98,11 @@ My hope is that this guide serves as a starting point for you to explore, experi
 
 Remember, each talk is an opportunity to share your passion, insights, and discoveries with a community eager to learn. Don't hold back just because you have never done it before - everyone was in your position when they started!
 
-## Acknowledgments
+## Acknowledgments 🙏
 
-My deepest thanks go to all the conference organizers and attendees who've supported my journey. Your trust and engagement have been invaluable, driving me to grow and contribute more to our community.
+A huge shoutout to all the conference organizers and attendees who've supported me. Your engagement fuels my growth and contributions 🙇‍♂️
 
-## One More Thing
+## One More Thing 🔮
 
 Embracing the spirit of 2024, I've created "Tech Talk Writer Assistant," a custom GPT tool designed to streamline the tech talk crafting process. It embodies my experience and insights into a resource for all - basically, all the things I've written above plus a sparkle of making it help you step-by-step. And, to be clear, it doesn't use/include the resources I linked as my inspirations: it will only give you the exact same list of links if you ask for more resources.
 
