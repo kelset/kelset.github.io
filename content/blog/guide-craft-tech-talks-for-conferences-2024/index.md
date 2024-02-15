@@ -75,20 +75,19 @@ Once I am happy with the slides and have them ready for stage time, I export a P
 
 I've learned a lot from others in the field. Here are some resources that have inspired me:
 
-1. [Hynek Schlawack's](https://mastodon.social/@hynek) article on [the art of speaking and its impact](https://hynek.me/articles/speaking/).
-2. [David Neal (ReverentGeek)](https://twitter.com/reverentgeek)'s guide on [creating awesome tech talks](http://reverentgeek.com/5-essential-ingredients-for-an-awesome-tech-talk/).
-3. The team at [Speaking.io](https://twitter.com/speakingio) offers tips on [public speaking in tech](https://speaking.io/).
-4. [Deconstruct](https://www.deconstructconf.com/) shares insights on [how to prepare a talk](https://www.deconstructconf.com/blog/how-to-prepare-a-talk).
-5. [Tanya Janca (shehackspurple)](https://twitter.com/shehackspurple) provides [presentation tips for technical talks](https://dev.to/shehackspurple/presentation-tips-for-technical-talks-1fni).
-6. [Derek Sivers](https://sivers.org/) on [how to communicate effectively](https://sivers.org/d22).
-7. [Léonie Watson](https://twitter.com/LeonieWatson)'s advice on [helping accessibility at conferences as a speaker](https://dev.to/lkopacz/10-ways-to-help-accessibility-at-conferences-as-a-speaker-5dfp).
-8. [CFPLand](https://www.cfpland.com/) offers a [guide to speaking](https://www.cfpland.com/guides/speaking/).
-9. [Dan Abramov](https://twitter.com/dan_abramov) discusses [preparing for tech talks](https://overreacted.io/preparing-for-tech-talk-part-1-motivation/) in a three-part series.
-10. [LocalGhost](https://localghost.dev/) blog on [things experienced speakers wish they'd known](https://localghost.dev/blog/things-experienced-speakers-wish-they-d-known/).
-11. [Samsung Internet Dev](https://medium.com/samsung-internet-dev) on [public speaking for beginners](https://medium.com/samsung-internet-dev/public-speaking-for-beginners-8bdee16123ba).
-12. [Big Think](https://bigthink.com/the-learning-curve/3-rules-express-your-thoughts-clearly/) on [expressing your thoughts clearly](https://bigthink.com/the-learning-curve/3-rules-express-your-thoughts-clearly/).
-13. [Gant Laborde's](https://twitter.com/GantLaborde) [Public Speaking Hits on GitHub](https://github.com/GantMan/Public_Speaking_Hits).
-14. [Rachel Nabors](https://www.linkedin.com/in/rachelnabors/) on [thoughts for new speakers](https://www.linkedin.com/pulse/thoughts-new-speakers-rachel-nabors/).
+1. [Hynek Schlawack](https://mastodon.social/@hynek)'s article on [the art of speaking and its impact](https://hynek.me/articles/speaking/).
+1. [David Neal (ReverentGeek)](https://twitter.com/reverentgeek)'s guide on [creating awesome tech talks](http://reverentgeek.com/5-essential-ingredients-for-an-awesome-tech-talk/).
+1. [Zach Holman](https://twitter.com/holman) at [Speaking.io](https://twitter.com/speakingio) offers tips on [public speaking in tech](https://speaking.io/).
+1. [Gary Bernhardt](https://twitter.com/garybernhardt) wrote for [DeconstructConf](https://www.deconstructconf.com/) insights on [how to prepare a talk](https://www.deconstructconf.com/blog/how-to-prepare-a-talk).
+1. [Tanya Janca (shehackspurple)](https://twitter.com/shehackspurple) provides [presentation tips for technical talks](https://dev.to/shehackspurple/presentation-tips-for-technical-talks-1fni).
+1. [Derek Sivers](https://twitter.com/sivers) on [how to communicate effectively](https://sivers.org/d22).
+1. [Lindsey Kopacz](https://twitter.com/LittleKope/)'s advice on [helping accessibility at conferences as a speaker](https://dev.to/lkopacz/10-ways-to-help-accessibility-at-conferences-as-a-speaker-5dfp).
+1. [Dan Abramov](https://twitter.com/dan_abramov2) discusses [preparing for tech talks](https://overreacted.io/preparing-for-tech-talk-part-1-motivation/) in a three-part series.
+1. [Sophie Koonin](https://social.lol/@sophie)'s blog on [things experienced speakers wish they'd known](https://localghost.dev/blog/things-experienced-speakers-wish-they-d-known/).
+1. [Jo Franchetti](https://bsky.app/profile/thisisjofrank.bsky.social) for [Samsung Internet Dev](https://medium.com/samsung-internet-dev) on [public speaking for beginners](https://medium.com/samsung-internet-dev/public-speaking-for-beginners-8bdee16123ba).
+1. [Kevin Dickinson](https://bigthink.com/people/kevin-dickinson/) for [Big Think](https://bigthink.com/the-learning-curve/3-rules-express-your-thoughts-clearly/) on [expressing your thoughts clearly](https://bigthink.com/the-learning-curve/3-rules-express-your-thoughts-clearly/).
+1. [Gant Laborde's](https://twitter.com/GantLaborde)'s [Public Speaking Hits](https://github.com/GantMan/Public_Speaking_Hits) on GitHub.
+1. [Rachel Nabors](https://twitter.com/rachelnabors) on [thoughts for new speakers](https://www.linkedin.com/pulse/thoughts-new-speakers-rachel-nabors/).
 
 ## Conclusion 🎉
 
