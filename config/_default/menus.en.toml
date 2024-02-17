@@ -11,20 +11,25 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
+name = "debug:mind"
+url = "https://www.youtube.com/playlist?list=PLiD6R_aXkpLiMfS2YrhSgtSj09JJCaP2y"
+weight = 10
+
+[[main]]
 name = "Blog"
 pageRef = "blog"
-weight = 10
+weight = 20
 
 [[main]]
 name = "Around the web"
 pageRef = "tags"
-weight = 20
+weight = 30
 
 
 [[main]]
 name = "About me"
 pageRef = "about-me"
-weight = 30
+weight = 40
 
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before
