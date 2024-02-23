@@ -19,7 +19,7 @@ Born and raised in Italy, I ventured to the vibrant city of London 🇬🇧 over
 My commitment to open source is more than just code; it's about fostering a supportive community and driving change. Here's a glimpse of my involvement:
 
 - As a maintainer of [`react-native`](https://reactnative.dev/) since January 2018, I've been involved in many ways in its evolution:
-  - 🚀 Released approximately 50 versions of the [`react-native`](https://reactnative.dev/) package, navigating the complexities of various semver minors. The journey from [0.57.4](https://github.com/facebook/react-native/releases/tag/v0.57.4) onwards has been exhilarating and unpredictable. 🤯
+  - 🚀 Released approximately 50 versions of the [`react-native`](https://reactnative.dev/) package, navigating the complexities of various semver minors. The journey from [0.56](https://reactnative.dev/blog/2018/07/04/releasing-react-native-056) onwards has been nothing short of unpredictable. 🤯
   - 🤝 Co-driven the presence and coordination of Microsoft within the React Native ecosystem. Check out the next section for more.
   - ✨ Authored the prominent VSCode Extension Pack for `react-native`, known as ["React Native - Full Pack"](https://marketplace.visualstudio.com/items?itemName=kelset.rn-full-pack), amassing over 100k downloads.
 - 🏅 Recognized in the [2022 OpenUK Honours List](https://openuk.uk/2022HonoursList/), celebrating significant contributions to open technology in the UK.
