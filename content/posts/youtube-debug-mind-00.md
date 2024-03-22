@@ -1,8 +1,8 @@
 ---
-title: "📹 Tech Burnout & Mental Health: Software Engineers Tackle Your Biggest Concerns | debug:mind | S01E00 "
+title: "📹 Tech Burnout & Mental Health: Big Tech Coders Tackle Your Qs | with Roberto Clapis | debug:mind #0"
 date: 2023-10-10
 externalUrl: "https://www.youtube.com/watch?v=zBkHoK235CI"
-summary: "Lorenzo (aka “kelset”, Senior Software Engineer in Microsoft) and Roberto (aka “empijei”, ex-Google engineer specialised in webspecs and infosec) discuss mental health in the tech industry and the importance of open source software for World Mental Health Day 2023. They answer questions from followers about burnout, imposter syndrome, work-life balance, and how to support their own mental wellbeing as software engineers... and humans."
+summary: "In this DEBUT episode of 'debug:mind' (formerly 'Untitled Mental Health Project') - made for world mental health day 2023 - I, alongside Roberto (aka 'empijei', ex-Google engineer specialised in webspecs and infosec) , dive into the seldom-discussed but crucial topic of mental health in the tech industry by answering questions from our followers. We share personal experiences, tackle the effects of hustle culture, and offer strategies for achieving a healthier work-life balance. Our dialogue covers recognizing burnout signs, the importance of community support, and the invaluable role of professional mental health resources. Our goal? To spark conversations and encourage a more open, supportive environment for everyone in tech."
 showReadingTime: false
 tags: ["YouTube"]
 _build:
