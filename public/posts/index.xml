@@ -1,111 +1,356 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on kelset.dev</title>
-    <link>/posts/</link>
-    <description>Recent content in Posts on kelset.dev</description>
+    <title>Content on Kelset</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Content on Kelset</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2022 Lorenzo Sciandra - All rights reserved.</copyright>
-    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
+    <lastBuildDate>Tue, 19 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>📹 How Depression Doesn&#39;t Define You | with Sara Vieira | debug:mind #4</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-04/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-04/</guid>
+      <description>In this episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) I chat with Sara Vieira, someone I’ve always looked up to. Sarah gets real about her fight with depression, sharing stories and insights that hit home about what depression really feels like. We dive into how it&amp;rsquo;s way more than just feeling sad and touch on the weird physical stuff that comes with it too. Sarah&amp;rsquo;s openness gives a peek into the struggle and recovery, showing it&amp;rsquo;s okay to talk about mental health and seek help. It’s a powerful convo that offers a bit of light and understanding for anyone facing similar battles.</description>
+    </item>
+    <item>
+      <title>📹 Dealing with PTSD in Tech and Healing from Trauma | with Matt Hargett | debug:mind #3</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-03/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-03/</guid>
+      <description>In this episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) I delve into mental health in the tech community with Matt Hargett (aka &amp;lsquo;syke&amp;rsquo;, ex-Sony, ex-Roblox, currently founder @ Rebecker Specialties). We explore the evolution of mental health awareness, the thin line between passion and burnout, and the impact of remote work on our well-being. Matt shares his journey with PTSD, underscoring the importance of recognizing signs and seeking help. Our conversation highlights the crucial role of support systems, the power of open discussions, and the need for personal growth in navigating mental health challenges in tech.</description>
+    </item>
+    <item>
+      <title>📹 Navigating Chronic Pain in the Tech World | with Jamie Birch | debug:mind #2</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-02/</link>
+      <pubDate>Tue, 30 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-02/</guid>
+      <description>In this episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) I delve into the often overlooked intersection of chronic pain and mental health in the tech industry with Jamie Birch (aka &amp;lsquo;LinguaBrowse&amp;rsquo;, TSC Chair of NativeScript), a software engineer who navigated a significant career transition due to chronic pain. We explore the importance of open conversations, support networks, and adapting work cultures to accommodate and understand chronic pain. Jamie shares personal insights on maintaining productivity and a positive outlook, emphasizing work-life balance, acceptance, and the role of tech in fostering accessibility. Join us as we shed light on the crucial link between physical well-being and mental health in our professional lives.</description>
+    </item>
+    <item>
+      <title>📹 Tech &amp; Vulnerability: Opening Up About Mental Health | with Nathan Walker | debug:mind #1</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-01/</link>
+      <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-01/</guid>
+      <description>In this episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) I dive into the often overlooked realm of mental health in tech. Joined by Nathan Walker (aka &amp;lsquo;wwwalkerrun&amp;rsquo;, Principal Software Engineer at nstudio and maintainer of Nativescript), we share our personal journeys and the critical importance of addressing mental wellness within our industry. We explore the power of vulnerability, the impact of work-life balance, and practical self-care strategies. Our goal is to spark conversations, reduce stigma, and encourage a culture of empathy and support in tech.</description>
+    </item>
+    <item>
+      <title>Raising the Bar: Our Journey Making React Native a Preferred Choice v2.0</title>
+      <link>http://localhost:1313/posts/talk-react-advanced-2023/</link>
+      <pubDate>Fri, 20 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-react-advanced-2023/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://reactadvanced.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Advanced 2023&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/raising-the-bar-our-journey-of-making-react-native-a-preferred-choice-2-dot-0&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>📹 Tech Burnout &amp; Mental Health: Big Tech Coders Tackle Your Qs | with Roberto Clapis | debug:mind #0</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-00/</link>
+      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-00/</guid>
+      <description>In this DEBUT episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) - made for world mental health day 2023 - I, alongside Roberto (aka &amp;rsquo;empijei&amp;rsquo;, ex-Google engineer specialised in webspecs and infosec) , dive into the seldom-discussed but crucial topic of mental health in the tech industry by answering questions from our followers. We share personal experiences, tackle the effects of hustle culture, and offer strategies for achieving a healthier work-life balance. Our dialogue covers recognizing burnout signs, the importance of community support, and the invaluable role of professional mental health resources. Our goal? To spark conversations and encourage a more open, supportive environment for everyone in tech.</description>
+    </item>
+    <item>
+      <title>Pointer[173]: È ora di parlare di salute mentale - Con Lorenzo Sciandra e Roberto Clapis</title>
+      <link>http://localhost:1313/posts/podcast-pointer-podcast-2023-mental-health/</link>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-pointer-podcast-2023-mental-health/</guid>
+      <description>🎙 Podcast (in 🇮🇹) - Episode 173 of &#xA;&lt;a href=&#34;https://pointerpodcast.it/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;PointerPodcast&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>The community is stronger than ever | RNEU 2023 - Interview with Tommy Nguyen &amp; Lorenzo Sciandra</title>
+      <link>http://localhost:1313/posts/interview-rneu-2023/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/interview-rneu-2023/</guid>
+      <description>🎤 Interview - With &#xA;&lt;a href=&#34;https://elk.zone/mastodon.online/@tido@hachyderm.io&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Tommy Nguyen&lt;/a&gt;, at &#xA;&lt;a href=&#34;https://www.react-native.eu&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Native EU 2023&lt;/a&gt;.</description>
+    </item>
+    <item>
+      <title>Raising the Bar: Our Journey of Making React Native a Preferred Choice</title>
+      <link>http://localhost:1313/posts/talk-rneu-2023/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-rneu-2023/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.react-native.eu&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Native EU 2023&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/raising-the-bar-our-journey-of-making-react-native-a-preferred-choice&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt; - with &#xA;&lt;a href=&#34;https://elk.zone/mastodon.online/@tido@hachyderm.io&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Tommy Nguyen&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>Pointer[161]: Open source e big tech: sostegno o controllo? - con Luca Palmieri , Vincenzo Palazzo e Lorenzo Sciandra</title>
+      <link>http://localhost:1313/posts/podcast-pointer-podcast-2023/</link>
+      <pubDate>Fri, 14 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-pointer-podcast-2023/</guid>
+      <description>🎙 Podcast (in 🇮🇹) - Episode 161 of &#xA;&lt;a href=&#34;https://open.spotify.com/show/3XmDzcZv4rCIx1VpWrbrkh&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;PointerPodcast&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>RNR 270 - Diving into React Native 0.72 with Lorenzo Sciandra and Riccardo Cipolleschi</title>
+      <link>http://localhost:1313/posts/podcast-react-native-radio-2023/</link>
+      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-react-native-radio-2023/</guid>
+      <description>🎙 Podcast - In this episode of &#xA;&lt;a href=&#34;https://www.reactnativeradio.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Native Radio&lt;/a&gt;, Robin and Mazen chat with RN release team members Lorenzo Sciandra from Microsoft, and Riccardo Cipolleschi from Meta, about the fresh new RN version 0.72.</description>
+    </item>
+    <item>
+      <title>The work that you don&#39;t see 2.0</title>
+      <link>http://localhost:1313/posts/talk-react-native-heroes-2023/</link>
+      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-react-native-heroes-2023/</guid>
+      <description>🗣 Talk (in 🇮🇹) @ &#xA;&lt;a href=&#34;https://reactnativeheroes.com/2023/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Native Heroes 2023&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/the-work-that-you-dont-see-2-dot-0&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>React Native Heroes 2023: incontriamo in anteprima Lorenzo Sciandra</title>
+      <link>http://localhost:1313/posts/interview-synesthesia/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/interview-synesthesia/</guid>
+      <description>🎤 Interview (in 🇮🇹) - This written interview was done from the folks at &#xA;&lt;a href=&#34;https://synesthesia.it&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Synesthesia&lt;/a&gt; ahead of my talk at React Native Heroes 2023 in Turin.</description>
+    </item>
+    <item>
+      <title>The work that you don&#39;t see</title>
+      <link>http://localhost:1313/posts/talk-chainreact-2023/</link>
+      <pubDate>Fri, 19 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-chainreact-2023/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://chainreactconf.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Chain React 2023&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/the-work-that-you-dont-see&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>Betting on React Native</title>
+      <link>http://localhost:1313/posts/talk-university-2023/</link>
+      <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-university-2023/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.shenkar.ac.il/en&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Shenkar College&lt;/a&gt; as a guest lecturer for the course &amp;lsquo;Mobile Application Development&amp;rsquo; (3500833 - Spring 2023) - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/betting-on-react-native&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>The new architecture is here… what now? 3.0</title>
+      <link>http://localhost:1313/posts/talk-react-advanced-2022/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-react-advanced-2022/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://reactadvanced.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Advanced 2022&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/2022-new-arch-indepth-talk-v3-dot-1-export&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>Pointer[122]: React Native in Microsoft - Con Lorenzo Sciandra</title>
+      <link>http://localhost:1313/posts/podcast-pointer-podcast-2022/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-pointer-podcast-2022/</guid>
+      <description>🎙 Podcast (in 🇮🇹) - Episode 122 of &#xA;&lt;a href=&#34;https://open.spotify.com/show/3XmDzcZv4rCIx1VpWrbrkh&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;PointerPodcast&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>Mental Health Day</title>
+      <link>http://localhost:1313/posts/podcast-buongiorno-edo/</link>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-buongiorno-edo/</guid>
+      <description>🎙 Podcast (in 🇮🇹) - guest appearance to talk about mental health on the 2022 occurance of the &#xA;&lt;a href=&#34;https://www.who.int/campaigns/world-mental-health-day/2022&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;World Mental Health Day&lt;/a&gt; - &#xA;&lt;a href=&#34;https://open.spotify.com/show/4B2I1RTHTS5YkbCYfLCveU&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Buongiorno da Edo&lt;/a&gt; by &#xA;&lt;a href=&#34;https://edoardodusi.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Edoardo Dusi&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>The new architecture is here… what now? 2.0</title>
+      <link>http://localhost:1313/posts/talk-react-london-2022/</link>
+      <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-react-london-2022/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.meetup.com/react-native-london/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Native London September 2022&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/the-new-architecture-is-here-dot-dot-dot-what-now-2-dot-0&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>React Native at Microsoft | The React Native Show Podcast Ep. 16</title>
+      <link>http://localhost:1313/posts/podcast-react-native-show/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-react-native-show/</guid>
+      <description>🎙 Podcast - Episode 16 of &#xA;&lt;a href=&#34;https://www.callstack.com/podcast-react-native-show&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;The React Native Show Podcast&lt;/a&gt; by &#xA;&lt;a href=&#34;https://www.callstack.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Callstack&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>The new architecture is here… what now?</title>
+      <link>http://localhost:1313/posts/talk-rnwroclaw-2022/</link>
+      <pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-rnwroclaw-2022/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://beta.guild.host/events/react-native-wrocaw-guwo7a&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Native Wroclaw meetup&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/the-new-architecture-is-here-dot-dot-dot-what-now&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>The React Native Community Map</title>
+      <link>http://localhost:1313/posts/notion-rnc-map/</link>
+      <pubDate>Tue, 28 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/notion-rnc-map/</guid>
+      <description>A Notion page in which I&amp;rsquo;m trying to list all the places in which the React Native Community &amp;rsquo;exists&amp;rsquo;. It&amp;rsquo;s constantly updated.</description>
+    </item>
     <item>
       <title>4 years as a React Native OSS maintainer: a retrospective</title>
-      <link>/posts/gist-4-years-rn-retro/</link>
+      <link>http://localhost:1313/posts/gist-4-years-rn-retro/</link>
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/gist-4-years-rn-retro/</guid>
+      <guid>http://localhost:1313/posts/gist-4-years-rn-retro/</guid>
       <description>A personal retrospective of being a maintainer for React Native for the past 4 years.</description>
     </item>
-    
+    <item>
+      <title>React Native at Microsoft or: How I Learned to Stop Worrying and Love the Brownfield</title>
+      <link>http://localhost:1313/posts/talk-grusp-2021/</link>
+      <pubDate>Tue, 23 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-grusp-2021/</guid>
+      <description>🗣 Talk (in 🇮🇹) @ &#xA;&lt;a href=&#34;https://www.grusp.org/localhost_/reactnative-2021/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;reactnative @localhost 2021&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/react-native-at-microsoft-or-how-i-learned-to-stop-worrying-and-love-the-brownfield&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides in 🇺🇸&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>React Native in Microsoft, e discorso sulla salute mentale</title>
+      <link>http://localhost:1313/posts/podcast-continuous-dev/</link>
+      <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-continuous-dev/</guid>
+      <description>🎙 Podcast (in 🇮🇹) - S02E01 of &#xA;&lt;a href=&#34;https://open.spotify.com/show/1xNXGXiZzazwqKycTS8WyG&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Continuous Delivery&lt;/a&gt; by &#xA;&lt;a href=&#34;https://www.sparkfabrik.com/it/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;SparkFabrik&lt;/a&gt;</description>
+    </item>
     <item>
       <title>Managing my Mental Health</title>
-      <link>/posts/notion-mental-health/</link>
+      <link>http://localhost:1313/posts/notion-mental-health/</link>
       <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/notion-mental-health/</guid>
+      <guid>http://localhost:1313/posts/notion-mental-health/</guid>
       <description>A Notion page with what I&amp;rsquo;d send you if we were to have a conversation about mental health. It&amp;rsquo;s constantly updated.</description>
     </item>
-    
+    <item>
+      <title>Improve all the repos – exploring Microsoft’s DevExp</title>
+      <link>http://localhost:1313/posts/talk-rneu-2021/</link>
+      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-rneu-2021/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.react-native.eu/all-talks&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Native Europe 2021&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/improve-all-the-repos-exploring-microsofts-devexp&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt; - with &#xA;&lt;a href=&#34;https://twitter.com/lord_sherlock&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Tommy Nguyen&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>React Native at Microsoft</title>
+      <link>http://localhost:1313/posts/talk-torino-hacknight-2021/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-torino-hacknight-2021/</guid>
+      <description>🗣 Talk (in 🇮🇹) @ &#xA;&lt;a href=&#34;https://torino.hacknight.it/2021/03/27/reactnativems/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Torino Hacknight #39&lt;/a&gt; &lt;em&gt;(not recorded, sorry)&lt;/em&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/react-native-at-microsoft&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides in 🇺🇸&lt;/a&gt;</description>
+    </item>
     <item>
       <title>The React Native Performance Compendium</title>
-      <link>/posts/notion-rn-perf-compendium/</link>
+      <link>http://localhost:1313/posts/notion-rn-perf-compendium/</link>
       <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/notion-rn-perf-compendium/</guid>
+      <guid>http://localhost:1313/posts/notion-rn-perf-compendium/</guid>
       <description>A Notion page with all the things I can find about React Native and performance. It&amp;rsquo;s constantly updated.</description>
     </item>
-    
+    <item>
+      <title>Finding a balance (in the times of CoVid-19)</title>
+      <link>http://localhost:1313/posts/talk-esnext-2020/</link>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-esnext-2020/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://esnextconf.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;ESNEXT 2020&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/finding-a-balance-in-the-times-of-covid-19&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>The 1.0 is a lie: The complexities of releasing React Native</title>
+      <link>http://localhost:1313/posts/talk-react-remote-summit-2020/</link>
+      <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-react-remote-summit-2020/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://reactsummit.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Summit Remote Edition 2020&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/the-1-dot-0-is-a-lie&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>React Native &amp; Open Source</title>
+      <link>http://localhost:1313/posts/talk-devtalk-2020/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-devtalk-2020/</guid>
+      <description>🗣 Talk (in 🇮🇹) @ &#xA;&lt;a href=&#34;https://italiancoders.it/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;ItalianCoders&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>Finding a balance</title>
+      <link>http://localhost:1313/posts/talk-wfhconf-2020/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-wfhconf-2020/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://community.nearform.com/wfh-conf&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;WFHConf 2020&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/finding-a-balance&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>Sustain E17: How Formidable Supports Open Source With Lorenzo Sciandra</title>
+      <link>http://localhost:1313/posts/podcast-sustain-oss/</link>
+      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-sustain-oss/</guid>
+      <description>🎙 Podcast - &#xA;&lt;a href=&#34;https://podcast.sustainoss.org/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Sustain OSS Podcast&lt;/a&gt; - Lorenzo Sciandra talks about being an Open Source maintainer, how Formidable provides Open Source, the benefits of open source, expanding open source, and who is behind Formidable.</description>
+    </item>
     <item>
       <title>Improving times for both iOS build and CI for a React Native app</title>
-      <link>/posts/gist-build-time-ci/</link>
+      <link>http://localhost:1313/posts/gist-build-time-ci/</link>
       <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/gist-build-time-ci/</guid>
+      <guid>http://localhost:1313/posts/gist-build-time-ci/</guid>
       <description>My experience of diving deep to improve some timings for an iOS React Native app.</description>
     </item>
-    
+    <item>
+      <title>React Native: The Past, the Present and the Future (v3)</title>
+      <link>http://localhost:1313/posts/talk-react-advanced-2019/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-react-advanced-2019/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://reactadvanced.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Advanced 2019&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/react-native-past-future-and-present&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>RNR 134: Maintaining Stress and Open Source</title>
+      <link>http://localhost:1313/posts/podcast-react-native-radio-2019/</link>
+      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-react-native-radio-2019/</guid>
+      <description>🎙 Podcast - In this episode of &#xA;&lt;a href=&#34;https://www.reactnativeradio.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Native Radio&lt;/a&gt;, the panel speaks with Lorenzo Sciandra about the stress of being an open source maintainer and what is being done to help maintainers.</description>
+    </item>
+    <item>
+      <title>Lorenzo Sciandra: React Native Is Not Perfect, But It Has an Amazing Gravitational Power</title>
+      <link>http://localhost:1313/posts/interview-gitnation/</link>
+      <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/interview-gitnation/</guid>
+      <description>🎤 Interview - This written interview was done from the folks at &#xA;&lt;a href=&#34;https://gitnation.org/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;GitNation&lt;/a&gt; ahead of my talk at React Advanced 2019.</description>
+    </item>
+    <item>
+      <title>All Hands On Deck: The RN Community Experience</title>
+      <link>http://localhost:1313/posts/talk-chainreact-2019/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-chainreact-2019/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://cr.infinite.red/past-conferences/2019&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Chain React 2019&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/all-hands-on-deck-the-rn-community-experience&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
     <item>
       <title>The New React Native Architecture Explained - part 4</title>
-      <link>/posts/formidable-new-arch-4/</link>
+      <link>http://localhost:1313/posts/formidable-new-arch-4/</link>
       <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/formidable-new-arch-4/</guid>
-      <description>My blogpost series for &lt;a href=&#34;https://formidable.com&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85-%EB%84%A4%EB%B2%88%EC%A7%B8-%ED%8C%8C%ED%8A%B8-f16875ff5b51&#34;&gt;Korean&lt;/a&gt;.</description>
+      <guid>http://localhost:1313/posts/formidable-new-arch-4/</guid>
+      <description>My blogpost series for &#xA;&lt;a href=&#34;https://formidable.com&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &#xA;&lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85-%EB%84%A4%EB%B2%88%EC%A7%B8-%ED%8C%8C%ED%8A%B8-f16875ff5b51&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Korean&lt;/a&gt;.</description>
     </item>
-    
     <item>
       <title>The New React Native Architecture Explained - part 3</title>
-      <link>/posts/formidable-new-arch-3/</link>
+      <link>http://localhost:1313/posts/formidable-new-arch-3/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/formidable-new-arch-3/</guid>
-      <description>My blogpost series for &lt;a href=&#34;https://formidable.com&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85-%EC%84%B8%EB%B2%88%EC%A7%B8-%ED%8C%8C%ED%8A%B8-ff8924b488a&#34;&gt;Korean&lt;/a&gt;.</description>
+      <guid>http://localhost:1313/posts/formidable-new-arch-3/</guid>
+      <description>My blogpost series for &#xA;&lt;a href=&#34;https://formidable.com&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &#xA;&lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85-%EC%84%B8%EB%B2%88%EC%A7%B8-%ED%8C%8C%ED%8A%B8-ff8924b488a&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Korean&lt;/a&gt;.</description>
     </item>
-    
+    <item>
+      <title>React Native: the past, the present and the future(v2)</title>
+      <link>http://localhost:1313/posts/talk-edinburgh-2019/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-edinburgh-2019/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.meetup.com/react-edinburgh/events/257031792/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;React Edinburgh - April 2019&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/react-native-the-past-the-present-and-the-future-v2&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
     <item>
       <title>The New React Native Architecture Explained - part 2</title>
-      <link>/posts/formidable-new-arch-2/</link>
+      <link>http://localhost:1313/posts/formidable-new-arch-2/</link>
       <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/formidable-new-arch-2/</guid>
-      <description>My blogpost series for &lt;a href=&#34;https://formidable.com&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85-%EB%91%90%EB%B2%88%EC%A7%B8-%ED%8C%8C%ED%8A%B8-eca6e439e49c&#34;&gt;Korean&lt;/a&gt;.</description>
+      <guid>http://localhost:1313/posts/formidable-new-arch-2/</guid>
+      <description>My blogpost series for &#xA;&lt;a href=&#34;https://formidable.com&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &#xA;&lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85-%EB%91%90%EB%B2%88%EC%A7%B8-%ED%8C%8C%ED%8A%B8-eca6e439e49c&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Korean&lt;/a&gt;.</description>
     </item>
-    
     <item>
       <title>The New React Native Architecture Explained - part 1</title>
-      <link>/posts/formidable-new-arch-1/</link>
+      <link>http://localhost:1313/posts/formidable-new-arch-1/</link>
       <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/formidable-new-arch-1/</guid>
-      <description>My blogpost series for &lt;a href=&#34;https://formidable.com&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88%EB%A1%9C%EC%9A%B4-react-native-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%84%A4%EB%AA%85-a80a60ec04d7&#34;&gt;Korean&lt;/a&gt;.</description>
+      <guid>http://localhost:1313/posts/formidable-new-arch-1/</guid>
+      <description>My blogpost series for &#xA;&lt;a href=&#34;https://formidable.com&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &#xA;&lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88%EB%A1%9C%EC%9A%B4-react-native-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%84%A4%EB%AA%85-a80a60ec04d7&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Korean&lt;/a&gt;.</description>
     </item>
-    
+    <item>
+      <title>🥓 === OSS - 10 things every maintainer should do to 💓open source</title>
+      <link>http://localhost:1313/posts/talk-webdeldn-2019/</link>
+      <pubDate>Mon, 18 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-webdeldn-2019/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.eventbrite.co.uk/e/webdeldn-22-oss-open-source-stories-from-the-trenches-tickets-58382130524?aff=ebdsoporgprofile&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;WEBdeLDN #22&lt;/a&gt; &lt;em&gt;(not recorded, sorry)&lt;/em&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/equals-equals-equals-oss-10-things-every-maintainer-should-do-to-open-source&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>React Native: the past, the present and the future</title>
+      <link>http://localhost:1313/posts/talk-norway-2019/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-norway-2019/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.meetup.com/reactjs-oslo-meetup/events/257381296/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;ReactJS Norway - January 2019&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/react-native-the-past-the-present-and-the-future&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt; - my first one ever!</description>
+    </item>
     <item>
       <title>I thought I understood Open Source. I was wrong</title>
-      <link>/posts/open-source-wrong/</link>
+      <link>http://localhost:1313/posts/open-source-wrong/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/open-source-wrong/</guid>
+      <guid>http://localhost:1313/posts/open-source-wrong/</guid>
       <description>Sharing my experience with learning how to do Open Source.</description>
     </item>
-    
     <item>
       <title>VSCode for React Native</title>
-      <link>/posts/vscode-react-native/</link>
+      <link>http://localhost:1313/posts/vscode-react-native/</link>
       <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/vscode-react-native/</guid>
+      <guid>http://localhost:1313/posts/vscode-react-native/</guid>
       <description>An opinionated list of extensions to get the most out of it.</description>
     </item>
-    
     <item>
       <title>Learning React Native: where to start</title>
-      <link>/posts/learning-react-native/</link>
+      <link>http://localhost:1313/posts/learning-react-native/</link>
       <pubDate>Thu, 02 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/learning-react-native/</guid>
+      <guid>http://localhost:1313/posts/learning-react-native/</guid>
       <description>A Medium blogpost to help developers getting started with React Native.</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guest Post on Kelset</title>
+    <link>http://localhost:1313/tags/guest-post/</link>
+    <description>Recent content in Guest Post on Kelset</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/guest-post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>4 years as a React Native OSS maintainer: a retrospective</title>
+      <link>http://localhost:1313/posts/gist-4-years-rn-retro/</link>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gist-4-years-rn-retro/</guid>
+      <description>A personal retrospective of being a maintainer for React Native for the past 4 years.</description>
+    </item>
+    <item>
+      <title>Improving times for both iOS build and CI for a React Native app</title>
+      <link>http://localhost:1313/posts/gist-build-time-ci/</link>
+      <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gist-build-time-ci/</guid>
+      <description>My experience of diving deep to improve some timings for an iOS React Native app.</description>
+    </item>
+    <item>
+      <title>The New React Native Architecture Explained - part 4</title>
+      <link>http://localhost:1313/posts/formidable-new-arch-4/</link>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/formidable-new-arch-4/</guid>
+      <description>My blogpost series for &#xA;&lt;a href=&#34;https://formidable.com&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &#xA;&lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85-%EB%84%A4%EB%B2%88%EC%A7%B8-%ED%8C%8C%ED%8A%B8-f16875ff5b51&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Korean&lt;/a&gt;.</description>
+    </item>
+    <item>
+      <title>The New React Native Architecture Explained - part 3</title>
+      <link>http://localhost:1313/posts/formidable-new-arch-3/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/formidable-new-arch-3/</guid>
+      <description>My blogpost series for &#xA;&lt;a href=&#34;https://formidable.com&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &#xA;&lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85-%EC%84%B8%EB%B2%88%EC%A7%B8-%ED%8C%8C%ED%8A%B8-ff8924b488a&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Korean&lt;/a&gt;.</description>
+    </item>
+    <item>
+      <title>The New React Native Architecture Explained - part 2</title>
+      <link>http://localhost:1313/posts/formidable-new-arch-2/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/formidable-new-arch-2/</guid>
+      <description>My blogpost series for &#xA;&lt;a href=&#34;https://formidable.com&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &#xA;&lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85-%EB%91%90%EB%B2%88%EC%A7%B8-%ED%8C%8C%ED%8A%B8-eca6e439e49c&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Korean&lt;/a&gt;.</description>
+    </item>
+    <item>
+      <title>The New React Native Architecture Explained - part 1</title>
+      <link>http://localhost:1313/posts/formidable-new-arch-1/</link>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/formidable-new-arch-1/</guid>
+      <description>My blogpost series for &#xA;&lt;a href=&#34;https://formidable.com&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;FormidableLabs&lt;/a&gt;. This article got also translated in &#xA;&lt;a href=&#34;https://medium.com/react-native-seoul/%EC%83%88%EB%A1%9C%EC%9A%B4-react-native-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%84%A4%EB%AA%85-a80a60ec04d7&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Korean&lt;/a&gt;.</description>
+    </item>
+    <item>
+      <title>I thought I understood Open Source. I was wrong</title>
+      <link>http://localhost:1313/posts/open-source-wrong/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/open-source-wrong/</guid>
+      <description>Sharing my experience with learning how to do Open Source.</description>
+    </item>
+    <item>
+      <title>VSCode for React Native</title>
+      <link>http://localhost:1313/posts/vscode-react-native/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vscode-react-native/</guid>
+      <description>An opinionated list of extensions to get the most out of it.</description>
+    </item>
+    <item>
+      <title>Learning React Native: where to start</title>
+      <link>http://localhost:1313/posts/learning-react-native/</link>
+      <pubDate>Thu, 02 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/learning-react-native/</guid>
+      <description>A Medium blogpost to help developers getting started with React Native.</description>
+    </item>
+  </channel>
+</rss>

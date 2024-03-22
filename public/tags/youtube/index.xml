@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>YouTube on Kelset</title>
+    <link>http://localhost:1313/tags/youtube/</link>
+    <description>Recent content in YouTube on Kelset</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
+    <lastBuildDate>Tue, 19 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/youtube/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>📹 How Depression Doesn&#39;t Define You | with Sara Vieira | debug:mind #4</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-04/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-04/</guid>
+      <description>In this episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) I chat with Sara Vieira, someone I’ve always looked up to. Sarah gets real about her fight with depression, sharing stories and insights that hit home about what depression really feels like. We dive into how it&amp;rsquo;s way more than just feeling sad and touch on the weird physical stuff that comes with it too. Sarah&amp;rsquo;s openness gives a peek into the struggle and recovery, showing it&amp;rsquo;s okay to talk about mental health and seek help. It’s a powerful convo that offers a bit of light and understanding for anyone facing similar battles.</description>
+    </item>
+    <item>
+      <title>📹 Dealing with PTSD in Tech and Healing from Trauma | with Matt Hargett | debug:mind #3</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-03/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-03/</guid>
+      <description>In this episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) I delve into mental health in the tech community with Matt Hargett (aka &amp;lsquo;syke&amp;rsquo;, ex-Sony, ex-Roblox, currently founder @ Rebecker Specialties). We explore the evolution of mental health awareness, the thin line between passion and burnout, and the impact of remote work on our well-being. Matt shares his journey with PTSD, underscoring the importance of recognizing signs and seeking help. Our conversation highlights the crucial role of support systems, the power of open discussions, and the need for personal growth in navigating mental health challenges in tech.</description>
+    </item>
+    <item>
+      <title>📹 Navigating Chronic Pain in the Tech World | with Jamie Birch | debug:mind #2</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-02/</link>
+      <pubDate>Tue, 30 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-02/</guid>
+      <description>In this episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) I delve into the often overlooked intersection of chronic pain and mental health in the tech industry with Jamie Birch (aka &amp;lsquo;LinguaBrowse&amp;rsquo;, TSC Chair of NativeScript), a software engineer who navigated a significant career transition due to chronic pain. We explore the importance of open conversations, support networks, and adapting work cultures to accommodate and understand chronic pain. Jamie shares personal insights on maintaining productivity and a positive outlook, emphasizing work-life balance, acceptance, and the role of tech in fostering accessibility. Join us as we shed light on the crucial link between physical well-being and mental health in our professional lives.</description>
+    </item>
+    <item>
+      <title>📹 Tech &amp; Vulnerability: Opening Up About Mental Health | with Nathan Walker | debug:mind #1</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-01/</link>
+      <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-01/</guid>
+      <description>In this episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) I dive into the often overlooked realm of mental health in tech. Joined by Nathan Walker (aka &amp;lsquo;wwwalkerrun&amp;rsquo;, Principal Software Engineer at nstudio and maintainer of Nativescript), we share our personal journeys and the critical importance of addressing mental wellness within our industry. We explore the power of vulnerability, the impact of work-life balance, and practical self-care strategies. Our goal is to spark conversations, reduce stigma, and encourage a culture of empathy and support in tech.</description>
+    </item>
+    <item>
+      <title>📹 Tech Burnout &amp; Mental Health: Big Tech Coders Tackle Your Qs | with Roberto Clapis | debug:mind #0</title>
+      <link>http://localhost:1313/posts/youtube-debug-mind-00/</link>
+      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/youtube-debug-mind-00/</guid>
+      <description>In this DEBUT episode of &amp;lsquo;debug:mind&amp;rsquo; (formerly &amp;lsquo;Untitled Mental Health Project&amp;rsquo;) - made for world mental health day 2023 - I, alongside Roberto (aka &amp;rsquo;empijei&amp;rsquo;, ex-Google engineer specialised in webspecs and infosec) , dive into the seldom-discussed but crucial topic of mental health in the tech industry by answering questions from our followers. We share personal experiences, tackle the effects of hustle culture, and offer strategies for achieving a healthier work-life balance. Our dialogue covers recognizing burnout signs, the importance of community support, and the invaluable role of professional mental health resources. Our goal? To spark conversations and encourage a more open, supportive environment for everyone in tech.</description>
+    </item>
+  </channel>
+</rss>
