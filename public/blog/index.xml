@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
-    <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Bit of Spring Cleaning</title>
+      <link>http://localhost:1313/blog/a-bit-of-spring-cleaning/</link>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/a-bit-of-spring-cleaning/</guid>
+      <description>Just a side update on some things I moved around.</description>
+    </item>
     <item>
       <title>My Guide for Crafting Tech Talks in 2024</title>
       <link>http://localhost:1313/blog/guide-craft-tech-talks-for-conferences-2024/</link>
