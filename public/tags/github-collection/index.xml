@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub Collection on Kelset</title>
+    <link>http://localhost:1313/tags/github-collection/</link>
+    <description>Recent content in GitHub Collection on Kelset</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
+    <lastBuildDate>Fri, 22 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/github-collection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The React Native Performance Compendium</title>
+      <link>http://localhost:1313/posts/github-job-hunting/</link>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/github-job-hunting/</guid>
+      <description>A simple collection of website and tools and tutorials and links and everything I could find around finding a role in tech. I hope it can help people have more success in their job hunts!</description>
+    </item>
+    <item>
+      <title>The React Native Community Map</title>
+      <link>http://localhost:1313/posts/github-rnc-map/</link>
+      <pubDate>Tue, 28 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/github-rnc-map/</guid>
+      <description>A GitHub page in which I&amp;rsquo;m trying to list all the places in which the React Native Community &amp;rsquo;exists&#39;.</description>
+    </item>
+    <item>
+      <title>Mental Health Resources</title>
+      <link>http://localhost:1313/posts/github-mental-health/</link>
+      <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/github-mental-health/</guid>
+      <description>A GitHub page with what I&amp;rsquo;d send you if we were to have a conversation about mental health.</description>
+    </item>
+  </channel>
+</rss>

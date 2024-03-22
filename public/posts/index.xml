@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
-    <lastBuildDate>Tue, 19 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The React Native Performance Compendium</title>
+      <link>http://localhost:1313/posts/github-job-hunting/</link>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/github-job-hunting/</guid>
+      <description>A simple collection of website and tools and tutorials and links and everything I could find around finding a role in tech. I hope it can help people have more success in their job hunts!</description>
+    </item>
     <item>
       <title>📹 How Depression Doesn&#39;t Define You | with Sara Vieira | debug:mind #4</title>
       <link>http://localhost:1313/posts/youtube-debug-mind-04/</link>
@@ -158,10 +165,10 @@
     </item>
     <item>
       <title>The React Native Community Map</title>
-      <link>http://localhost:1313/posts/notion-rnc-map/</link>
+      <link>http://localhost:1313/posts/github-rnc-map/</link>
       <pubDate>Tue, 28 Jun 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/notion-rnc-map/</guid>
-      <description>A Notion page in which I&amp;rsquo;m trying to list all the places in which the React Native Community &amp;rsquo;exists&amp;rsquo;. It&amp;rsquo;s constantly updated.</description>
+      <guid>http://localhost:1313/posts/github-rnc-map/</guid>
+      <description>A GitHub page in which I&amp;rsquo;m trying to list all the places in which the React Native Community &amp;rsquo;exists&#39;.</description>
     </item>
     <item>
       <title>4 years as a React Native OSS maintainer: a retrospective</title>
@@ -185,11 +192,11 @@
       <description>🎙 Podcast (in 🇮🇹) - S02E01 of &#xA;&lt;a href=&#34;https://open.spotify.com/show/1xNXGXiZzazwqKycTS8WyG&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Continuous Delivery&lt;/a&gt; by &#xA;&lt;a href=&#34;https://www.sparkfabrik.com/it/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;SparkFabrik&lt;/a&gt;</description>
     </item>
     <item>
-      <title>Managing my Mental Health</title>
-      <link>http://localhost:1313/posts/notion-mental-health/</link>
+      <title>Mental Health Resources</title>
+      <link>http://localhost:1313/posts/github-mental-health/</link>
       <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/notion-mental-health/</guid>
-      <description>A Notion page with what I&amp;rsquo;d send you if we were to have a conversation about mental health. It&amp;rsquo;s constantly updated.</description>
+      <guid>http://localhost:1313/posts/github-mental-health/</guid>
+      <description>A GitHub page with what I&amp;rsquo;d send you if we were to have a conversation about mental health.</description>
     </item>
     <item>
       <title>Improve all the repos – exploring Microsoft’s DevExp</title>
@@ -204,13 +211,6 @@
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/talk-torino-hacknight-2021/</guid>
       <description>🗣 Talk (in 🇮🇹) @ &#xA;&lt;a href=&#34;https://torino.hacknight.it/2021/03/27/reactnativems/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Torino Hacknight #39&lt;/a&gt; &lt;em&gt;(not recorded, sorry)&lt;/em&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/react-native-at-microsoft&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides in 🇺🇸&lt;/a&gt;</description>
-    </item>
-    <item>
-      <title>The React Native Performance Compendium</title>
-      <link>http://localhost:1313/posts/notion-rn-perf-compendium/</link>
-      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/notion-rn-perf-compendium/</guid>
-      <description>A Notion page with all the things I can find about React Native and performance. It&amp;rsquo;s constantly updated.</description>
     </item>
     <item>
       <title>Finding a balance (in the times of CoVid-19)</title>
