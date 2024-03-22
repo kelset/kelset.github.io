@@ -3,8 +3,6 @@ title: "Hey there, I'm Lorenzo 👋"
 layout: "simple"
 ---
 
-#
-
 ![header](/images/about-me-header.jpg)
 
 Welcome to my corner of the web! I’m a Senior Software Engineer at [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}}, a dedicated maintainer of React Native since 2018, and an advocate for mental health and open-source.
@@ -12,7 +10,6 @@ Welcome to my corner of the web! I’m a Senior Software Engineer at [Microsoft]
 ## My Journey 🚀
 
 Born and raised in Italy, I ventured to the vibrant city of London 🇬🇧 over half a decade ago, marking a new chapter in a journey that began with my Master's degree in Computer Engineering from Politecnico di Torino. With a decade's worth of keyboard warriorship, my path in the tech industry has been nothing short of a rollercoaster. From tackling industry-wide challenges to sharing insights at conferences and meetups, my passion lies in uplifting and empowering those around me. My commitment extends beyond technology; I am a staunch advocate for mental health within our industry. Openly sharing my experiences with burnout and therapy, I aim to destigmatize these important conversations and foster a more supportive and understanding tech community.
-
 
 ## Open Source and Beyond 🌐
 
@@ -41,11 +38,11 @@ And if you want to learn more about how we use React Native at Microsoft, you sh
 
 My passion extends beyond the realm of coding into various projects and advocacy initiatives that resonate with my core values:
 
-- 💬 [My Content Universe](/tags): Explore a curated collection of my engagements across the digital landscape, from insightful talks and blog posts to thought-provoking podcast interviews.
-- 🧠 [debug:mind](https://www.youtube.com/channel/UCbw5AHyRBNUFzTHCVuO5q9w?sub_confirmation=1): Join me as I converse with tech personalities about mental health, sharing stories and insights on my YouTube series.
-- 📚 [Managing Mental Health](https://www.notion.so/lifeiswhat/Managing-Mental-Health-adb0fb63a8144951b304bfb3bb7ed482): Dive into a carefully curated Notion board compiling valuable resources and insights at the intersection of mental health and technology.
-- 🌍 [React Native Community Map](https://www.notion.so/lifeiswhat/The-React-Native-Community-Map-07f3221c294d4c8ab65a13cf1dee6901): Discover the global spread and connective tissue of the React Native community through an interactive Notion map.
-
+- [debug:mind](https://www.youtube.com/channel/UCbw5AHyRBNUFzTHCVuO5q9w?sub_confirmation=1), my YouTube series where I talk with tech people about mental health.
+- [Talks and Podcasts and more](/tags), in this page you can find all my talks at confs, along with blogposts and podcasts and etc.
+- [Mental Health Resources](https://github.com/kelset/mental-health-resources), a GitHub page where I collect resources around mental health and tech.
+- [React Native Community Map](https://github.com/kelset/react-native-community-map), a GitHub page for mapping where the RN community is.
+- [Job Hunting Resources](https://github.com/kelset/job-hunting-resources), a GitHub page with resources to help people in tech finding jobs.
 
 ## Let's Connect 🤝
 
