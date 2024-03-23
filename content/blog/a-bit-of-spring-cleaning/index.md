@@ -20,8 +20,8 @@ So you might not know this _(unlikely, since you are on this website)_ that amon
 What I've done this week between a tick and a tock is to:
 
 - to unpublish the performance one. It was wildly outdated, and let's be real: today if you need to know anything performances you should just default to ask [@almouro](https://twitter.com/almouro) or check out [Callstack's Ultimate Performance Guide](https://www.callstack.com/ebook/the-ultimate-guide-to-react-native-optimization)
-- move the React Native Community map to its own GitHub repo ➡️ https://github.com/kelset/mental-health-resources
-- move the Mental Health resources collection to its own GitHub repo ➡️ https://github.com/kelset/react-native-community-map
+- move the React Native Community map to its own GitHub repo ➡️ https://github.com/kelset/react-native-community-map
+- move the Mental Health resources collection to its own GitHub repo ➡️ https://github.com/kelset/mental-health-resources
 - move to its own GitHub repo another Notion board that I did make a while back while I was mentoring university students, to help folks find jobs in tech ➡️ https://github.com/kelset/job-hunting-resources
 
 The advantages of having those boards over on Notion is that they were more "pretty" to look at, and it was easier for me to add something there (instead of having to make a commit on markdown and then push it up) BUT it came at the cost of making it harder for other people to contribute to them and let's be real the urls were awful.
