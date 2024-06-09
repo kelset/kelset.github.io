@@ -4,7 +4,7 @@
     <title>Content on Kelset</title>
     <link>http://localhost:1313/posts/</link>
     <description>Recent content in Content on Kelset</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
     <lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0000</lastBuildDate>
@@ -21,10 +21,10 @@
       <link>http://localhost:1313/posts/talk-qcon-2024/</link>
       <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/talk-qcon-2024/</guid>
-      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://qconlondon.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;QCon London 2024&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/the-1-dot-0-is-a-lie&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://qconlondon.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;QCon London 2024&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/adaptable-innovation-how-microsoft-leverages-react-native-for-strategic-advantage&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
     </item>
     <item>
-      <title>The React Native Performance Compendium</title>
+      <title>Job Hunting Resources</title>
       <link>http://localhost:1313/posts/github-job-hunting/</link>
       <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/github-job-hunting/</guid>

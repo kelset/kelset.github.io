@@ -4,11 +4,18 @@
     <title>Blog on Kelset</title>
     <link>http://localhost:1313/blog/</link>
     <description>Recent content in Blog on Kelset</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
-    <lastBuildDate>Fri, 22 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Closing The React Native Chapter</title>
+      <link>http://localhost:1313/blog/closing-the-react-native-chapter/</link>
+      <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/closing-the-react-native-chapter/</guid>
+      <description>Some personal announcement.</description>
+    </item>
     <item>
       <title>A Bit of Spring Cleaning</title>
       <link>http://localhost:1313/blog/a-bit-of-spring-cleaning/</link>

@@ -4,7 +4,7 @@
     <title>Podcast on Kelset</title>
     <link>http://localhost:1313/tags/podcast/</link>
     <description>Recent content in Podcast on Kelset</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
     <lastBuildDate>Wed, 04 Oct 2023 00:00:00 +0000</lastBuildDate>

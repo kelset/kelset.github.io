@@ -4,7 +4,7 @@
     <title>Around the web on Kelset</title>
     <link>http://localhost:1313/tags/</link>
     <description>Recent content in Around the web on Kelset</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
     <lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0000</lastBuildDate>
@@ -12,42 +12,42 @@
     <item>
       <title>Interview</title>
       <link>http://localhost:1313/tags/interview/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 11 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/interview/</guid>
       <description></description>
     </item>
     <item>
       <title>Talk</title>
       <link>http://localhost:1313/tags/talk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/talk/</guid>
       <description></description>
     </item>
     <item>
       <title>GitHub Collection</title>
       <link>http://localhost:1313/tags/github-collection/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/github-collection/</guid>
       <description></description>
     </item>
     <item>
       <title>YouTube</title>
       <link>http://localhost:1313/tags/youtube/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/youtube/</guid>
       <description></description>
     </item>
     <item>
       <title>Podcast</title>
       <link>http://localhost:1313/tags/podcast/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/podcast/</guid>
       <description></description>
     </item>
     <item>
       <title>Guest Post</title>
       <link>http://localhost:1313/tags/guest-post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/guest-post/</guid>
       <description></description>
     </item>
