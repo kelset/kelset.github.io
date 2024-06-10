@@ -83,6 +83,7 @@ I could have EASILY made this blog post 10x its current size; but I really tried
 These past 6 years have been unique, I know that for sure, and I’ll always look back on them with a lot of gratitude for all I’ve learned and how much they helped me grow into what I am today. I hope that I’ll be able to bring the best parts of it all with me into this new chapter.
 
 Don’t be a stranger,
+
 Lorenzo
 
 _(you can reach out to me via any of the links [on the main page](/))_
