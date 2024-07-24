@@ -5,7 +5,7 @@ layout: "simple"
 
 ![header](/images/about-me-header.jpg)
 
-Welcome to my corner of the web! I have been a Senior Software Engineer at [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}}, a dedicated maintainer of React Native during 2018-2024, and an advocate for mental health and open-source. I haven't shared yet what I'm doing next 😉
+I am currently working as a Technologist for the [Sovereign Tech Fund](https://www.sovereigntechfund.de), making open source more sustainable. Previously, I have been a Senior Software Engineer at [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}} and a dedicated maintainer of [React Native](https://reactnative.dev/) for 6+ years. I'm also an vocal advocate for mental health.
 
 ## My Journey 🚀
 
@@ -13,8 +13,7 @@ Born and raised in Italy, I ventured to the vibrant city of London 🇬🇧 over
 
 ## Open Source and Beyond 🌐
 
-My commitment to open source is more than just code; it's about fostering a supportive community and driving change. Here's a glimpse of my involvement:
-
+- A a technologist for STF, I works on initiatives to support and sustain the open source ecosystem, building on my extensive background in OSS maintenance.
 - As a maintainer of [`react-native`](https://reactnative.dev/) from January 2018 til June 2024, I've been involved in many ways in its evolution:
   - 🚀 Released approximately 50 versions of the [`react-native`](https://reactnative.dev/) package, navigating the complexities of various semver minors. The journey from [0.56](https://reactnative.dev/blog/2018/07/04/releasing-react-native-056) onwards has been nothing short of unpredictable. 🤯
   - 🤝 Co-driven the presence and coordination of Microsoft within the React Native ecosystem.
@@ -24,7 +23,7 @@ My commitment to open source is more than just code; it's about fostering a supp
 
 ### Worked on ⚙️
 
-Here are some of the things I've worked on over the years:
+Here are some of the things I've worked on as a software engineer and maintainer over the years:
 
 - [React Native](https://github.com/facebook/react-native), which enable you to create awesome cross-platform iOS and Android apps powered by Javascript.
 - [React Native Windows](https://github.com/microsoft/react-native-windows), what if I told you that we can use React Native for Windows as well?
@@ -43,6 +42,6 @@ My passion extends beyond the realm of coding into various projects and advocacy
 
 ## Let's Connect 🤝
 
-Curious to know more? I'm always open to connect, share, and collaborate. Feel free to dive into my [LinkedIn profile](https://www.linkedin.com/in/lorenzo-sciandra/){{< icon "linkedin" >}} for a deeper glimpse of my professional journey. If you're up for a chat or have any inquiries, don't hesitate to drop me an [email](mailto:notkelset@kelset.dev){{< icon "email" >}} or send a message via [Twitter DMs](https://twitter.com/kelset){{< icon "x-twitter" >}}. For a broader overview of my digital presence, head back to the [homepage](/) where all paths converge.
+I'm always open to connect, share, and collaborate. Feel free to dive into my [LinkedIn profile](https://www.linkedin.com/in/lorenzo-sciandra/){{< icon "linkedin" >}} for a deeper glimpse of my professional journey. If you're up for a chat or have any inquiries, don't hesitate to drop me an [email](mailto:notkelset@kelset.dev){{< icon "email" >}} or send a message via [Twitter DMs](https://twitter.com/kelset){{< icon "x-twitter" >}}. For a broader overview of my digital presence, head back to the [homepage](/) where all paths converge.
 
 ![footer](/images/about-me-footer.jpg)
