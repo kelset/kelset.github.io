@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
-    <lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mental Health in Tech: Overcoming Burnout and Stress</title>
+      <link>http://localhost:1313/posts/talk-frontend-queens-2024/</link>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-frontend-queens-2024/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.frontendqueens.com/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Frontend Queens&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/mental-health-in-tech-overcoming-burnout-and-stress-11151926-128c-415e-a8cf-205b97d0e405&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
     <item>
       <title>React Native and why Microsoft uses it for its own cross-platform development</title>
       <link>http://localhost:1313/posts/interview-devclass-2024/</link>
