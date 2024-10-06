@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
-    <lastBuildDate>Thu, 15 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lorenzo Sciandra and Mirko Swillus on STF&#39;s &#39;Fellowship for Maintainers&#39; Program</title>
+      <link>http://localhost:1313/posts/podcast-sustain-oss-2024/</link>
+      <pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/podcast-sustain-oss-2024/</guid>
+      <description>🎙 Podcast - &#xA;&lt;a href=&#34;https://podcast.sustainoss.org/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Sustain OSS Podcast&lt;/a&gt; - In this episode of Sustain, host Richard Littauer and co-host Abby Mayes are joined by Lorenzo Sciandra and Mirko Swillus from the Sovereign Tech Fund (STF) to discuss the launch of the &amp;lsquo;Fellowship for Maintainers&amp;rsquo; program. Funded by the German government, STF is dedicated to supporting open-source sustainability by funding maintainers, especially those who work on multiple projects. Lorenzo and Mirko explain how the program aims to bridge funding gaps for solo maintainers, provide mentorship, and ensure global inclusion. The episode also highlights the program&amp;rsquo;s goals, the application process, and the broader impact on global open source sustainability. Hit download now to hear more!</description>
+    </item>
     <item>
       <title>Mental Health in Tech: Overcoming Burnout and Stress</title>
       <link>http://localhost:1313/posts/talk-frontend-queens-2024/</link>
@@ -183,13 +190,6 @@
       <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/podcast-continuous-dev/</guid>
       <description>🎙 Podcast (in 🇮🇹) - S02E01 of &#xA;&lt;a href=&#34;https://open.spotify.com/show/1xNXGXiZzazwqKycTS8WyG&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Continuous Delivery&lt;/a&gt; by &#xA;&lt;a href=&#34;https://www.sparkfabrik.com/it/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;SparkFabrik&lt;/a&gt;</description>
-    </item>
-    <item>
-      <title>Mental Health Resources</title>
-      <link>http://localhost:1313/posts/github-mental-health/</link>
-      <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/github-mental-health/</guid>
-      <description>A GitHub page with what I&amp;rsquo;d send you if we were to have a conversation about mental health.</description>
     </item>
     <item>
       <title>Improve all the repos – exploring Microsoft’s DevExp</title>

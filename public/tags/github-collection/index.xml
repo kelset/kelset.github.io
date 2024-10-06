@@ -23,12 +23,5 @@
       <guid>http://localhost:1313/posts/github-rnc-map/</guid>
       <description>A GitHub page in which I&amp;rsquo;m trying to list all the places in which the React Native Community &amp;rsquo;exists&#39;.</description>
     </item>
-    <item>
-      <title>Mental Health Resources</title>
-      <link>http://localhost:1313/posts/github-mental-health/</link>
-      <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/github-mental-health/</guid>
-      <description>A GitHub page with what I&amp;rsquo;d send you if we were to have a conversation about mental health.</description>
-    </item>
   </channel>
 </rss>
