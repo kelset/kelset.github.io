@@ -7,8 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/).</copyright>
-    <lastBuildDate>Thu, 15 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/talk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mental Health in Tech - OSS edition</title>
+      <link>http://localhost:1313/posts/talk-oggcamp-2024-mental-health/</link>
+      <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-oggcamp-2024-mental-health/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.oggcamp.org/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;OggCamp 2024&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/mental-health-in-tech-oss-edition&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>Sustaining OSS</title>
+      <link>http://localhost:1313/posts/talk-oggcamp-2024-stf/</link>
+      <pubDate>Sat, 12 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talk-oggcamp-2024-stf/</guid>
+      <description>🗣 Talk @ &#xA;&lt;a href=&#34;https://www.oggcamp.org/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;OggCamp 2024&lt;/a&gt; - &#xA;&lt;a href=&#34;https://speakerdeck.com/kelset/sustaining-oss&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;slides&lt;/a&gt;</description>
+    </item>
     <item>
       <title>Mental Health in Tech: Overcoming Burnout and Stress</title>
       <link>http://localhost:1313/posts/talk-frontend-queens-2024/</link>
