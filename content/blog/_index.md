@@ -1,5 +1,5 @@
 ---
-title: "Blog"
+title: "blog"
 
 cascade:
   showEdit: false

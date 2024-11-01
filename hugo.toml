@@ -1,6 +1,6 @@
 baseURL = "https://kelset.dev/"
 languageCode = "en"
-title = 'Kelset'
+title = 'kelset'
 logo = "profile.png"
 copyright = "© 2024 Lorenzo Sciandra. Hosted on [GitHub](https://github.com/kelset/kelset.github.io), deployed with [Netlify](https://www.netlify.com/)."
 description = "Lorenzo Sciandra's personal website."

@@ -16,18 +16,18 @@ url = "https://debug-mind.com/"
 weight = 10
 
 [[main]]
-name = "Blog"
+name = "blog"
 pageRef = "blog"
 weight = 20
 
 [[main]]
-name = "Around the web"
+name = "talks and podcasts and stuff"
 pageRef = "tags"
 weight = 30
 
 
 [[main]]
-name = "About me"
+name = "about"
 pageRef = "about-me"
 weight = 40
 
