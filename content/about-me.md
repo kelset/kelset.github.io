@@ -5,7 +5,7 @@ layout: "simple"
 
 ![header](/images/about-me-header.jpg)
 
-I am currently working as a Technologist for the [Sovereign Tech Fund](https://www.sovereigntechfund.de), making open source more sustainable. Previously, I have been a Senior Software Engineer at [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}} and a dedicated maintainer of [React Native](https://reactnative.dev/) for 6+ years. I'm also an vocal advocate for mental health.
+I am currently working as a Technologist for the [Sovereign Tech Agency](https://www.sovereign.tech/), making open source more sustainable. Previously, I have been a Senior Software Engineer at [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}} and a dedicated maintainer of [React Native](https://reactnative.dev/) for 6+ years. I'm also an vocal advocate for mental health.
 
 ## My Journey 🚀
 

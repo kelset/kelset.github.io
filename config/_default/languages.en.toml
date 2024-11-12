@@ -9,7 +9,7 @@ dateFormat = "2 January 2006"
 
 [params.author]
 name = "Lorenzo 'kelset' Sciandra"
-bio = "Lorenzo Sciandra is a Technologist for the Sovereign Tech Fund. Previously, he was a Senior Software Engineer at Microsoft and has been a core maintainer of React Native from 2018 'til 2024. He has led significant initiatives and collaborations in the React Native ecosystem and is a passionate advocate for mental health in the tech industry."
+bio = "Lorenzo Sciandra is a Technologist for the Sovereign Tech Agency. Previously, he was a Senior Software Engineer at Microsoft and has been a core maintainer of React Native from 2018 'til 2024. He has led significant initiatives and collaborations in the React Native ecosystem and is a passionate advocate for mental health in the tech industry."
 headline = "Open Source and Mental Health"
 image = "profile.png"
 links = [
