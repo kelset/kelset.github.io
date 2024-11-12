@@ -9,7 +9,7 @@ _build:
 
 ## Introduction
 
-Last week was **a week** (honestly, it's been **a year** or even longer 🫠). Several events have unfolded that scare, concern, and sadden me—but precisely because of these, I've finally reached a breaking point.
+Last week was **a week** 🫠. Several events have unfolded that scare, concern, and sadden me—but precisely because of these, I've finally reached a breaking point.
 
 I've long been aware of how some of the biggest social networks use their algorithms and UX implementations to serve their monetary goals (if you need a primer, check out [this YouTube video](https://www.youtube.com/watch?v=4maJty0vQjI)). And in particular, over the past few months, it has become crystal clear how some platforms have been taking political stances, and how this has played out—mostly for the worse, in my opinion ([source 1](https://www.platformer.news/x-election-elon-musk-voter-fraud-misinformation/), [source 2](https://www.washingtonpost.com/technology/2024/10/16/instagram-limits-political-content-shadowban-election-posts/), [source 3](https://www.usermag.co/p/algorithms-are-making-political-speech)).
 
