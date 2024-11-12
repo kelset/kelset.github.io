@@ -14,12 +14,10 @@ headline = "Open Source and Mental Health"
 image = "profile.png"
 links = [
   {github = "https://github.com/kelset"},
-  {linkedin = "https://www.linkedin.com/in/lorenzo-sciandra/"},
-  {x-twitter = "https://twitter.com/kelset"},
   {bluesky = "https://bsky.app/profile/kelset.dev"},
   {mastodon = "https://mastodon.online/@kelset"},
-  {threads = "https://www.threads.net/@kelset.dev"},
   {youtube = "https://www.youtube.com/@kelset"},
+  {linkedin = "https://www.linkedin.com/in/lorenzo-sciandra/"},
   {reddit = "https://www.reddit.com/user/kelsetdev"},
   {email = "mailto:notkelset@kelset.dev"},
 ]

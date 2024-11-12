@@ -36,7 +36,7 @@ robots = "all"
   showTableOfContents = true
   showTaxonomies = false
   showWordCount = false
-  sharingLinks = ["twitter", "reddit", "linkedin", "email"]
+  # sharingLinks = ["reddit", "linkedin", "email"]
 
 [list]
   showBreadcrumbs = false

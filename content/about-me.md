@@ -41,6 +41,6 @@ My passion extends beyond the realm of coding into various projects and advocacy
 
 ## Let's Connect 🤝
 
-I'm always open to connect, share, and collaborate. Feel free to dive into my [LinkedIn profile](https://www.linkedin.com/in/lorenzo-sciandra/){{< icon "linkedin" >}} for a deeper glimpse of my professional journey. If you're up for a chat or have any inquiries, don't hesitate to drop me an [email](mailto:notkelset@kelset.dev){{< icon "email" >}} or send a message via [Twitter DMs](https://twitter.com/kelset){{< icon "x-twitter" >}}. For a broader overview of my digital presence, head back to the [homepage](/) where all paths converge.
+I'm always open to connect, share, and collaborate. Feel free to dive into my [LinkedIn profile](https://www.linkedin.com/in/lorenzo-sciandra/){{< icon "linkedin" >}} for a deeper glimpse of my professional journey. If you're up for a chat or have any inquiries, don't hesitate to drop me an [email](mailto:notkelset@kelset.dev){{< icon "email" >}} or send a message via [Bluesky DMs](https://bsky.app/profile/kelset.dev){{< icon "bluesky" >}}. For a broader overview of my digital presence, head back to the [homepage](/) where all paths converge.
 
 ![footer](/images/about-me-footer.jpg)
