@@ -21,13 +21,13 @@ pageRef = "blog"
 weight = 20
 
 [[main]]
-name = "talks and podcasts and stuff"
+name = "talks and podcasts"
 pageRef = "tags"
 weight = 30
 
 
 [[main]]
-name = "about"
+name = "about me"
 pageRef = "about-me"
 weight = 40
 
