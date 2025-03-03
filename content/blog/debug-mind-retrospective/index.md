@@ -7,7 +7,7 @@ _build:
   list: "local"
 ---
 
-_Sooooooooooo... I’ve been wrestling with this retrospective for two months now. I wanted it out by the end of January, but, welp, here we are. After ~3~ ~4~ 5 completely different drafts I couldn’t settle on a single, perfect structure, so I rolled back to a pretty basic flow: first my personal reflections, then the practical stuff on how to create a podcast._
+_Sooooooooooo... I’ve been wrestling with this retrospective for two months now. I wanted it out by the end of January, but, welp, here we are. After ~3~ ~4~ 5 completely different drafts I couldn’t settle on a single, perfect structure, so I rolled back to a pretty basic flow: first my personal reflections, then the practical stuff on how to create a podcast. Enjoy!_
 
 > _and if for some reason you are here without knowing what debug:mind is, please [check it out](https://debug-mind.com) and subscribe on YT 😘_
 
@@ -21,7 +21,7 @@ I did it for two reasons: first, I felt we needed more open conversations about 
 
 ### The numbers section
 
-Now, if we look at the numbers, there were [14 full episodes](https://www.youtube.com/playlist?list=PLiD6R_aXkpLiMfS2YrhSgtSj09JJCaP2y) and 64 shorts, with around 18.3K total YouTube views and 218 subscribers. That might not wow everyone, but as a fresh YouTube account with 0 subscribers, it’s not bad. The [pilot episode](https://www.youtube.com/watch?v=zBkHoK235CI&list=PLiD6R_aXkpLiMfS2YrhSgtSj09JJCaP2y&index=16)—released on World Mental Health Day 2023—hit 825 views, which is still the highest to date. But more than the stats, I’m especially proud of the diversity in our conversations and guests. Of the 14 episodes, five featured people from underrepresented groups in tech, which is still fairly good, though I wish I could’ve done more. We also covered a wide range of mental health experiences—from PTSD and autism to ADHD and depression—and while a few episodes fell through when guests pulled back or never replied, I did my best to keep things inclusive overall.
+Now, if we look at the numbers, there were [14 full episodes](https://www.youtube.com/playlist?list=PLiD6R_aXkpLiMfS2YrhSgtSj09JJCaP2y) and 64 shorts, with around 18.3K total YouTube views and 217 subscribers. That might not wow everyone, but as a fresh YouTube account with 0 subscribers, it’s not bad. The [pilot episode](https://www.youtube.com/watch?v=zBkHoK235CI&list=PLiD6R_aXkpLiMfS2YrhSgtSj09JJCaP2y&index=16)—released on World Mental Health Day 2023—hit 830 views, which is still the highest to date. But more than the stats, I’m especially proud of the diversity in our conversations and guests. Of the 14 episodes, five featured people from underrepresented groups in tech, which is still fairly good, though I wish I could’ve done more. We also covered a wide range of mental health experiences—from PTSD and autism to ADHD and depression—and while a few episodes fell through when guests pulled back or never replied, I did my best to keep things inclusive overall.
 
 Side note: I recently ran across a [BBC article](https://www.bbc.co.uk/future/article/20250213-youtube-at-20-a-computer-that-drunk-dials-online-videos-reveals-statistics-that-google-doesnt-want-you-to-know) that points out most YouTube videos get fewer than 500 views—4% never see a single play. That perspective makes me feel even better about where I landed, even if my numbers aren’t massive in the grand scheme.
 
@@ -41,9 +41,9 @@ For now, I’m just happy this project happened, and it will now exists as-is ou
 
 ---
 
-## Part 2: The Practical Bits. If You Want To Podcast, Read This
+## Part 2: The Practical Bits. If You Want To Podcast, Do This
 
-In general, podcasting is a marathon, so set a sustainable approach and don’t be afraid to adapt and evolve over time. Now, about things to do:
+I learned a lot in the past year and a half, and I'm trying to condense here all the strategies. Of course, it's not a size if all and, in general, podcasting is a marathon, so set a sustainable approach and don’t be afraid to adapt and evolve over time. Now, let's get started:
 
 ### 0) Define Your Purpose and Format
 
@@ -77,3 +77,5 @@ In general, podcasting is a marathon, so set a sustainable approach and don’t 
 ---
 
 One final note: if you made it this far, thank you for joining me on this ride—whether you watched every episode, shared a short, or just followed from afar. Your support kept me going whenever things got tough, and I can’t thank you enough. And one final-final massive thank you to Roberto, Nathan, Jamie, Matt, Sara, Rachel, Mike, Anisha, Kitze, Andrei, Aleks, Emad, Alex and Parul - without whom this would have not happened.
+
+And as always, take care of yourself.
