@@ -43,7 +43,9 @@ For now, I’m just happy this project happened, and it will now exists as-is ou
 
 ## Part 2: The Practical Bits. If You Want To Podcast, Do This
 
-I learned a lot in the past year and a half, and I'm trying to condense here all the strategies. Of course, it's not a size if all and, in general, podcasting is a marathon, so set a sustainable approach and don’t be afraid to adapt and evolve over time. Now, let's get started:
+I learned a lot in the past year and a half, and I'm trying to condense here all the strategies. Of course, it's not a size-fit-all and, in general, podcasting is a marathon, so set a sustainable approach and don’t be afraid to adapt and evolve over time.
+
+Now, let's get started:
 
 ### 0) Define Your Purpose and Format
 
