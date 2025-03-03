@@ -9,15 +9,15 @@ dateFormat = "2 January 2006"
 
 [params.author]
 name = "Lorenzo 'kelset' Sciandra"
-bio = "Lorenzo Sciandra is a technologist, mental health advocate, and open-source contributor. A core maintainer of React Native from 2018 to 2024, he has driven key collaborations across the ecosystem, including at Microsoft and the Sovereign Tech Fund. Lorenzo is passionate about fostering community engagement, sustaining open source, and elevating conversations around mental health in tech. Currently taking time to recharge, he’s always open to discussions about React Native, complex codebases, and open-source innovation."
+bio = "Lorenzo Sciandra is a Senior Software Engineer and mental health/open-source advocate. From 2018 to 2024, he served as a core maintainer of React Native, and spent four years at Microsoft driving its adoption both internally and across the wider community. More recently, he contributed to open-source sustainability at the Sovereign Tech Fund. Currently taking time to recharge, but always happy to open a call and chat."
 headline = "Open Source, Mental Health and React Native"
 image = "profile.png"
 links = [
-  {github = "https://github.com/kelset"},
-  {bluesky = "https://bsky.app/profile/kelset.dev"},
-  {mastodon = "https://mastodon.online/@kelset"},
-  {youtube = "https://www.youtube.com/@kelset"},
-  {linkedin = "https://www.linkedin.com/in/lorenzo-sciandra/"},
-  {reddit = "https://www.reddit.com/user/kelsetdev"},
-  {email = "mailto:notkelset@kelset.dev"},
+  { github = "https://github.com/kelset" },
+  { bluesky = "https://bsky.app/profile/kelset.dev" },
+  { mastodon = "https://mastodon.online/@kelset" },
+  { youtube = "https://www.youtube.com/@kelset" },
+  { linkedin = "https://www.linkedin.com/in/lorenzo-sciandra/" },
+  { reddit = "https://www.reddit.com/user/kelsetdev" },
+  { email = "mailto:notkelset@kelset.dev" },
 ]
