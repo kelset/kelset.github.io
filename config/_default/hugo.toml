@@ -5,7 +5,7 @@
 # baseURL = "https://your_domain.com/"
 defaultContentLanguage = "en"
 
-enableRobotsTXT = true
+enableRobotsTXT = false
 summaryLength = 0
 
 [outputs]
