@@ -9,7 +9,7 @@ dateFormat = "2 January 2006"
 
 [params.author]
 name = "Lorenzo 'kelset' Sciandra"
-bio = "Lorenzo Sciandra is a Senior Software Engineer specializing in ecosystem-scale impact and open source leadership. As a React Native core maintainer (2018-2024), he shaped a framework used by millions of developers, leading 20+ releases and fostering collaboration between Meta, Microsoft, and the community. At Microsoft, he drove strategic adoption across Office 365, and later contributed to open-source sustainability at the Sovereign Tech Fund. Currently consulting independently while exploring leadership opportunities."
+bio = "Lorenzo Sciandra is a Senior Software Engineer specializing in ecosystem-scale impact and open source leadership. As a React Native core maintainer (2018-2024), he shaped a framework used by millions of developers, leading 20+ releases and fostering collaboration between Meta, Microsoft, and the community. At Microsoft, he drove strategic adoption and worked on key feature across the main Microsoft apps (Outlook, Teams, Office), and later contributed to open-source sustainability at the Sovereign Tech Fund. Currently consulting independently while exploring leadership opportunities."
 headline = "Experienced Software Engineer | Open Source Leader | Technical Strategist | Speaker"
 image = "profile.png"
 links = [
