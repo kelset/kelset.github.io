@@ -56,7 +56,7 @@ Consider researching these approaches to see which resonates with you.
 
 ## Actually Finding The Therapist
 
-Once you have decided on all the above, it's finally actually time to look for a therapist. It might surprise you, but the best way I've found is to use a good ol' search engine, and find the websites of the single studios or practitioners in my general area. Use those to find someone that aligns with the selections you made ealier - and then then leverage the fact that most therapists offer an initial free session, which is an excellent opportunity to assess compatibility.
+Once you have decided on all the above, it's finally actually time to look for a therapist. It might surprise you, but the best way I've found is to use a good ol' search engine, and find the websites of the single studios or practitioners in my general area. Use those to find someone that aligns with the selections you made earlier - and then leverage the fact that most therapists offer an initial free session, which is an excellent opportunity to assess compatibility.
 
 Unless there's clear incompatibility right from the get-go, I recommend committing to at least 3/4 sessions to truly gauge the relationship you are creating with this other person and the effectiveness of the therapy type. Trust the therapist about the frequency (ex. weekly, every other week, etc.).
 
