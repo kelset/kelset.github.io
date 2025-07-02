@@ -2,6 +2,7 @@
 
 # production
 /public
+/resources/_gen
 
 # misc
 .DS_Store
