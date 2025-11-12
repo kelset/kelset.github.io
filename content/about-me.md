@@ -7,20 +7,14 @@ layout: "simple"
 
 ## Bio
 
-I'm Lorenzo Sciandra—a senior software engineer who thrives at the intersection of technical excellence and ecosystem-scale impact. Over the past decade, I've built my career around a unique combination: deep engineering expertise, open source leadership, and the ability to drive change across massive developer communities.
+I'm Lorenzo Sciandra, a staff engineer at [Shopify](https://www.shopify.com) (building [Shop app](https://shop.app)) who thrives at the intersection of technical excellence and ecosystem‑scale impact. Over the past decade, I've combined deep engineering, open‑source leadership, and cross‑company coordination to ship durable outcomes.
 
-As a [React Native](https://reactnative.dev/) core maintainer and releaser from 2018 to 2024, I helped shape a framework used by millions of developers worldwide—handling 1,000+ issues, authoring 100+ PRs, and leading 20+ releases that directly impacted apps serving hundreds of millions of users. This wasn't just about writing code; it was about orchestrating collaboration between Meta, Microsoft, Amazon, and countless community contributors while maintaining the stability of a platform that powers everything from Facebook to major enterprise applications.
+From 2018 to 2024 I served as a [React Native](https://reactnative.dev/) core maintainer and releaser, handling 1,000+ issues, authoring 100+ PRs, and leading 20+ releases used by millions of developers. That work was as much about coordination across Meta, Microsoft, Amazon, and the wider community as it was about code.
 
-At [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}}, I operated as both engineer and strategic bridge-builder, driving React Native adoption across Office 365, Outlook, and Skype while fostering partnerships that strengthened the entire ecosystem. I led release stabilization efforts, established cross-company best practices, and represented Microsoft at industry conferences—work that required equal parts technical depth and stakeholder navigation.
+At [Microsoft](https://www.microsoft.com/en-gb/) {{< icon "microsoft" >}}, I worked as both engineer and bridge‑builder, driving React Native adoption across Office 365, Outlook, and Skype, establishing cross‑company best practices, and representing the work at industry events.
 
-Most recently, I contributed to the [Sovereign Tech Agency](https://www.sovereign.tech/), focusing on open source sustainability and supporting critical infrastructure projects that underpin the modern web. This role reinforced my belief that technology's greatest impact comes from building systems and communities that scale far beyond any individual contribution.
+In 2024 I contributed to the [Sovereign Tech Fund](https://www.sovereign.tech/), supporting open‑source sustainability and critical infrastructure projects. That engagement concluded at the end of 2024. I then took a short sabbatical in early 2025, did a period of independent consulting, and in August 2025 joined Shopify as a staff engineer on the Shop app.
 
-Beyond the technical work, I'm a passionate advocate for mental health in tech, hosting the [debug:mind](https://debug-mind.com) podcast and speaking at 20+ industry events. I believe our industry's future depends not just on what we build, but how we build it—and who we support along the way. This perspective earned recognition through awards like the OpenUK ["Next Generation Open Technology Leaders"](https://openuk.uk/community/openuk-honours-lists/2022honourslist/) list.
+Beyond the technical work, I'm a long‑time advocate for mental health in tech, hosting the [debug:mind](https://debug-mind.com) podcast and speaking at 20+ industry events. I’ve been recognized on the OpenUK ["Next Generation Open Technology Leaders"](https://openuk.uk/community/openuk-honours-lists/2022honourslist/) list.
 
-### What's Next
-
-I'm currently collaborating as an independent consultant with startups and established companies, applying my experience in performance optimization, architectural strategy, and open source best practices. I'm also exploring opportunities for my next permanent role—ideally something that combines technical leadership with broader organizational impact.
-
-If you're working on complex technical challenges, building developer-facing products, or navigating open source strategy at scale, I'd love to connect. Reach out at [notkelset@kelset.dev](mailto:notkelset@kelset.dev) or find me on [LinkedIn](https://www.linkedin.com/in/lorenzo-sciandra).
-
-Whether you're looking for technical expertise, strategic guidance, or someone who understands how to build sustainable communities around technology, let's explore how we might work together!
+If you’d like to connect, reach me at [notkelset@kelset.dev](mailto:notkelset@kelset.dev) or on [LinkedIn](https://www.linkedin.com/in/lorenzo-sciandra). I occasionally mentor maintainers and contribute to OSS where I can.
