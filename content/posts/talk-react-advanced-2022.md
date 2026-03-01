@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [React Advanced 2022](https://reactadvanced.com/) - [slide
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

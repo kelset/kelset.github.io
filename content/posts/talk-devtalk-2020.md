@@ -6,7 +6,7 @@ summary: "🗣 Talk (in 🇮🇹) @ [ItalianCoders](https://italiancoders.it/)"
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

@@ -5,7 +5,7 @@ externalUrl: "https://gist.github.com/kelset/2eb61161a68d1ab35337d1eaa9a05e78"
 summary: "My experience of diving deep to improve some timings for an iOS React Native app."
 tags: ["Guest Post"]
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

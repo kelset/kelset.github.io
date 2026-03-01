@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [WEBdeLDN #22](https://www.eventbrite.co.uk/e/webdeldn-22-
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

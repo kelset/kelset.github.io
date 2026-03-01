@@ -2,7 +2,7 @@
 title: "Choosing Community Over Chaos"
 date: 2024-11-12
 summary: "I've been reflecting on social media, algorithms, and recent events, and have decided to change how I engage online."
-_build:
+build:
   render: "false"
   list: "local"
 ---

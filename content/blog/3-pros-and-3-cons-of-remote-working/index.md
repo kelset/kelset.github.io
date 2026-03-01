@@ -2,7 +2,7 @@
 title: "3 Pros And 3 Cons (After 3 Years) Of Remote Working"
 date: 2024-02-08
 summary: "Some cheeky reflections on being fully remote."
-_build:
+build:
   render: "false"
   list: "local"
 ---

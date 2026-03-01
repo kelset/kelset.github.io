@@ -2,7 +2,7 @@
 title: "My Guide for Crafting Tech Talks in 2024"
 date: 2024-02-15
 summary: "My process and self-imposed rules for writing tech talks. Because it's 2024, it's also a GPT you can play with."
-_build:
+build:
   render: "false"
   list: "local"
 ---

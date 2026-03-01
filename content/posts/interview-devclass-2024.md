@@ -5,7 +5,7 @@ externalUrl: "https://devclass.com/2024/04/11/react-native-and-why-microsoft-use
 summary: "🎤 Interview with [Tim Anderson](https://twitter.com/timanderson) - happened during [QCon London 2024](https://qconlondon.com/) where I went as a speaker."
 tags: ["Interview"]
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

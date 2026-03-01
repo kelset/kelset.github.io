@@ -6,7 +6,7 @@ summary: "🗣 Talk (in 🇮🇹) @ [Torino Hacknight #39](https://torino.hackni
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

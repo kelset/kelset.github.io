@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [Shenkar College](https://www.shenkar.ac.il/en) as a guest
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

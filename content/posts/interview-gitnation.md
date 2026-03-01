@@ -5,7 +5,7 @@ externalUrl: "https://dev.to/gitnation/lorenzo-sciandra-react-native-is-not-perf
 summary: "🎤 Interview - This written interview was done from the folks at [GitNation](https://gitnation.org/) ahead of my talk at React Advanced 2019."
 tags: ["Interview"]
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

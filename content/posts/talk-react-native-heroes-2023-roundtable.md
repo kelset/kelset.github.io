@@ -6,7 +6,7 @@ summary: "🗣 Roundtable (in 🇬🇧) @ [React Native Heroes 2023](https://rea
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

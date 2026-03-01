@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [React Native Wroclaw meetup](https://beta.guild.host/even
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

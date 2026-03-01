@@ -5,7 +5,7 @@ externalUrl: "https://github.com/kelset/react-native-community-map"
 summary: "A GitHub page in which I'm trying to list all the places in which the React Native Community 'exists'."
 tags: ["GitHub Collection"]
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

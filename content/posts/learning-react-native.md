@@ -5,7 +5,7 @@ externalUrl: "https://medium.com/hackernoon/learning-react-native-where-to-start
 summary: "A Medium blogpost to help developers getting started with React Native."
 tags: ["Guest Post"]
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

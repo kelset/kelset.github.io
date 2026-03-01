@@ -6,7 +6,7 @@ summary: "🎙 Podcast - Episode 16 of [The React Native Show Podcast](https://w
 tags: ["Podcast"]
 
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

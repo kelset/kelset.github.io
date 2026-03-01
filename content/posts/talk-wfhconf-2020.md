@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [WFHConf 2020](https://community.nearform.com/wfh-conf) - 
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

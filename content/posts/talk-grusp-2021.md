@@ -6,7 +6,7 @@ summary: "🗣 Talk (in 🇮🇹) @ [reactnative @localhost 2021](https://www.gr
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

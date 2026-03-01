@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [ESNEXT 2020](https://esnextconf.com/) - [slides](https://
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

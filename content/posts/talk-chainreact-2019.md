@@ -5,7 +5,7 @@ externalUrl: "https://www.youtube.com/watch?v=OVzMw3vYrDI"
 summary: "🗣 Talk @ [Chain React 2019](https://cr.infinite.red/past-conferences/2019) - [slides](https://speakerdeck.com/kelset/all-hands-on-deck-the-rn-community-experience)"
 showReadingTime: false
 tags: ["Talk"]
-_build:
+build:
   render: "false"
   list: "local"
 ---

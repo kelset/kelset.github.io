@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [QCon London 2024](https://qconlondon.com/) - [slides](htt
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

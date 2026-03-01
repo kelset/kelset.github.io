@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [React Edinburgh - April 2019](https://www.meetup.com/reac
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

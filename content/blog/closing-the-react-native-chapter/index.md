@@ -2,7 +2,7 @@
 title: "Closing The React Native Chapter"
 date: 2024-06-10
 summary: "Some personal announcement."
-_build:
+build:
   render: "false"
   list: "local"
 ---

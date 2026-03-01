@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [React Native Europe 2021](https://www.react-native.eu/all
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

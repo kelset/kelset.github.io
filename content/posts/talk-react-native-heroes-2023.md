@@ -6,7 +6,7 @@ summary: "🗣 Talk (in 🇮🇹) @ [React Native Heroes 2023](https://reactnati
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

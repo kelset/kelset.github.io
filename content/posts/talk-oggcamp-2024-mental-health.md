@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [OggCamp 2024](https://www.oggcamp.org/) - [slides](https:
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

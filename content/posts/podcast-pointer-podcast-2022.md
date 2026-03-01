@@ -6,7 +6,7 @@ summary: "🎙 Podcast (in 🇮🇹) - Episode 122 of [PointerPodcast](https://o
 tags: ["Podcast"]
 
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

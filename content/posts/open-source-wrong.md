@@ -5,7 +5,7 @@ externalUrl: "https://medium.com/hackernoon/i-thought-i-understood-open-source-i
 summary: "Sharing my experience with learning how to do Open Source."
 showReadingTime: false
 tags: ["Guest Post"]
-_build:
+build:
   render: "false"
   list: "local"
 ---

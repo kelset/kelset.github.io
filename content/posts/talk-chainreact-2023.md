@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [Chain React 2023](https://chainreactconf.com/) - [slides]
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

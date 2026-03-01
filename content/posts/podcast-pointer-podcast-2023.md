@@ -6,7 +6,7 @@ summary: "🎙 Podcast (in 🇮🇹) - Episode 161 of [PointerPodcast](https://o
 tags: ["Podcast"]
 
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

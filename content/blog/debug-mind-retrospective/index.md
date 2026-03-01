@@ -2,7 +2,7 @@
 title: "Podcasting About Mental Health in Tech For Over a Year: What I Learned"
 date: 2025-03-03
 summary: "Over 14 episodes, a year of a side project and its rewards."
-_build:
+build:
   render: "false"
   list: "local"
 ---

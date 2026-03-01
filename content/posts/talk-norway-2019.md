@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [ReactJS Norway - January 2019](https://www.meetup.com/rea
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

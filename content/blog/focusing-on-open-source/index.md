@@ -3,7 +3,7 @@ title: "Focusing On Open Source"
 date: 2024-07-24
 lastmod: 2024-07-24
 summary: "Some more personal announcements."
-_build:
+build:
   render: "false"
   list: "local"
 ---

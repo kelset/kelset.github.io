@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [React Summit Remote Edition 2020](https://reactsummit.com
 showReadingTime: false
 tags: ["Talk"]
 
-_build:
+build:
   render: "false"
   list: "local"
 ---

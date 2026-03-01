@@ -2,7 +2,7 @@
 title: "A Bit of Spring Cleaning"
 date: 2024-03-22
 summary: "Just a side update on some things I moved around."
-_build:
+build:
   render: "false"
   list: "local"
 ---

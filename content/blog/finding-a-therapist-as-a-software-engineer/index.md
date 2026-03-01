@@ -3,7 +3,7 @@ title: "Finding a Therapist is EASY (for a Software Engineer)"
 date: 2024-02-02
 lastmod: 2024-02-08
 summary: "A few pointers to help start your mental health journey"
-_build:
+build:
   render: "false"
   list: "local"
 ---

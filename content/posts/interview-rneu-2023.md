@@ -5,7 +5,7 @@ externalUrl: "https://www.youtube.com/watch?v=gNJANL_AXIU"
 summary: "🎤 Interview - With [Tommy Nguyen](https://elk.zone/mastodon.online/@tido@hachyderm.io), at [React Native EU 2023](https://www.react-native.eu)."
 tags: ["Interview"]
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

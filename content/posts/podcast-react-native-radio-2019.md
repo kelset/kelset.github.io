@@ -6,7 +6,7 @@ summary: "🎙 Podcast - In this episode of [React Native Radio](https://www.rea
 tags: ["Podcast"]
 
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

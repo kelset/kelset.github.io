@@ -6,7 +6,7 @@ summary: "🎙 Podcast (in 🇮🇹) - Episode 173 of [PointerPodcast](https://p
 tags: ["Podcast"]
 
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

@@ -5,7 +5,7 @@ externalUrl: "https://medium.com/react-native-training/vscode-for-react-native-5
 summary: "An opinionated list of extensions to get the most out of it."
 tags: ["Guest Post"]
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---

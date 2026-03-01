@@ -6,7 +6,7 @@ summary: "🗣 Talk @ [React Native London September 2022](https://www.meetup.co
 tags: ["Talk"]
 
 showReadingTime: false
-_build:
+build:
   render: "false"
   list: "local"
 ---
