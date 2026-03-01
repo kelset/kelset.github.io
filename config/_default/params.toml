@@ -17,7 +17,7 @@ enableImageWebp = true
 robots = "all"
 
 [header]
-  logo = "profile.png"
+  # logo = "profile.png"
 
 [homepage]
   layout = "profile" # valid options: page, profile, custom

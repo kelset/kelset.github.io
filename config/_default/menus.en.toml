@@ -11,9 +11,14 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-name = "debug:mind"
+name = "debug:mind 🎙️"
 url = "https://debug-mind.com/"
 weight = 10
+
+[[main]]
+name = "agents party 🤖"
+url = "https://agentsparty.dev"
+weight = 15
 
 [[main]]
 name = "blog"
