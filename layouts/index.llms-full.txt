@@ -1,0 +1,17 @@
+# {{ .Site.Params.author.name | htmlUnescape }} - Full Content Archive
+
+{{ .Site.Params.author.headline }}
+{{ .Site.Params.author.bio }}
+
+The following is the full plain-text/markdown archive of the articles on this site.
+
+{{ range where .Site.RegularPages "Section" "in" (slice "blog" "posts" "about-me") }}
+-------------------------------------------------------------------------------
+# {{ .Title }}
+URL: {{ .Permalink }}
+Date: {{ .Date.Format "2006-01-02" }}
+{{ with .Params.tags }}Tags: {{ delimit . ", " }}{{ end }}
+
+{{ .RawContent }}
+
+{{ end }}

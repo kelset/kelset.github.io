@@ -5,8 +5,22 @@
 # baseURL = "https://your_domain.com/"
 defaultContentLanguage = "en"
 
-enableRobotsTXT = false
+enableRobotsTXT = true
 summaryLength = 0
 
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["txt"]
+
+[outputFormats]
+  [outputFormats.LLMS]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+  [outputFormats.LLMSFULL]
+    mediaType = "text/plain"
+    baseName = "llms-full"
+    isPlainText = true
+
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON", "LLMS", "LLMSFULL"]
