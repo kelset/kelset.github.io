@@ -37,6 +37,7 @@ This is the personal website of [Lorenzo Sciandra](https://kelset.dev/), built u
 - **Templates**: When modifying templates, check for local overrides in `layouts/` before looking at the theme's default layouts.
 - **Data Structures**: Hugo's internal objects (like `.Site`) evolve. Always check for recent deprecations if a build fails or warnings appear.
 - **Content**: Most content is in Markdown (`.md`). Images are typically stored alongside the content in leaf bundles or in `assets/`.
+- **AEO (AI Engine Optimization)**: The site automatically generates `llms.txt` and `llms-full.txt` at build time. The templates for these are located at `layouts/index.llms.txt` and `layouts/index.llms-full.txt`. You do not need to manually update them when adding new markdown content, but you should update the templates if you want to change what structural context is exposed to AI crawlers.
 
 ## Local Development
 
