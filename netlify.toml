@@ -4,3 +4,17 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Everything Astro writes to /_astro/ (fonts, images, any bundled script) has a
+# content hash in its name, so a changed file is a new URL and the old one can
+# be kept forever. HTML keeps Netlify's default: revalidate every time.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Netlify doesn't know the .webmanifest extension and serves it as a download.
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
