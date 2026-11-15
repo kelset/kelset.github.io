@@ -1,0 +1,243 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import PostRow from "../../components/PostRow.astro";
+import Arrow from "../../components/Arrow.astro";
+import { SITE } from "../../data/site";
+import { lineClass, readingMinutes, topicHue, topicLabel, venueOf } from "../../lib/labels";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+/* Chip counts are derived, never written down — they cannot drift from the
+   frontmatter, and a new topic appears the moment a post claims one. */
+const counts = new Map<string, number>();
+for (const p of posts) for (const t of p.data.topics) counts.set(t, (counts.get(t) ?? 0) + 1);
+const topics = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+const years = posts.map((p) => p.data.date.getFullYear());
+const span = `${Math.min(...years)} – ${Math.max(...years)}`;
+
+/* the guest posts live in the appearances collection */
+const guestPosts = (await getCollection("appearances"))
+  .filter((a) => a.data.kind === "guest-post")
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Base
+  title="writing"
+  description={`${posts.length} long-form articles by ${SITE.name} on engineering, open source sustainability, and mental health in tech.`}
+  current="writing"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">{posts.length} long-form articles · {span}</p>
+      <h1>Writing</h1>
+    </header>
+
+    <div class="layout">
+      <div class="main">
+        {/* hidden until the script that makes them work has run — chips that
+            don't filter are worse than no chips */}
+        <div class="chips" id="filters" role="group" aria-label="Filter by topic" hidden>
+          <button class="chip" type="button" data-topic="all" aria-pressed="true">
+            All <span class="n">{posts.length}</span>
+          </button>
+          {
+            topics.map(([t, n]) => (
+              <button
+                class={`chip ${lineClass(topicHue(t))}`}
+                type="button"
+                data-topic={t}
+                aria-pressed="false"
+              >
+                {topicLabel(t)} <span class="n">{n}</span>
+              </button>
+            ))
+          }
+        </div>
+
+        <div>
+          <div class="tt-head" aria-hidden="true">
+            <span class="eyebrow">Date</span>
+            <span class="eyebrow">Line</span>
+            <span class="eyebrow">Article</span>
+            <span class="eyebrow">Read</span>
+          </div>
+          <ol class="tt" id="post-list">
+            {
+              posts.map((p) => (
+                <PostRow
+                  href={`/blog/${p.id.replace(/\/index$/, "")}/`}
+                  title={p.data.title}
+                  date={p.data.date}
+                  description={p.data.description}
+                  topics={p.data.topics}
+                  minutes={readingMinutes(p.body)}
+                />
+              ))
+            }
+          </ol>
+          <p class="empty" id="empty" hidden>Nothing filed under that topic yet.</p>
+        </div>
+      </div>
+
+      <aside class="side">
+        <section>
+          <h2 class="eyebrow">Written elsewhere</h2>
+          <ul class="elsewhere">
+            {
+              guestPosts.slice(0, 3).map((g) => (
+                <li>
+                  <a href={g.data.url} class="ext">
+                    {g.data.title}
+                  </a>
+                  <span class="where">{venueOf(g)}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <a class="more" href="/archive/?kind=guest-post">
+            All {guestPosts.length} guest posts <Arrow />
+          </a>
+        </section>
+
+        <section>
+          <h2 class="eyebrow">Subscribe</h2>
+          <p class="blurb">No newsletter. There's an RSS feed, and it works.</p>
+          <div class="chips">
+            <a class="chip" href="/rss.xml">rss.xml</a>
+            <a class="chip" href="/llms.txt">llms.txt</a>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  /* three quarters list, one quarter sidebar — the same split as the article
+     and the about page */
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    gap: 40px clamp(32px, 4vw, 56px);
+    align-items: start;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    min-inline-size: 0;
+  }
+
+  .tt {
+    --tt-cols: 7.25rem 9.5rem minmax(0, 1fr) 4.5rem;
+  }
+
+  .tt-head {
+    grid-template-columns: 7.25rem 9.5rem minmax(0, 1fr) 4.5rem;
+  }
+
+  .empty {
+    padding: 22px 8px;
+    color: var(--ink-soft);
+  }
+
+  .side {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    min-inline-size: 0;
+  }
+
+  .side section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    border-block-start: 3px solid var(--ink);
+    padding-block-start: 12px;
+  }
+
+  .elsewhere {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .elsewhere li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .elsewhere a {
+    font-weight: 700;
+    line-height: 1.35;
+    text-decoration: none;
+  }
+
+  .elsewhere a:hover {
+    text-decoration: underline;
+  }
+
+  .where {
+    font-size: var(--fs-meta);
+    font-stretch: 88%;
+    color: var(--ink-muted);
+  }
+
+  .blurb {
+    font-size: var(--fs-small);
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
+
+<script>
+  // Progressive enhancement: with JS off the full list renders and the chips
+  // never appear. ?topic= preselects, and the URL keeps up so a filtered view
+  // is linkable.
+  const filters = document.getElementById("filters")!;
+  const empty = document.getElementById("empty")!;
+  const rows = [...document.querySelectorAll<HTMLElement>("#post-list > li")];
+  filters.hidden = false;
+
+  const apply = (topic: string) => {
+    let shown = 0;
+    for (const row of rows) {
+      const has = topic === "all" || (row.dataset.topics ?? "").split(" ").includes(topic);
+      row.hidden = !has;
+      if (has) shown++;
+    }
+    empty.hidden = shown > 0;
+    for (const chip of filters.querySelectorAll<HTMLButtonElement>("[data-topic]")) {
+      chip.setAttribute("aria-pressed", String(chip.dataset.topic === topic));
+    }
+  };
+
+  filters.addEventListener("click", (e) => {
+    const chip = (e.target as HTMLElement).closest<HTMLButtonElement>("[data-topic]");
+    if (!chip) return;
+    const topic = chip.dataset.topic!;
+    apply(topic);
+    const url = new URL(location.href);
+    if (topic === "all") url.searchParams.delete("topic");
+    else url.searchParams.set("topic", topic);
+    history.replaceState(null, "", url);
+  });
+
+  const preset = new URL(location.href).searchParams.get("topic");
+  if (preset && filters.querySelector(`[data-topic="${CSS.escape(preset)}"]`)) apply(preset);
+</script>

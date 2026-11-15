@@ -1,0 +1,98 @@
+---
+/* The calling card: everything centred and compact, the doodle on top. The
+   quietest of the set, and the one most obviously designed for a phone. */
+import Boop from "../../components/Boop.astro";
+import SocialRow from "../../components/SocialRow.astro";
+import Actions from "../../components/HeroActions.astro";
+import { PROFILE } from "../../data/site";
+import { LINES } from "../../lib/labels";
+---
+
+<section class="wrap hc">
+  <Boop look="ring" caption="below" />
+  <h1>Lorenzo Sciandra</h1>
+  <p class="eyebrow">{PROFILE.role} at {PROFILE.employer} · {PROFILE.location}</p>
+  <p class="lede">{PROFILE.summary}</p>
+  <ul class="lines" aria-label="Lines">
+    {
+      LINES.map((l) => (
+        <li class={`ln-${l.id}`}>
+          <a class="chip" href={l.href}>
+            <span class="bullet">{l.n}</span>
+            {l.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <Actions />
+  <SocialRow />
+</section>
+
+<style>
+  .hc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding-block: clamp(28px, 4vw, 56px) clamp(28px, 4vw, 52px);
+    --boop-size: 148px;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 1.3rem + 3.6vw, 4.25rem);
+    font-stretch: 122%;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin-block-start: -4px;
+  }
+
+  .lede {
+    color: var(--ink);
+    max-inline-size: 32em;
+    text-wrap: balance;
+  }
+
+  .lines {
+    list-style: none;
+    margin: 4px 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .lines .chip {
+    padding-inline-start: 6px;
+    border-color: var(--rule);
+  }
+
+  .hc :global(.actions) {
+    justify-content: center;
+  }
+
+  @media (max-width: 640px) {
+    .hc {
+      gap: 12px;
+      padding-block: 22px 26px;
+      --boop-size: 112px;
+    }
+
+    .lede {
+      font-size: 1.0625rem;
+    }
+
+    .lines .chip {
+      min-block-size: 34px;
+      padding-block: 3px;
+      font-size: var(--fs-label);
+    }
+
+    .hc :global(.actions) {
+      inline-size: 100%;
+    }
+  }
+</style>

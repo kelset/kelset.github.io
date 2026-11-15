@@ -1,0 +1,260 @@
+---
+import Base from "../../layouts/Base.astro";
+import { PROJECTS, ARCHIVED, SITE } from "../../data/site";
+import { lineClass, lineOf } from "../../lib/labels";
+---
+
+<Base
+  title="side quests"
+  description={`Things ${SITE.name} made that live on their own domains: a notebook about agentic engineering, and a podcast about mental health in tech.`}
+  current="side-quests"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">Branch lines</p>
+      <h1>Side quests</h1>
+      <p class="lede">Things I made that live on their own domains.</p>
+    </header>
+
+    <div class="quests">
+      {
+        PROJECTS.map((p) => (
+          <article class={`quest ${lineClass(p.hue)}`} id={p.id}>
+            <p class="q-top">
+              <span class="bullet">{lineOf(p.hue)?.n}</span>
+              <span class="eyebrow">
+                {lineOf(p.hue)?.name} line · {p.kind}
+              </span>
+            </p>
+            <h2>{p.name}</h2>
+            <p class="desc">{p.description}</p>
+            <dl class="stats">
+              {p.stats.map((s) => (
+                <div>
+                  <dt class="num">{s.value}</dt>
+                  <dd>{s.label}</dd>
+                </div>
+              ))}
+            </dl>
+            <p class="actions">
+              {p.actions.map((a) => (
+                <a class:list={["go", { ext: a.href.startsWith("http") }]} href={a.href}>
+                  {a.label}
+                </a>
+              ))}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+    <section class="sec" aria-labelledby="archived-h">
+      <div class="sec-head">
+        <h2 id="archived-h">Archived</h2>
+        <p class="sec-note">Kept for the record, not maintained</p>
+      </div>
+      <ul class="closed">
+        {
+          ARCHIVED.map((a) => (
+            <li class={lineClass(a.hue)}>
+              <span class="bullet">{lineOf(a.hue)?.n}</span>
+              <span class="aname">
+                {a.url ? (
+                  <a href={a.url} class="ext">
+                    {a.name}
+                  </a>
+                ) : (
+                  a.name
+                )}
+              </span>
+              <span class="adesc">{a.description}</span>
+              <span class="aspan num">{a.span}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .quests {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  /* a quest is a slab of its line */
+  .quest {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: clamp(22px, 3.4vw, 40px);
+    border-radius: var(--r);
+    background: var(--l);
+    color: var(--on);
+    scroll-margin-block-start: 24px;
+    container-type: inline-size;
+  }
+
+  .q-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .q-top .eyebrow {
+    color: inherit;
+  }
+
+  .quest .bullet {
+    background: var(--on);
+    color: var(--l);
+    font-size: 0.9375rem;
+  }
+
+  .quest h2 {
+    /* sized to the card, so "debug:mind" always fits on one line */
+    font-size: clamp(2rem, 11.5cqi, 4.5rem);
+    font-stretch: 120%;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    margin-block-start: clamp(20px, 5vw, 64px);
+  }
+
+  .desc {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    max-inline-size: 46ch;
+    text-wrap: pretty;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 16px;
+    margin-block-start: auto;
+    padding-block-start: 18px;
+    border-block-start: 2px solid currentColor;
+  }
+
+  .stats > div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+  }
+
+  .stats dt {
+    font-size: 1.375rem;
+    font-weight: 800;
+    font-stretch: 108%;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .stats dd {
+    font-size: var(--fs-label);
+    font-stretch: 84%;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-block-start: 6px;
+  }
+
+  .go {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding: 10px 18px;
+    border: 2px solid var(--on);
+    border-radius: var(--r-s);
+    background: var(--on);
+    color: var(--l);
+    font-weight: 800;
+    font-size: var(--fs-small);
+    text-decoration: none;
+    transition:
+      background 140ms var(--ease),
+      color 140ms var(--ease);
+  }
+
+  .go + .go {
+    background: transparent;
+    color: var(--on);
+  }
+
+  .go:hover {
+    background: transparent;
+    color: var(--on);
+  }
+
+  .go + .go:hover {
+    background: var(--on);
+    color: var(--l);
+  }
+
+  .go:focus-visible {
+    outline-color: var(--on);
+  }
+
+  /* ---- archived ---- */
+  .closed {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .closed li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 17rem) minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 4px 18px;
+    padding: 16px 4px;
+    border-block-end: 1px solid var(--rule);
+  }
+
+  .closed .bullet {
+    align-self: center;
+  }
+
+  .aname {
+    font-weight: 800;
+    font-size: 1.125rem;
+  }
+
+  .adesc {
+    font-size: var(--fs-small);
+    color: var(--ink-soft);
+  }
+
+  .aspan {
+    font-size: var(--fs-meta);
+    font-stretch: 86%;
+    font-weight: 600;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 860px) {
+    .quests {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .closed li {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+    }
+
+    .adesc {
+      grid-column: 2 / -1;
+      grid-row: 2;
+    }
+  }
+</style>

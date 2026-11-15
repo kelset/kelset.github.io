@@ -1,0 +1,112 @@
+---
+/* The doodle, huge: no disc, no ring — the pen line itself, drawn straight on
+   the page and running off the edge. The human first, the type second. */
+import Boop from "../../components/Boop.astro";
+import SocialRow from "../../components/SocialRow.astro";
+import Actions from "../../components/HeroActions.astro";
+import { PROFILE } from "../../data/site";
+---
+
+<section class="hd">
+  <div class="wrap in">
+    {/* no z-index on the drawing: a stacking context would isolate its blend */}
+    <div class="dd"><Boop look="ink" caption="hidden" /></div>
+    <div class="copy">
+      <p class="eyebrow">{PROFILE.role} at {PROFILE.employer} · {PROFILE.location}</p>
+      <h1>Lorenzo <span>Sciandra</span></h1>
+      <p class="lede">{PROFILE.summary}</p>
+      <Actions />
+      <SocialRow />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hd {
+    overflow: clip;
+    border-block-end: 5px solid var(--ink);
+    margin-block-end: clamp(28px, 4vw, 52px);
+    --boop-size: clamp(380px, 46vw, 640px);
+  }
+
+  .in {
+    position: relative;
+    min-block-size: clamp(420px, 40vw, 560px);
+    display: flex;
+    align-items: center;
+    padding-block: clamp(32px, 5vw, 68px);
+  }
+
+  /* placed with offsets, not a transform: `translate` would make this a
+     stacking context too, and the drawing would blend with nothing */
+  .dd {
+    position: absolute;
+    inset-inline-end: -5%;
+    inset-block-start: calc(50% - var(--boop-size) * 0.46);
+  }
+
+  .copy {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    max-inline-size: 56%;
+  }
+
+  h1 {
+    font-size: clamp(2.75rem, 1.2rem + 5.4vw, 5.75rem);
+    font-stretch: 125%;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+  }
+
+  h1 span {
+    display: block;
+  }
+
+  .lede {
+    color: var(--ink);
+    max-inline-size: 30em;
+  }
+
+  @media (max-width: 640px) {
+    .hd {
+      --boop-size: 232px;
+      margin-block-end: 26px;
+    }
+
+    .in {
+      min-block-size: 0;
+      display: block;
+      padding-block: 0 26px;
+    }
+
+    .dd {
+      inset-inline-end: -48px;
+      inset-block-start: -24px;
+    }
+
+    .copy {
+      max-inline-size: none;
+      gap: 14px;
+      padding-block-start: 182px;
+    }
+
+    .copy .eyebrow {
+      max-inline-size: 42%;
+      position: absolute;
+      inset-block-start: 26px;
+      text-wrap: balance;
+    }
+
+    h1 {
+      font-size: calc((100vw - 2 * var(--gutter)) * 0.178);
+    }
+
+    .lede {
+      font-size: 1.125rem;
+    }
+  }
+</style>

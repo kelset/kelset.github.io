@@ -1,0 +1,97 @@
+---
+/* The poster: nothing but type. Each word is sized to span the column
+   exactly, so the name is the layout. No avatar here — the one in the header
+   is enough. The sizes are the font's own measurements; see the comment. */
+import SocialRow from "../../components/SocialRow.astro";
+import Actions from "../../components/HeroActions.astro";
+import { PROFILE } from "../../data/site";
+---
+
+<section class="wrap hp">
+  <h1>
+    <span class="l1">Lorenzo</span>
+    <span class="l2">Sciandra</span>
+  </h1>
+  <div class="low">
+    <p class="eyebrow">{PROFILE.role} at {PROFILE.employer}<br />{PROFILE.location}</p>
+    <p class="lede">{PROFILE.summary}</p>
+    <div class="acts">
+      <Actions />
+      <SocialRow />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hp {
+    container-type: inline-size;
+    padding-block: clamp(22px, 3.4vw, 44px) clamp(28px, 4vw, 52px);
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-stretch: 125%;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.8;
+    margin-block-end: clamp(22px, 3cqi, 40px);
+  }
+
+  /* --fit is 100 ÷ (the word's width in em at this weight, width and
+     tracking), so each line is exactly one column wide. Measured, not
+     guessed: re-measure if the font, case or tracking changes. */
+  .l1,
+  .l2 {
+    display: block;
+    white-space: nowrap;
+    font-size: calc(var(--fit) * 1cqi);
+  }
+
+  .l1 {
+    --fit: 15.6;
+  }
+
+  .l2 {
+    --fit: 14.35;
+    margin-block-start: 0.06em;
+  }
+
+  .low {
+    display: grid;
+    grid-template-columns: minmax(0, 2.4fr) minmax(0, 6fr) minmax(0, 3.6fr);
+    gap: 18px 44px;
+    align-items: start;
+    border-block-start: 5px solid var(--ink);
+    padding-block-start: 16px;
+  }
+
+  .eyebrow {
+    line-height: 1.6;
+  }
+
+  .lede {
+    color: var(--ink);
+  }
+
+  .acts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  @media (max-width: 860px) {
+    .low {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hp {
+      padding-block: 18px 26px;
+    }
+
+    .lede {
+      font-size: 1.125rem;
+    }
+  }
+</style>

@@ -1,0 +1,167 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import AppearanceRow from "../../components/AppearanceRow.astro";
+import { KIND_ORDER, KIND_PLURALS, kindLabel } from "../../lib/labels";
+
+const entries = (await getCollection("appearances")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const byYear = new Map<number, typeof entries>();
+for (const e of entries) {
+  const y = e.data.date.getFullYear();
+  if (!byYear.has(y)) byYear.set(y, []);
+  byYear.get(y)!.push(e);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+const span = `${Math.min(...years)} – ${Math.max(...years)}`;
+
+const counts = Object.fromEntries(
+  KIND_ORDER.map((k) => [k, entries.filter((e) => e.data.kind === k).length]),
+);
+
+/* "5 talks · 2 podcasts" — a year is summed up by what was in it, counted
+   from the collection, not by a line someone wrote about it */
+const tally = (list: typeof entries) =>
+  KIND_ORDER.map((k) => [k, list.filter((e) => e.data.kind === k).length] as const)
+    .filter(([, n]) => n > 0)
+    .map(([k, n]) => `${n} ${n === 1 ? kindLabel(k) : KIND_PLURALS[k].toLowerCase()}`)
+    .join(" · ");
+---
+
+<Base
+  title="talks & press"
+  description={`The public record: ${entries.length} talks, podcasts, interviews, guest posts and collections by Lorenzo Sciandra, ${span}.`}
+  current="talks"
+>
+  <div class="wrap ln-speaking">
+    <header class="page-head">
+      <p class="eyebrow">
+        <span class="bullet">3</span>
+        Speaking line · {entries.length} appearances · {span}
+      </p>
+      <h1>Talks &amp; press</h1>
+    </header>
+
+    {/* hidden until the script that makes them work has run */}
+    <div class="chips" id="filters" role="group" aria-label="Filter by kind" hidden>
+      <button class="chip" type="button" data-kind="all" aria-pressed="true">
+        All <span class="n">{entries.length}</span>
+      </button>
+      {
+        KIND_ORDER.map((k) => (
+          <button class="chip ln-speaking" type="button" data-kind={k} aria-pressed="false">
+            {KIND_PLURALS[k]} <span class="n">{counts[k]}</span>
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="years" id="archive-list">
+      {
+        years.map((year) => (
+          <section aria-labelledby={`y-${year}`} data-year={year}>
+            <div class="year-head">
+              <h2 class="num" id={`y-${year}`}>
+                {year}
+              </h2>
+              <p class="sec-note">{tally(byYear.get(year)!)}</p>
+            </div>
+            <ol class="tt">
+              {byYear.get(year)!.map((entry) => (
+                <AppearanceRow entry={entry} />
+              ))}
+            </ol>
+          </section>
+        ))
+      }
+      <p class="empty" id="archive-empty" hidden>Nothing of this kind yet.</p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-head .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .years {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(36px, 5vw, 56px);
+    margin-block-start: 34px;
+  }
+
+  /* the year is the station; the line runs under it */
+  .year-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 20px;
+    flex-wrap: wrap;
+    padding-block-end: 10px;
+    border-block-end: 6px solid var(--l);
+    box-shadow: 0 1.5px 0 var(--case-speaking);
+  }
+
+  .year-head h2 {
+    font-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem);
+    font-stretch: 118%;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+
+  .tt {
+    --tt-cols: 7.25rem 6.5rem minmax(0, 1fr) 11rem;
+  }
+
+  .empty {
+    padding: 22px 8px;
+    color: var(--ink-soft);
+  }
+</style>
+
+<script>
+  // Progressive enhancement: with JS off the full archive renders and the
+  // chips never appear. ?kind= preselects — /blog/ links here that way.
+  const filters = document.getElementById("filters")!;
+  const empty = document.getElementById("archive-empty")!;
+  filters.hidden = false;
+
+  const apply = (kind: string) => {
+    let any = false;
+    document.querySelectorAll<HTMLElement>("#archive-list [data-year]").forEach((year) => {
+      let visible = 0;
+      year.querySelectorAll<HTMLElement>(".tt > li").forEach((row) => {
+        const show = kind === "all" || row.dataset.kind === kind;
+        row.hidden = !show;
+        if (show) visible++;
+      });
+      year.hidden = visible === 0;
+      any ||= visible > 0;
+    });
+    empty.hidden = any;
+    for (const chip of filters.querySelectorAll<HTMLButtonElement>("[data-kind]")) {
+      chip.setAttribute("aria-pressed", String(chip.dataset.kind === kind));
+    }
+  };
+
+  filters.addEventListener("click", (e) => {
+    const chip = (e.target as HTMLElement).closest<HTMLButtonElement>("[data-kind]");
+    if (!chip) return;
+    const kind = chip.dataset.kind!;
+    apply(kind);
+    const url = new URL(location.href);
+    if (kind === "all") url.searchParams.delete("kind");
+    else url.searchParams.set("kind", kind);
+    history.replaceState(null, "", url);
+  });
+
+  const preset = new URL(location.href).searchParams.get("kind");
+  if (preset && filters.querySelector(`[data-kind="${CSS.escape(preset)}"]`)) apply(preset);
+</script>

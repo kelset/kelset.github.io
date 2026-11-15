@@ -1,0 +1,228 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import SocialRow from "../components/SocialRow.astro";
+import { SITE, SOCIAL, PROFILE, FACTS } from "../data/site";
+import headerPhoto from "../assets/images/about-me-header.jpg";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: SITE.name,
+    alternateName: SITE.handle,
+    url: SITE.url,
+    image: `${SITE.url}/profile.png`,
+    email: `mailto:${SITE.email}`,
+    jobTitle: "Staff Engineer",
+    worksFor: { "@type": "Organization", name: PROFILE.employer },
+    description: SITE.bio,
+    sameAs: SOCIAL.filter((s) => !s.url.startsWith("mailto:")).map((s) => s.url),
+  },
+};
+---
+
+<Base title="about me" description={SITE.bio} current="about" schema={[schema]} italic>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">About</p>
+      <h1>Hey there, I'm Lorenzo</h1>
+    </header>
+
+    <div class="layout">
+      <div class="main">
+        <Image
+          class="banner"
+          src={headerPhoto}
+          alt="Lorenzo speaking on stage at a conference, one arm raised mid-explanation"
+          widths={[640, 960, 1200]}
+          sizes="(max-width: 640px) 130vw, (max-width: 900px) 100vw, 880px"
+          format="avif"
+          loading="eager"
+          fetchpriority="high"
+        />
+
+        {/* An overview, not a record: where he is, how he got here, what he
+            cares about. Detail belongs in the CV, which the site is not. */}
+        <div class="prose ln-agentic">
+          <p>
+            I'm a staff engineer at <a href="https://www.shopify.com">Shopify</a>, working on the
+            <a href="https://shop.app">Shop app</a>. I build the harnesses, tooling and
+            infrastructure that let teams ship faster.
+          </p>
+          <p>
+            Most recently that meant the agent harnesses behind the Shop app's
+            <a href="https://shopify.engineering/shop-app-migration">
+              migration to native Swift and Kotlin</a
+            >.
+          </p>
+          <p>
+            Before that, open source was the main line. From 2018 to 2024 I was a
+            <a href="https://reactnative.dev/">React Native</a> community maintainer and release lead,
+            work that was as much about coordinating with Meta's React Native team and the other
+            companies shipping on it as it was about code. I wrote about
+            <a href="/blog/closing-the-react-native-chapter/">closing that chapter</a>.
+          </p>
+          <p>
+            For most of those years I was at Microsoft, working on React Native across its products.
+            In 2024 I joined the <a href="https://www.sovereign.tech/">Sovereign Tech Agency</a> to
+            work on <a href="/blog/focusing-on-open-source/">open-source sustainability</a>. Then came
+            a short sabbatical in early 2025, a few months of independent consulting, and in August
+            2025, Shopify.
+          </p>
+          <p>
+            I'm also a long-time advocate for mental health in tech. I hosted the
+            <a href="https://debug-mind.com">debug:mind</a> podcast, and I've been speaking at
+            conferences, meetups and on podcasts <a href="/archive/">since 2019</a>. I was named on the
+            <a href="https://openuk.uk/community/openuk-honours-lists/2022honourslist/">
+              OpenUK Honours List</a
+            >
+            in 2022, and I once founded ProvidedAsIs, a London meetup for open-source maintainers.
+          </p>
+          <p>
+            Before all of that: I grew up in Italy, studied at Politecnico di Torino (a B.Sc. in
+            Engineering Physics, then an M.Sc. in Computer Engineering), and got my first taste of the
+            industry as an IT intern at the Scuderia Toro Rosso Formula 1 team, a spot earned through
+            the Red Bull "On Stage" competition.
+          </p>
+        </div>
+      </div>
+
+      <aside class="side">
+        <section>
+          <h2 class="eyebrow">Fact sheet</h2>
+          <dl class="facts">
+            {
+              FACTS.map((f) => (
+                <div>
+                  <dt>{f.key}</dt>
+                  <dd>
+                    {f.value}
+                    {"note" in f && <span class="note num">{f.note}</span>}
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+        </section>
+
+        <section>
+          <h2 class="eyebrow">Get in touch</h2>
+          <a class="mail" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          <SocialRow />
+        </section>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  /* same three-quarter split as the article and the writing list */
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    gap: 40px clamp(32px, 4vw, 56px);
+    align-items: start;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    min-inline-size: 0;
+  }
+
+  .banner {
+    inline-size: 100%;
+    border-radius: var(--r);
+  }
+
+  .main .prose {
+    max-inline-size: none;
+    font-size: 1.125rem;
+  }
+
+  .main .prose p:first-child {
+    font-size: var(--fs-lede);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ---- sidebar ---- */
+  .side {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    min-inline-size: 0;
+  }
+
+  .side section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-block-start: 3px solid var(--ink);
+    padding-block-start: 12px;
+  }
+
+  .facts {
+    margin: 0;
+    display: grid;
+  }
+
+  .facts > div {
+    display: grid;
+    gap: 1px;
+    padding-block: 9px;
+    border-block-end: 1px solid var(--rule);
+  }
+
+  .facts dt {
+    font-size: var(--fs-label);
+    font-stretch: 84%;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .facts dd {
+    font-weight: 600;
+    font-size: var(--fs-small);
+    line-height: 1.4;
+  }
+
+  .note {
+    display: block;
+    font-weight: 500;
+    font-size: var(--fs-meta);
+    color: var(--ink-muted);
+  }
+
+  .mail {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  /* On a phone the full-width strip is a sliver; crop in on the stage instead.
+     3:1 and no taller: past that the photo outgrows the first paragraph,
+     becomes the largest paint, and LCP waits on an image request. */
+  @media (max-width: 640px) {
+    .banner {
+      aspect-ratio: 3 / 1;
+      object-fit: cover;
+      object-position: 22% center;
+    }
+  }
+
+  /* ---- narrow: fact sheet below the story ---- */
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .main .prose {
+      font-size: var(--fs-body);
+    }
+  }
+</style>

@@ -1,0 +1,194 @@
+---
+/* Who, and where he is now: the avatar gives up its place to the current
+   stop. The name and the plaque are the same weight, side by side. */
+import Boop from "../../components/Boop.astro";
+import SocialRow from "../../components/SocialRow.astro";
+import Arrow from "../../components/Arrow.astro";
+import { NOW, PROFILE, SITE } from "../../data/site";
+import { lineClass, lineOf } from "../../lib/labels";
+---
+
+<section class="wrap hn">
+  <div class="copy">
+    <div class="who">
+      <Boop look="ring" caption="hidden" />
+      <p class="eyebrow">{PROFILE.location}</p>
+    </div>
+    <h1>Lorenzo <span>Sciandra</span></h1>
+    <p class="lede">{PROFILE.summary}</p>
+    <div class="row">
+      <a class="btn btn--ghost" href={`mailto:${SITE.email}`}>Get in touch</a>
+      <SocialRow limit={5} />
+    </div>
+  </div>
+
+  <a class="plaque" href="/#now">
+    <span class="top">
+      <span class="eyebrow">Current stop</span>
+      <span class="lines">
+        {NOW.lines.map((l) => <span class={`bullet ${lineClass(l)}`}>{lineOf(l)?.n}</span>)}
+      </span>
+    </span>
+    <span class="org">{NOW.org}</span>
+    <span class="role">{NOW.role}</span>
+    <span class="when num">Since {NOW.since}</span>
+    <span class="go">What I'm working on <Arrow /></span>
+  </a>
+</section>
+
+<style>
+  .hn {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 28px clamp(28px, 4vw, 60px);
+    align-items: stretch;
+    padding-block: clamp(28px, 4.5vw, 60px) clamp(28px, 4vw, 52px);
+    --boop-size: 56px;
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    min-inline-size: 0;
+  }
+
+  .who {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: clamp(2.75rem, 1rem + 5.2vw, 5.5rem);
+    font-stretch: 125%;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+  }
+
+  h1 span {
+    display: block;
+  }
+
+  .lede {
+    color: var(--ink);
+    max-inline-size: 32em;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 14px 22px;
+    flex-wrap: wrap;
+  }
+
+  /* the station nameplate: ink in the day, paper at night */
+  .plaque {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: clamp(22px, 3vw, 34px);
+    border-radius: var(--r);
+    background: var(--ink);
+    color: var(--bg);
+    text-decoration: none;
+    transition: transform 220ms var(--ease);
+  }
+
+  .plaque:hover {
+    transform: translateY(-4px);
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-block-end: auto;
+    padding-block-end: 28px;
+  }
+
+  .top .eyebrow {
+    color: inherit;
+  }
+
+  .lines {
+    display: flex;
+    gap: 6px;
+  }
+
+  .plaque .bullet {
+    font-size: 1rem;
+    box-shadow: none;
+  }
+
+  .org {
+    font-size: clamp(2.75rem, 1.4rem + 4.4vw, 5rem);
+    font-weight: 900;
+    font-stretch: 122%;
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+  }
+
+  .role {
+    font-size: var(--fs-lede);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-block-start: 8px;
+  }
+
+  .when {
+    font-size: var(--fs-meta);
+    font-stretch: 90%;
+  }
+
+  .go {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-block-start: 22px;
+    padding-block-start: 16px;
+    border-block-start: 2px solid currentColor;
+    font-weight: 800;
+  }
+
+  .plaque:focus-visible {
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 860px) {
+    .hn {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .top {
+      padding-block-end: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hn {
+      gap: 20px;
+      padding-block: 20px 26px;
+      --boop-size: 48px;
+    }
+
+    .copy {
+      gap: 13px;
+    }
+
+    h1 {
+      font-size: calc((100vw - 2 * var(--gutter)) * 0.178);
+    }
+
+    .lede {
+      font-size: 1.125rem;
+    }
+
+    .go {
+      margin-block-start: 16px;
+    }
+  }
+</style>

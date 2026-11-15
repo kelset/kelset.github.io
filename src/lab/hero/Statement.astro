@@ -1,0 +1,122 @@
+---
+/* Statement first: what he does is the headline, and who he is shrinks to a
+   line above it. The name is still the h1; it just isn't the biggest thing. */
+import Boop from "../../components/Boop.astro";
+import SocialRow from "../../components/SocialRow.astro";
+import Actions from "../../components/HeroActions.astro";
+import { PROFILE, SITE } from "../../data/site";
+---
+
+<section class="wrap st">
+  <div class="who">
+    <Boop look="ring" caption="hidden" />
+    <div>
+      <h1>{SITE.name}</h1>
+      <p class="eyebrow">{PROFILE.role} at {PROFILE.employer} · {PROFILE.location}</p>
+    </div>
+  </div>
+
+  <p class="say ln-agentic">
+    I build the <em>harnesses</em>, <em>tooling</em> and <em>infrastructure</em> that let teams ship
+    faster.
+  </p>
+
+  <div class="low">
+    <p class="then">
+      Previously a React Native community maintainer for 6+ years, including running its releases.
+    </p>
+    <div class="acts">
+      <Actions />
+      <SocialRow />
+    </div>
+  </div>
+</section>
+
+<style>
+  .st {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(18px, 2.4vw, 30px);
+    padding-block: clamp(28px, 4.5vw, 64px) clamp(28px, 4vw, 52px);
+    --boop-size: 60px;
+  }
+
+  .who {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  h1 {
+    font-size: 1.375rem;
+    font-stretch: 112%;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .say {
+    font-size: clamp(2.1rem, 0.9rem + 5.1vw, 5.25rem);
+    font-stretch: 106%;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    max-inline-size: 17.5em;
+    text-wrap: balance;
+  }
+
+  /* the three things, underlined in the Agents line */
+  .say em {
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: var(--l);
+    text-decoration-thickness: 0.11em;
+    text-underline-offset: 0.1em;
+    text-decoration-skip-ink: none;
+  }
+
+  .low {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px 48px;
+    flex-wrap: wrap;
+  }
+
+  .then {
+    font-size: var(--fs-lede);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    max-inline-size: 30em;
+    text-wrap: pretty;
+  }
+
+  .acts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  @media (max-width: 640px) {
+    .st {
+      --boop-size: 52px;
+      padding-block: 20px 26px;
+    }
+
+    .who {
+      gap: 12px;
+    }
+
+    h1 {
+      font-size: 1.1875rem;
+    }
+
+    .then {
+      font-size: 1.0625rem;
+    }
+
+    .acts {
+      inline-size: 100%;
+    }
+  }
+</style>

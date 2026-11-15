@@ -1,0 +1,147 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import { NAV, SITE } from "../data/site";
+---
+
+<Base title="404" description="Page not found — no line stops at this address." noindex>
+  <div class="wrap page">
+    <p class="code num" aria-hidden="true">404</p>
+
+    {/* The map's own grammar: a stretch nobody held is dotted. This one leaves
+        the last real station and ends at a stop that was never built. Ink, not
+        a colour — it is on no line. */}
+    <div class="ghost" aria-hidden="true">
+      <span class="run"></span>
+      <span class="st"></span>
+      <span class="dots"></span>
+      <span class="st none"></span>
+    </div>
+
+    <h1>No service to this address</h1>
+    <p class="lede">This page moved, or it never existed. These stops are open:</p>
+
+    <ol class="tt routes">
+      {
+        NAV.map((r) => (
+          <li class="tt-row">
+            <div class="tt-body">
+              <a class="tt-title" href={r.href}>
+                {r.label}
+              </a>
+              <p class="tt-desc">{r.description}</p>
+            </div>
+            <span class="tt-trail">
+              <Arrow />
+            </span>
+          </li>
+        ))
+      }
+      <li class="tt-row">
+        <div class="tt-body">
+          <a class="tt-title" href="/rss.xml">RSS</a>
+          <p class="tt-desc">the feed</p>
+        </div>
+        <span class="tt-trail">
+          <Arrow />
+        </span>
+      </li>
+    </ol>
+
+    <p class="closing">
+      If you followed a link from somewhere and it broke,
+      <a href={`mailto:${SITE.email}`}>tell me</a> and I'll add a redirect.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding-block: clamp(36px, 6vw, 80px) 20px;
+  }
+
+  .code {
+    font-size: clamp(5rem, 2rem + 16vw, 13rem);
+    font-weight: 900;
+    font-stretch: 125%;
+    line-height: 0.8;
+    letter-spacing: -0.06em;
+  }
+
+  /* solid track in from the page edge, a station, then dots to nowhere */
+  .ghost {
+    display: flex;
+    align-items: center;
+    inline-size: 100%;
+    margin-block: 6px 10px;
+  }
+
+  .run {
+    /* reaches back out of the column to the edge of the page, wherever the
+       column happens to sit: (100vw - 100%) / 2 is the space beside it */
+    flex: 0 0 calc((100vw - 100%) / 2 + clamp(56px, 16vw, 220px));
+    margin-inline-start: calc((100% - 100vw) / 2);
+    block-size: 5px;
+    background: var(--ink);
+  }
+
+  .st {
+    flex: none;
+    inline-size: 20px;
+    block-size: 20px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 4px solid var(--ink);
+  }
+
+  .dots {
+    flex: 0 1 clamp(96px, 26vw, 300px);
+    block-size: 5px;
+    margin-inline: 7px;
+    background: radial-gradient(circle, var(--ink-muted) 2.5px, transparent 3px) 0 50% / 12px 5px
+      repeat-x;
+  }
+
+  .st.none {
+    border: 3px dashed var(--ink-muted);
+    background: none;
+  }
+
+  .lede {
+    max-inline-size: 48ch;
+  }
+
+  /* the open stops, as the same line every list on the site is */
+  .routes {
+    --tt-cols: minmax(0, 1fr) auto;
+    inline-size: min(100%, 720px);
+    margin-block-start: 10px;
+    border-block-start: 3px solid var(--ink);
+  }
+
+  .routes .tt-body {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .routes .tt-trail {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    color: var(--ink);
+  }
+
+  .routes .tt-row:hover :global(.arrow) {
+    transform: translateX(4px);
+  }
+
+  .closing {
+    font-size: var(--fs-small);
+    color: var(--ink-soft);
+    margin-block-start: 8px;
+  }
+</style>

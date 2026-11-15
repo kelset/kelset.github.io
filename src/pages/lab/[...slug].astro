@@ -1,0 +1,281 @@
+---
+/* The lab: a place to put several answers to one design question next to
+   each other. It is a development tool, not part of the site —
+   getStaticPaths returns nothing in a production build, so `astro build`
+   emits no /lab/ pages at all. Run `npm run dev` and open /lab/.
+
+   Three kinds of page come out of this one route:
+     /lab/                      the list of experiments
+     /lab/<experiment>/         every variant, in a phone frame and a desktop frame
+     /lab/<experiment>/<id>/    one variant on its own, full size
+
+   Experiments are declared in src/lab/experiments.ts. */
+import Base from "../../layouts/Base.astro";
+import NetworkMap from "../../components/NetworkMap.astro";
+import Arrow from "../../components/Arrow.astro";
+import { EXPERIMENTS, type Experiment, type Variant } from "../../lab/experiments";
+
+type Props =
+  | { view: "index" }
+  | { view: "experiment"; experiment: Experiment }
+  | { view: "variant"; experiment: Experiment; variant: Variant };
+
+export function getStaticPaths() {
+  if (import.meta.env.PROD) return [];
+  return [
+    { params: { slug: undefined }, props: { view: "index" } },
+    ...EXPERIMENTS.flatMap((experiment) => [
+      { params: { slug: experiment.id }, props: { view: "experiment", experiment } },
+      ...experiment.variants
+        .filter((variant) => variant.component)
+        .map((variant) => ({
+          params: { slug: `${experiment.id}/${variant.id}` },
+          props: { view: "variant", experiment, variant },
+        })),
+    ]),
+  ];
+}
+
+const props = Astro.props as Props;
+const urlOf = (e: Experiment, v: Variant) => v.href ?? `/lab/${e.id}/${v.id}/`;
+const Variation = props.view === "variant" ? props.variant.component! : null;
+---
+
+{
+  props.view === "variant" && Variation && (
+    <Base title={`lab · ${props.variant.name}`} description="Design lab." current="map" noindex>
+      <Variation />
+      {props.experiment.context === "home" && (
+        <div class="wrap">
+          <NetworkMap />
+        </div>
+      )}
+    </Base>
+  )
+}
+
+{
+  props.view === "index" && (
+    <Base title="lab" description="Design lab." noindex>
+      <div class="wrap">
+        <header class="page-head">
+          <p class="eyebrow">Development only · not in production builds</p>
+          <h1>Lab</h1>
+          <p class="lede">One design question per page, several answers side by side.</p>
+        </header>
+        <ul class="list">
+          {EXPERIMENTS.map((e) => (
+            <li>
+              <a href={`/lab/${e.id}/`}>
+                <span class="t">{e.title}</span>
+                <span class="q">{e.question}</span>
+                <span class="n num">{e.variants.length} variants</span>
+                <Arrow />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Base>
+  )
+}
+
+{
+  props.view === "experiment" && (
+    <Base title={`lab · ${props.experiment.title}`} description="Design lab." noindex>
+      <div class="wide">
+        <header class="page-head">
+          <p class="eyebrow">
+            <a href="/lab/">Lab</a> · {props.experiment.variants.length} variants
+          </p>
+          <h1>{props.experiment.title}</h1>
+          <p class="lede">{props.experiment.question}</p>
+        </header>
+
+        <nav class="jump chips" aria-label="Variants">
+          {props.experiment.variants.map((v, i) => (
+            <a class="chip" href={`#${v.id}`}>
+              <span class="num">{i + 1}</span> {v.name}
+            </a>
+          ))}
+        </nav>
+
+        {props.experiment.variants.map((v, i) => (
+          <section class="variant" id={v.id} aria-labelledby={`h-${v.id}`}>
+            <div class="vhead">
+              <h2 id={`h-${v.id}`}>
+                <span class="idx num">{i + 1}</span>
+                {v.name}
+              </h2>
+              <p class="note">{v.note}</p>
+              <a class="more" href={urlOf(props.experiment, v)}>
+                Open full size <Arrow />
+              </a>
+            </div>
+            <div class="frames">
+              <figure class="phone">
+                <iframe
+                  src={urlOf(props.experiment, v)}
+                  title={`${v.name}, phone`}
+                  loading="lazy"
+                  width="375"
+                  height="740"
+                />
+                <figcaption class="eyebrow">Phone · 375</figcaption>
+              </figure>
+              <figure class="desk">
+                <div class="scale">
+                  <iframe
+                    src={urlOf(props.experiment, v)}
+                    title={`${v.name}, desktop`}
+                    loading="lazy"
+                    width="1360"
+                    height="1100"
+                  />
+                </div>
+                <figcaption class="eyebrow">Desktop · 1360, shown at 2/3</figcaption>
+              </figure>
+            </div>
+          </section>
+        ))}
+      </div>
+    </Base>
+  )
+}
+
+<style>
+  /* ---- index ---- */
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-block-start: 5px solid var(--ink);
+  }
+
+  .list a {
+    display: grid;
+    grid-template-columns: minmax(0, 16rem) minmax(0, 1fr) auto auto;
+    align-items: baseline;
+    gap: 6px 22px;
+    padding: 18px 4px;
+    border-block-end: 1px solid var(--rule);
+    text-decoration: none;
+  }
+
+  .list a:hover {
+    background: var(--surface);
+  }
+
+  .t {
+    font-weight: 800;
+    font-size: 1.25rem;
+  }
+
+  .q {
+    color: var(--ink-soft);
+  }
+
+  .n {
+    font-size: var(--fs-meta);
+    color: var(--ink-muted);
+  }
+
+  /* ---- an experiment: wider than the site, it has frames to fit ---- */
+  .wide {
+    inline-size: min(100% - 2 * var(--gutter), 1420px);
+    margin-inline: auto;
+  }
+
+  .page-head a {
+    font-weight: 700;
+  }
+
+  .jump {
+    margin-block-end: 8px;
+  }
+
+  .jump .num {
+    opacity: 0.6;
+  }
+
+  .variant {
+    padding-block: 34px 44px;
+    border-block-start: 5px solid var(--ink);
+    margin-block-start: 28px;
+    scroll-margin-block-start: 12px;
+  }
+
+  .vhead {
+    display: grid;
+    grid-template-columns: minmax(0, 20rem) minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 8px 32px;
+    margin-block-end: 22px;
+  }
+
+  .vhead h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .idx {
+    font-size: 0.6em;
+    font-stretch: 90%;
+    color: var(--ink-muted);
+  }
+
+  .note {
+    color: var(--ink-soft);
+    max-inline-size: 70ch;
+    text-wrap: pretty;
+  }
+
+  .frames {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    overflow-x: auto;
+    padding-block-end: 6px;
+  }
+
+  figure {
+    margin: 0;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  iframe {
+    display: block;
+    border: 0;
+    background: var(--bg);
+  }
+
+  .phone iframe {
+    border: 2px solid var(--ink);
+    border-radius: 22px;
+  }
+
+  /* the desktop frame is a real 1360px viewport, drawn at two thirds */
+  .desk .scale {
+    inline-size: calc(1360px * 2 / 3);
+    block-size: calc(1100px * 2 / 3);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .desk iframe {
+    transform: scale(calc(2 / 3));
+    transform-origin: 0 0;
+  }
+
+  @media (max-width: 760px) {
+    .vhead,
+    .list a {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

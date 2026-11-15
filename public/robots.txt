@@ -1,0 +1,7 @@
+# Everyone is welcome — humans, search engines, and AI crawlers alike.
+# Context for language models: /llms.txt and /llms-full.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: https://kelset.dev/sitemap-index.xml

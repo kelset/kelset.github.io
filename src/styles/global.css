@@ -1,0 +1,971 @@
+/* kelset.dev — "the network"
+   Lorenzo's work drawn as a transit map, and the rest of the site set in the
+   wayfinding language that goes with one: a single grotesque at three widths,
+   ink sign bands, and five line colours that always mean a line.
+   See DESIGN.md for the reasoning behind the numbers in here. */
+
+/* ---------- tokens ---------- */
+
+:root {
+  color-scheme: light dark;
+
+  /* paper and ink. One neutral ramp per theme, blue-black rather than grey. */
+  --bg: light-dark(oklch(98.5% 0.004 95), oklch(17% 0.022 265));
+  --surface: light-dark(oklch(96% 0.006 95), oklch(21% 0.025 265));
+  --surface-2: light-dark(oklch(93% 0.008 95), oklch(25% 0.028 265));
+  --rule: light-dark(oklch(88% 0.008 95), oklch(31% 0.03 265));
+  --rule-strong: light-dark(oklch(74% 0.012 265), oklch(46% 0.03 265));
+
+  /* --ink-muted is the contrast floor: nothing that carries meaning sits
+     lighter than this, on --bg or on --surface. */
+  --ink: light-dark(oklch(19% 0.02 265), oklch(96% 0.006 95));
+  --ink-soft: light-dark(oklch(40% 0.02 265), oklch(80% 0.015 265));
+  --ink-muted: light-dark(oklch(47% 0.02 265), oklch(70% 0.02 265));
+
+  /* sign bands — the header, the footer, the map's title strip. Ink in the
+     day; a lifted surface at night, because a white slab on a dark page
+     glares. */
+  --sign-bg: light-dark(oklch(19% 0.02 265), oklch(24% 0.03 265));
+  --sign-ink: oklch(97% 0.004 95);
+  --sign-soft: oklch(80% 0.012 265);
+  --sign-rule: light-dark(oklch(34% 0.025 265), oklch(36% 0.03 265));
+
+  /* the five lines. --l-* is the line itself: a stroke, a bullet, a slab.
+     --t-* is the same line when it has to be text on the page (4.5:1 on both
+     --bg and --surface). --on-* is what sits on top of --l-*.
+     All sRGB-safe; measured, not guessed. */
+  --l-mobile: light-dark(oklch(52% 0.175 256), oklch(70% 0.15 250));
+  --l-oss: light-dark(oklch(53% 0.135 152), oklch(76% 0.18 150));
+  --l-speaking: light-dark(oklch(84% 0.168 90), oklch(87% 0.17 92));
+  --l-mind: light-dark(oklch(54% 0.2 305), oklch(72% 0.16 305));
+  --l-agentic: light-dark(oklch(58% 0.22 31), oklch(70% 0.19 33));
+  --l-neutral: var(--ink-muted);
+
+  --t-mobile: light-dark(oklch(47% 0.16 256), oklch(77% 0.12 250));
+  --t-oss: light-dark(oklch(44% 0.115 152), oklch(80% 0.16 150));
+  --t-speaking: light-dark(oklch(47% 0.097 80), oklch(87% 0.17 92));
+  --t-mind: light-dark(oklch(47% 0.2 305), oklch(79% 0.12 305));
+  --t-agentic: light-dark(oklch(50% 0.19 31), oklch(76% 0.14 35));
+  --t-neutral: var(--ink-soft);
+
+  --on-dark: oklch(19% 0.02 265);
+  --on-light: oklch(99% 0.003 95);
+  --on-mobile: light-dark(var(--on-light), var(--on-dark));
+  --on-oss: light-dark(var(--on-light), var(--on-dark));
+  --on-speaking: var(--on-dark);
+  --on-mind: light-dark(var(--on-light), var(--on-dark));
+  --on-agentic: light-dark(var(--on-light), var(--on-dark));
+  --on-neutral: var(--bg);
+
+  /* yellow can't hold 3:1 against paper, so in the day the speaking line is
+     drawn with an ink casing — the way printed maps have always done it. */
+  --case-speaking: light-dark(var(--ink), transparent);
+
+  /* type. One family, three widths. Arrows are inline SVG: the latin subset
+     stops at U+206F and has none. */
+  --font: "Archivo Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+
+  --fs-h1: clamp(2.25rem, 1.4rem + 3.4vw, 4rem); /* page titles */
+  --fs-h2: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --fs-h3: 1.25rem;
+  --fs-lede: clamp(1.1875rem, 1.05rem + 0.6vw, 1.5rem);
+  --fs-body: 1.0625rem; /* 17 */
+  --fs-small: 0.9375rem; /* 15 */
+  --fs-meta: 0.875rem; /* 14 */
+  --fs-label: 0.75rem; /* 12 */
+
+  --gutter: clamp(16px, 4vw, 40px);
+  --page: 1200px;
+
+  --r: 10px;
+  --r-s: 6px;
+  --r-pill: 999px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* a line class hands its three colours to whatever is inside it */
+.ln-mobile {
+  --l: var(--l-mobile);
+  --t: var(--t-mobile);
+  --on: var(--on-mobile);
+}
+.ln-oss {
+  --l: var(--l-oss);
+  --t: var(--t-oss);
+  --on: var(--on-oss);
+}
+.ln-speaking {
+  --l: var(--l-speaking);
+  --t: var(--t-speaking);
+  --on: var(--on-speaking);
+}
+.ln-mind {
+  --l: var(--l-mind);
+  --t: var(--t-mind);
+  --on: var(--on-mind);
+}
+.ln-agentic {
+  --l: var(--l-agentic);
+  --t: var(--t-agentic);
+  --on: var(--on-agentic);
+}
+.ln-neutral {
+  --l: var(--ink-muted);
+  --t: var(--ink-soft);
+  --on: var(--bg);
+}
+
+/* ---------- reset ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-block-start: 24px;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-block-size: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+blockquote {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-stretch: 112%;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-stretch: 108%;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+}
+
+img,
+svg {
+  display: block;
+  max-inline-size: 100%;
+}
+
+img {
+  block-size: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.18em;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--l-speaking);
+  color: var(--on-dark);
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* ---------- layout ---------- */
+
+.wrap {
+  inline-size: min(100% - 2 * var(--gutter), var(--page));
+  margin-inline: auto;
+}
+
+main {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+/* a section opens with a heavy rule, a title, and a quiet note at the far
+   end — the top edge of a sign */
+.sec {
+  padding-block: clamp(36px, 5vw, 64px);
+}
+
+.sec-head {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+  border-block-start: 5px solid var(--ink);
+  padding-block-start: 14px;
+  margin-block-end: clamp(20px, 3vw, 32px);
+}
+
+/* the rule is a line, and the section is the station at the start of it */
+.sec-head::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: -12.5px;
+  inline-size: 20px;
+  block-size: 20px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 4px solid var(--ink);
+}
+
+.sec-note {
+  font-size: var(--fs-meta);
+  font-stretch: 88%;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.sec-note a {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+/* page title block, shared by the four list pages */
+.page-head {
+  padding-block: clamp(32px, 5vw, 60px) clamp(20px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.page-head .lede {
+  max-inline-size: 62ch;
+}
+
+.lede {
+  font-size: var(--fs-lede);
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* ---------- type helpers ---------- */
+
+/* small condensed capitals: column heads, kickers, the map's fine print */
+.eyebrow {
+  font-size: var(--fs-label);
+  font-stretch: 82%;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- line bullets and labels ---------- */
+
+/* the numbered roundel that stands for a line */
+.bullet {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  inline-size: 1.7em;
+  block-size: 1.7em;
+  border-radius: 50%;
+  background: var(--l, var(--ink));
+  color: var(--on, var(--bg));
+  font-size: 0.8125rem;
+  font-weight: 800;
+  font-stretch: 100%;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  /* the day-time casing for yellow; transparent everywhere else */
+  box-shadow: inset 0 0 0 1.5px var(--case, transparent);
+}
+
+.ln-speaking .bullet,
+.bullet.ln-speaking {
+  --case: var(--case-speaking);
+}
+
+/* a tab in a line's colour: topics, kinds, statuses */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  background: var(--l, var(--ink));
+  color: var(--on, var(--bg));
+  border-radius: 4px;
+  padding: 3px 7px 2px;
+  font-size: var(--fs-label);
+  font-stretch: 84%;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: inset 0 0 0 1.5px var(--case, transparent);
+}
+
+.tag.ln-speaking {
+  --case: var(--case-speaking);
+}
+
+.tag.ln-neutral {
+  background: transparent;
+  color: var(--ink-soft);
+  box-shadow: inset 0 0 0 1.5px var(--rule-strong);
+}
+
+a.tag:hover {
+  filter: brightness(1.08);
+}
+
+/* ---------- buttons and chips ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-block-size: 44px;
+  padding: 10px 18px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-s);
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: var(--fs-small);
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 140ms var(--ease),
+    color 140ms var(--ease),
+    transform 140ms var(--ease);
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn--ghost:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  min-block-size: 38px;
+  padding: 6px 14px;
+  border: 2px solid var(--rule-strong);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink);
+  font-size: var(--fs-meta);
+  font-weight: 700;
+  font-stretch: 92%;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 140ms var(--ease),
+    border-color 140ms var(--ease),
+    color 140ms var(--ease);
+}
+
+.chip:hover {
+  border-color: var(--ink);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--l, var(--ink));
+  border-color: var(--l, var(--ink));
+  color: var(--on, var(--bg));
+}
+
+.chip.ln-speaking[aria-pressed="true"] {
+  border-color: var(--case-speaking);
+}
+
+.chip .n {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* the mark that follows a link off the site */
+.ext::after {
+  content: "";
+  display: inline-block;
+  inline-size: 0.62em;
+  block-size: 0.62em;
+  margin-inline-start: 0.3em;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 1h7v7M9 1 1 9' fill='none' stroke='%23000' stroke-width='1.8'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+/* "All 51 →" style links */
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: var(--fs-small);
+  text-decoration: none;
+}
+
+.more:hover {
+  text-decoration: underline;
+}
+
+.arrow {
+  inline-size: 1.1em;
+  block-size: 0.7em;
+  flex: none;
+  transition: transform 180ms var(--ease);
+}
+
+a:hover > .arrow,
+.more:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- the timetable ----------
+   /blog/ and /archive/ are the same list: date · line · title + description ·
+   a trailing figure. One row shape, set here rather than in two components,
+   so the two can't drift. Columns come from --tt-cols on the list. */
+
+.tt {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tt-head,
+.tt-row {
+  display: grid;
+  grid-template-columns: var(--tt-cols, 7.25rem 9.5rem minmax(0, 1fr) 6rem);
+  gap: 0 20px;
+  align-items: baseline;
+}
+
+.tt-head {
+  padding: 0 8px 8px 34px;
+  border-block-end: 3px solid var(--ink);
+}
+
+.tt-head > :last-child {
+  text-align: end;
+}
+
+.tt-row {
+  position: relative;
+  padding: 16px 8px 16px 34px;
+  border-block-end: 1px solid var(--rule);
+  transition: background 120ms var(--ease);
+}
+
+/* Every list is a line and every row a stop on it. The stretch of track
+   beside a row takes that row's line colour (set by a .ln-* class on the row),
+   so a mixed list changes colour as it goes. It runs out of the bottom of the
+   list on purpose: there is always more line behind you. */
+.tt-row::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 9px;
+  inset-block: 0;
+  inline-size: 4px;
+  background: var(--l, var(--ink-muted));
+  box-shadow: 0 0 0 1px var(--track-case, transparent);
+}
+
+.tt-row.ln-speaking {
+  --track-case: var(--case-speaking);
+}
+
+.tt-row:first-child::before {
+  inset-block-start: 26px;
+}
+
+.tt-row::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 4px;
+  inset-block-start: 19px;
+  inline-size: 14px;
+  block-size: 14px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--ink);
+  transition:
+    background 120ms var(--ease),
+    transform 180ms var(--ease);
+}
+
+.tt-row:hover::after {
+  background: var(--l, var(--ink));
+  transform: scale(1.2);
+}
+
+.tt-row:hover {
+  background: var(--surface);
+}
+
+.tt-when {
+  font-size: var(--fs-meta);
+  font-stretch: 86%;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.tt-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-self: start;
+  padding-block-start: 2px;
+}
+
+.tt-body {
+  min-inline-size: 0;
+}
+
+.tt-title {
+  font-size: 1.1875rem; /* 19 */
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  text-wrap: balance;
+}
+
+/* the whole row is the link; anything inside the description that is itself
+   a link is lifted back above it */
+.tt-title::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.tt-row:hover .tt-title {
+  text-decoration: underline;
+}
+
+.tt-desc {
+  margin-block-start: 4px;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+  /* a few entries carry a whole episode blurb; three lines is the row */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.tt-desc a {
+  position: relative;
+  z-index: 1;
+}
+
+.tt-trail {
+  font-size: var(--fs-meta);
+  font-stretch: 86%;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-align: end;
+}
+
+@media (max-width: 760px) {
+  .tt-head {
+    display: block;
+    padding-block-end: 0;
+  }
+
+  /* column heads go; a head that is just a title (one child) stays */
+  .tt-head > :not(:only-child) {
+    display: none;
+  }
+
+  .tt-head:has(> :only-child) {
+    padding-block-end: 8px;
+  }
+
+  .tt-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 12px;
+    padding: 16px 2px 16px 30px;
+  }
+
+  .tt-row::before {
+    inset-inline-start: 7px;
+  }
+
+  .tt-row::after {
+    inset-inline-start: 2px;
+  }
+
+  .tt-tags {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .tt-body {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .tt-trail {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+/* ---------- the strip ----------
+   A line drawn down the page with a station per item — the diagram above a
+   carriage door. Its one use today is the article's table of contents.
+   Each stop draws the stretch of line *below* itself, in --seg. */
+
+.strip {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stop {
+  position: relative;
+  padding-inline-start: 38px;
+  padding-block-end: 26px;
+}
+
+.stop::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 7px;
+  inset-block: 12px -12px;
+  inline-size: 6px;
+  background: var(--seg, var(--l, var(--ink)));
+}
+
+.stop:last-child {
+  padding-block-end: 0;
+}
+
+.stop:last-child::before {
+  display: none;
+}
+
+/* the station */
+.stop::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 3px;
+  inline-size: 20px;
+  block-size: 20px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 4px solid var(--ink);
+}
+
+.stop[data-minor]::after {
+  inline-size: 14px;
+  block-size: 14px;
+  inset-inline-start: 3px;
+  inset-block-start: 6px;
+  border-width: 3px;
+}
+
+.stop:target::after,
+.stop[data-current]::after {
+  background: var(--l, var(--ink));
+}
+
+/* ---------- prose (articles, about) ---------- */
+
+.prose {
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--ink);
+  max-inline-size: 72ch;
+  overflow-wrap: break-word;
+}
+
+.prose > * + * {
+  margin-block-start: 1.1em;
+}
+
+.prose h2 {
+  font-size: 1.625rem;
+  font-stretch: 106%;
+  margin-block-start: 2em;
+  padding-block-start: 0.6em;
+  border-block-start: 3px solid var(--ink);
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  margin-block-start: 1.7em;
+}
+
+.prose h2 + *,
+.prose h3 + * {
+  margin-block-start: 0.7em;
+}
+
+.prose ul,
+.prose ol {
+  padding-inline-start: 1.4em;
+}
+
+.prose li + li {
+  margin-block-start: 0.45em;
+}
+
+.prose li::marker {
+  color: var(--t, var(--ink-muted));
+  font-weight: 700;
+}
+
+/* links are ink, underlined in the colour of the line the page is on */
+.prose a {
+  text-decoration-line: underline;
+  text-decoration-color: var(--t, var(--ink-muted));
+  text-decoration-thickness: 0.13em;
+  text-underline-offset: 0.2em;
+  font-weight: 500;
+}
+
+.prose a:hover {
+  text-decoration-thickness: 0.22em;
+}
+
+/* a markdown blockquote is a platform notice: it opens with the same heavy
+   top rule every section does, in the colour of the article's line */
+.prose blockquote {
+  border-block-start: 5px solid var(--l, var(--ink));
+  background: var(--surface);
+  border-radius: 0 0 var(--r-s) var(--r-s);
+  padding: 14px 20px 16px;
+}
+
+.prose blockquote > * + * {
+  margin-block-start: 0.7em;
+}
+
+.prose pre {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-s);
+  padding: 16px 18px;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.875rem;
+}
+
+.prose :not(pre) > code {
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 0.12em 0.36em;
+}
+
+.prose img {
+  border-radius: var(--r);
+}
+
+.prose hr {
+  border: 0;
+  block-size: 3px;
+  inline-size: 64px;
+  background: var(--ink);
+  margin-block: 2.2em;
+  margin-inline: 0;
+}
+
+.prose .video-link a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  padding: 10px 16px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-s);
+  font-weight: 700;
+  font-size: var(--fs-small);
+  text-decoration: none;
+}
+
+.prose .video-link a:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* ---------- utilities ---------- */
+
+/* author display rules must never resurrect [hidden] content */
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: -100%;
+  z-index: 10;
+  background: var(--l-speaking);
+  color: var(--on-dark);
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--r-s);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  inset-block-start: 1rem;
+}
+
+/* ---------- motion ---------- */
+
+/* Moving between pages moves you along the line: the old page leaves to the
+   left, the next arrives from the right. The header and footer signs are
+   named separately, so they stay where they are. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: 170ms var(--ease) both depart;
+  }
+
+  ::view-transition-new(root) {
+    animation: 280ms var(--ease) both arrive;
+  }
+}
+
+@keyframes depart {
+  to {
+    opacity: 0;
+    transform: translateX(-22px);
+  }
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateX(22px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}

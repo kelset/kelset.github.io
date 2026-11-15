@@ -1,0 +1,470 @@
+---
+import { getCollection, render } from "astro:content";
+import { getImage } from "astro:assets";
+import Base from "../../layouts/Base.astro";
+import AuthorCard from "../../components/AuthorCard.astro";
+import Toc from "../../components/Toc.astro";
+import Arrow from "../../components/Arrow.astro";
+import { SITE } from "../../data/site";
+import { dayOf, lineClass, lineOf, readingMinutes, topicHue, topicLabel } from "../../lib/labels";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
+  return posts.map((post, i) => ({
+    params: { slug: post.id.replace(/\/index$/, "") },
+    props: {
+      post,
+      /* the list is newest first, so the next index is the older post */
+      older: posts[i + 1],
+      newer: posts[i - 1],
+    },
+  }));
+}
+
+const { post, older, newer } = Astro.props;
+const { Content, headings } = await render(post);
+const { title, date, updated, description, cover, topics } = post.data;
+
+const slug = post.id.replace(/\/index$/, "");
+const minutes = readingMinutes(post.body);
+const iso = date.toISOString().slice(0, 10);
+const edited = updated ?? date;
+const href = (p: typeof older) => `/blog/${p!.id.replace(/\/index$/, "")}/`;
+/* the stretch of line that leads to a neighbouring article is drawn in that
+   article's colour, so the pager says which line you would be changing to */
+const lineTo = (p: typeof older) =>
+  lineClass(p!.data.topics.length ? topicHue(p!.data.topics[0]) : "neutral");
+
+/* An article is on the line of its first topic: that colour is the slab at
+   the top, the underline on every link, and the stations in the contents. */
+const hue = topics.length ? topicHue(topics[0]) : "neutral";
+const line = lineOf(hue);
+
+/* the actual source of this page, not a facsimile of one */
+const sourceUrl = `${SITE.repo}/blob/main/src/content/blog/${slug}/index.md`;
+
+/* JPEG, not WebP: a share card is fetched by other people's crawlers, and not
+   all of them (LinkedIn's among others) read WebP reliably. */
+const ogImage = cover
+  ? new URL((await getImage({ src: cover, width: 1200, format: "jpeg" })).src, Astro.site).href
+  : undefined;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description,
+  datePublished: iso,
+  ...(updated ? { dateModified: updated.toISOString().slice(0, 10) } : {}),
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  ...(ogImage ? { image: ogImage } : {}),
+  keywords: topics.join(", "),
+  author: { "@type": "Person", name: SITE.name, url: SITE.url },
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  ogType="article"
+  ogImage={ogImage}
+  schema={[schema]}
+  current="writing"
+  italic
+>
+  <article class={line ? lineClass(hue) : undefined}>
+    <header class="slab">
+      <div class="wrap slab-in">
+        <p class="route">
+          <a class="back" href="/blog/"><Arrow dir="left" /> Writing</a>
+          {
+            line && (
+              <span class="on-line">
+                <span class="bullet">{line.n}</span>
+                {line.name} line
+              </span>
+            )
+          }
+        </p>
+
+        <h1>{title}</h1>
+
+        {/* the description, promoted: it is the tl;dr the post never wrote */}
+        <p class="tldr">{description}</p>
+
+        <p class="meta num">
+          <time datetime={iso}>{dayOf(date)}</time>
+          <span aria-hidden="true">·</span>
+          <span>{minutes} min read</span>
+          {
+            topics.map((t) => (
+              <a class="topic" href={`/blog/?topic=${t}`}>
+                {topicLabel(t)}
+              </a>
+            ))
+          }
+        </p>
+      </div>
+    </header>
+
+    <div class="wrap layout">
+      <div class="body">
+        <div class="prose">
+          <Content />
+        </div>
+
+        <footer class="after">
+          <AuthorCard />
+
+          {
+            (older || newer) && (
+              <nav class="pager" aria-label="More writing">
+                {older ? (
+                  <a class={`pn ${lineTo(older)}`} href={href(older)}>
+                    <span class="eyebrow dir">
+                      <Arrow dir="left" /> Previous stop
+                    </span>
+                    <span class="pt">{older.data.title}</span>
+                  </a>
+                ) : (
+                  <span />
+                )}
+                {newer && (
+                  <a class={`pn to-newer ${lineTo(newer)}`} href={href(newer)}>
+                    <span class="eyebrow dir">
+                      Next stop <Arrow />
+                    </span>
+                    <span class="pt">{newer.data.title}</span>
+                  </a>
+                )}
+              </nav>
+            )
+          }
+        </footer>
+      </div>
+
+      <aside class="side">
+        <div class="sticky">
+          <Toc headings={headings} />
+          <div class="stamp">
+            <p class="num">Last edited {dayOf(edited)}</p>
+            <p class="tools">
+              <a href={sourceUrl} class="ext">Source</a>
+              <button type="button" data-copy-link hidden>Copy link</button>
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </article>
+</Base>
+
+<style>
+  /* ---- the slab: the article's line, at full width ---- */
+  .slab {
+    background: var(--l, var(--ink));
+    color: var(--on, var(--bg));
+    box-shadow: inset 0 -2px 0 var(--case-speaking);
+  }
+
+  article:not(.ln-speaking) .slab {
+    box-shadow: none;
+  }
+
+  .slab-in {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-block: clamp(28px, 4vw, 48px) clamp(32px, 5vw, 60px);
+  }
+
+  .route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 20px;
+    flex-wrap: wrap;
+    font-size: var(--fs-meta);
+    font-weight: 700;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-block-size: 40px;
+    text-decoration: none;
+  }
+
+  .back:hover {
+    text-decoration: underline;
+  }
+
+  .on-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-stretch: 84%;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: var(--fs-label);
+  }
+
+  /* inverted on the slab: the disc takes the text colour, the number the line */
+  .on-line .bullet {
+    background: var(--on);
+    color: var(--l);
+    box-shadow: none;
+  }
+
+  h1 {
+    max-inline-size: 22ch;
+  }
+
+  .tldr {
+    font-size: var(--fs-lede);
+    font-weight: 500;
+    line-height: 1.35;
+    max-inline-size: 48ch;
+    text-wrap: pretty;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 6px 10px;
+    flex-wrap: wrap;
+    font-size: var(--fs-meta);
+    font-weight: 600;
+    margin-block-start: 6px;
+  }
+
+  .topic {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 28px;
+    padding: 2px 10px;
+    border: 2px solid currentColor;
+    border-radius: var(--r-pill);
+    font-size: var(--fs-label);
+    font-stretch: 84%;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .topic:hover {
+    background: var(--on, var(--bg));
+    color: var(--l, var(--ink));
+    border-color: var(--on, var(--bg));
+  }
+
+  .slab a:focus-visible {
+    outline-color: currentColor;
+  }
+
+  /* ---- body: three quarters prose, one quarter contents ---- */
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    gap: 40px clamp(32px, 4vw, 56px);
+    padding-block-start: clamp(28px, 4vw, 48px);
+  }
+
+  .body {
+    min-inline-size: 0;
+  }
+
+  /* the measure is released here on purpose: capping it inside a 3fr track
+     just leaves a dead channel before the sidebar */
+  .prose {
+    max-inline-size: none;
+    font-size: 1.125rem;
+  }
+
+  .after {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-block-start: clamp(40px, 5vw, 64px);
+  }
+
+  .pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .pn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-block-start: 5px solid var(--l, var(--ink));
+    padding-block: 16px 6px;
+    text-decoration: none;
+  }
+
+  /* yellow keeps its day-time casing, above and below the stretch */
+  .pn.ln-speaking {
+    box-shadow:
+      0 -1.5px 0 var(--case-speaking),
+      inset 0 1.5px 0 var(--case-speaking);
+  }
+
+  /* the neighbouring article is the station at the far end of its stretch */
+  .pn::before {
+    content: "";
+    position: absolute;
+    inset-block-start: -12.5px;
+    inset-inline-start: 0;
+    inline-size: 20px;
+    block-size: 20px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 4px solid var(--ink);
+    transition: background 120ms var(--ease);
+  }
+
+  .pn:hover::before {
+    background: var(--l, var(--ink));
+  }
+
+  .to-newer {
+    text-align: end;
+    align-items: flex-end;
+  }
+
+  .to-newer::before {
+    inset-inline: auto 0;
+  }
+
+  .dir {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pt {
+    font-size: 1.1875rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .pn:hover .pt {
+    text-decoration: underline;
+  }
+
+  /* ---- sidebar ---- */
+  .side {
+    min-inline-size: 0;
+  }
+
+  .sticky {
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .stamp {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-block-start: 1px solid var(--rule);
+    padding-block-start: 14px;
+    font-size: var(--fs-meta);
+    font-stretch: 90%;
+    color: var(--ink-muted);
+  }
+
+  .tools {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .tools a,
+  .tools button {
+    appearance: none;
+    border: 0;
+    background: none;
+    padding: 6px 0;
+    color: var(--ink-soft);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    cursor: pointer;
+  }
+
+  .tools a:hover,
+  .tools button:hover {
+    color: var(--ink);
+  }
+
+  /* ---- narrow: contents on top, then the article ---- */
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    .side {
+      grid-row: 1;
+    }
+
+    .sticky {
+      position: static;
+    }
+
+    .stamp {
+      display: none;
+    }
+
+    .prose {
+      font-size: var(--fs-body);
+    }
+
+    .pager {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pager > span {
+      display: none;
+    }
+
+    .to-newer {
+      text-align: start;
+      align-items: flex-start;
+    }
+
+    .to-newer::before {
+      inset-inline: 0 auto;
+    }
+  }
+</style>
+
+<script>
+  // "Copy link" — hidden until this runs, so it is never a button that does
+  // nothing. The URL is in the address bar regardless.
+  document.querySelectorAll<HTMLButtonElement>("[data-copy-link]").forEach((btn) => {
+    if (!navigator.clipboard) return;
+    btn.hidden = false;
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(location.href);
+        const previous = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(() => (btn.textContent = previous), 1600);
+      } catch {
+        /* clipboard blocked — the address bar still has it */
+      }
+    });
+  });
+</script>

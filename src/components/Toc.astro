@@ -1,0 +1,196 @@
+---
+/* On this page — drawn as a line with a station per section, the one you are
+   reading filled in. A strip on desktop, a collapsed <details> on a phone.
+   The highlight is a dozen hand-written lines; the list works without it. */
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+/* only the top level: posts start at ## and h3s would make this a wall */
+const items = Astro.props.headings.filter((h) => h.depth === 2);
+---
+
+{
+  items.length > 0 && (
+    <nav class="toc" aria-labelledby="toc-h">
+      <h2 class="eyebrow" id="toc-h">
+        On this page
+      </h2>
+      <ol class="strip">
+        {items.map((h) => (
+          <li class="stop" data-minor>
+            <a href={`#${h.slug}`} data-toc={h.slug}>
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}
+
+{
+  items.length > 0 && (
+    <details class="toc-m">
+      <summary>
+        On this page <span class="n">{items.length} stops</span>
+      </summary>
+      <ol class="strip">
+        {items.map((h) => (
+          <li class="stop" data-minor>
+            <a href={`#${h.slug}`}>{h.text}</a>
+          </li>
+        ))}
+      </ol>
+    </details>
+  )
+}
+
+<style>
+  .toc {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stop {
+    padding-block-end: 14px;
+    padding-inline-start: 30px;
+  }
+
+  a {
+    display: block;
+    font-size: var(--fs-small);
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--ink-soft);
+    text-decoration: none;
+    text-wrap: pretty;
+  }
+
+  a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+
+  /* you are here */
+  a[aria-current="true"] {
+    color: var(--ink);
+    font-weight: 800;
+  }
+
+  .stop:has(a[aria-current="true"])::after {
+    background: var(--l, var(--ink));
+  }
+
+  /* yellow keeps its day-time casing as a strip too */
+  :global(.ln-speaking) .stop::before {
+    box-shadow: 0 0 0 1px var(--case-speaking);
+  }
+
+  /* Once the script is tracking the scroll, only the stretch already
+     travelled keeps the line's colour; what is still ahead is plain track.
+     Without the script the whole strip stays in colour. */
+  .toc[data-live] .stop:not([data-passed])::before {
+    background: var(--rule-strong);
+    box-shadow: none;
+  }
+
+  .toc .stop::before {
+    transition: background 200ms var(--ease);
+  }
+
+  /* ---- the phone version ---- */
+  .toc-m {
+    display: none;
+    border: 2px solid var(--ink);
+    border-radius: var(--r-s);
+    padding: 0 16px;
+  }
+
+  .toc-m > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-block-size: 48px;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 700;
+    font-size: var(--fs-small);
+  }
+
+  .toc-m > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .toc-m .n {
+    font-size: var(--fs-meta);
+    font-stretch: 88%;
+    font-weight: 500;
+    color: var(--ink-muted);
+  }
+
+  .toc-m .strip {
+    padding-block: 6px 16px;
+  }
+
+  @media (max-width: 900px) {
+    .toc {
+      display: none;
+    }
+
+    .toc-m {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  // Fill in the station for the section you're currently reading. Bails out
+  // silently if the article has no headings.
+  const links = new Map<string, HTMLAnchorElement>();
+  for (const a of document.querySelectorAll<HTMLAnchorElement>("[data-toc]")) {
+    links.set(a.dataset.toc!, a);
+  }
+
+  if (links.size > 0 && "IntersectionObserver" in window) {
+    const headings = [...links.keys()]
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    // The section you're reading is the last heading you scrolled past — not
+    // whichever happens to be inside a band, which leaves nothing marked when
+    // a section is longer than the viewport.
+    const mark = () => {
+      let active = headings[0];
+      for (const h of headings) {
+        if (h.getBoundingClientRect().top <= 120) active = h;
+        else break;
+      }
+      let passed = true;
+      for (const [id, a] of links) {
+        if (id === active.id) {
+          a.setAttribute("aria-current", "true");
+          passed = false;
+        } else a.removeAttribute("aria-current");
+        // every stop before the current one has its stretch of line behind you
+        a.parentElement?.toggleAttribute("data-passed", passed);
+      }
+    };
+
+    document.querySelector(".toc")?.setAttribute("data-live", "");
+
+    // the observer is just a cheap "something moved" trigger
+    const io = new IntersectionObserver(mark, {
+      rootMargin: "-120px 0px 0px 0px",
+      threshold: [0, 1],
+    });
+    for (const h of headings) io.observe(h);
+
+    addEventListener("scroll", mark, { passive: true });
+    mark();
+  }
+</script>

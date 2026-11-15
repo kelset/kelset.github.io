@@ -1,11 +1,16 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# build output
+/dist
+/.astro
 
-# production
-/public
-/resources/_gen
+# dependencies
+/node_modules
 
 # misc
 .DS_Store
+
+# design handoff bundle — pulled from the Claude Design project for reference,
+# includes the prototype's vendored React runtime. Not part of the site.
+/design_handoff_repo_of_lorenzo
 
 # local env files
 .env.local

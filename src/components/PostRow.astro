@@ -1,0 +1,29 @@
+---
+/* One row of the writing timetable. The row shape itself lives in global.css
+   (.tt-*) and is shared with AppearanceRow, so /blog/ and /archive/ scan the
+   same way: date · line · title + description · trailing figure. */
+import { dayOf, lineClass, topicHue, topicLabel } from "../lib/labels";
+
+interface Props {
+  href: string;
+  title: string;
+  date: Date;
+  description: string;
+  topics: readonly string[];
+  minutes: number;
+}
+
+const { href, title, date, description, topics, minutes } = Astro.props;
+---
+
+<li class={`tt-row ${lineClass(topics.length ? topicHue(topics[0]) : "neutral")}`} data-topics={topics.join(" ")}>
+  <time class="tt-when" datetime={date.toISOString().slice(0, 10)}>{dayOf(date)}</time>
+  <span class="tt-tags">
+    {topics.map((t) => <span class={`tag ${lineClass(topicHue(t))}`}>{topicLabel(t)}</span>)}
+  </span>
+  <div class="tt-body">
+    <a class="tt-title" href={href}>{title}</a>
+    <p class="tt-desc">{description}</p>
+  </div>
+  <span class="tt-trail num">{minutes} min</span>
+</li>

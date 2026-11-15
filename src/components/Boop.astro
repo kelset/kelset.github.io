@@ -1,0 +1,267 @@
+---
+/* The doodle, boopable. One instance per page.
+   `look` is how it is framed: "ring" (all five lines around a white disc),
+   "disc" (a plain station), or "ink" (no disc at all — the drawing sits
+   straight on the page). Size comes from --boop-size on any ancestor, because
+   a custom property is the one thing a parent's scoped styles can hand down.
+   Inert until its script runs: the button is disabled and the caption hidden. */
+import { Image } from "astro:assets";
+import avatar from "../assets/profile.png";
+
+interface Props {
+  look?: "ring" | "disc" | "ink";
+  /** "below" takes up room under the doodle; "float" hangs there without
+      affecting layout; "hidden" keeps it for screen readers only */
+  caption?: "below" | "float" | "hidden";
+}
+
+const { look = "ring", caption = "below" } = Astro.props;
+---
+
+<div class="boop-wrap" data-look={look}>
+  <button class="boop" type="button" data-boop disabled aria-describedby="boop-label">
+    <span class="face" data-boop-face>
+      <Image
+        class="pic"
+        src={avatar}
+        alt="Lorenzo's self-portrait doodle: hair in a bun, glasses, moustache"
+        width={560}
+        height={560}
+        widths={[192, 328, 560]}
+        sizes="(max-width: 640px) 96px, 164px"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </span>
+  </button>
+  <p
+    class:list={["cap", "eyebrow", { "visually-hidden": caption === "hidden", float: caption === "float" }]}
+    id="boop-label"
+    data-boop-label
+    hidden
+  >
+    boop me
+  </p>
+</div>
+
+<style>
+  .boop-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .boop {
+    appearance: none;
+    border: 0;
+    padding: 0;
+    background: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+  }
+
+  .boop:disabled {
+    cursor: default;
+  }
+
+  .boop:focus-visible {
+    outline-offset: 6px;
+  }
+
+  .face {
+    display: block;
+    inline-size: var(--boop-size, 200px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  .pic {
+    inline-size: 100%;
+    block-size: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  [data-look="ring"] .face {
+    padding: calc(var(--boop-size, 200px) * 0.045);
+    background: conic-gradient(
+      from -36deg,
+      var(--l-agentic) 0 20%,
+      var(--l-mobile) 0 40%,
+      var(--l-oss) 0 60%,
+      var(--l-speaking) 0 80%,
+      var(--l-mind) 0
+    );
+    box-shadow: 0 0 0 3px var(--boop-edge, var(--ink));
+  }
+
+  [data-look="ring"] .pic,
+  [data-look="disc"] .pic {
+    background: oklch(99% 0.003 95);
+  }
+
+  [data-look="ring"] .pic {
+    box-shadow: 0 0 0 3px var(--boop-edge, var(--ink));
+  }
+
+  [data-look="disc"] .face {
+    box-shadow:
+      0 0 0 5px var(--boop-edge, var(--ink)),
+      0 0 0 9px var(--boop-halo, transparent);
+  }
+
+  /* ink: the white of the PNG is blended away, so only the pen line is left.
+     The blend sits on the element that animates, or a boop would isolate it
+     and flash the square. */
+  [data-look="ink"] .boop,
+  [data-look="ink"] .face,
+  [data-look="ink"] .pic {
+    border-radius: 0;
+  }
+
+  [data-look="ink"] .face {
+    mix-blend-mode: multiply;
+  }
+
+  :global(:root[data-theme="dark"]) [data-look="ink"] .face {
+    filter: invert(1);
+    mix-blend-mode: screen;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) [data-look="ink"] .face {
+      filter: invert(1);
+      mix-blend-mode: screen;
+    }
+  }
+
+  .boop-wrap {
+    position: relative;
+  }
+
+  .cap {
+    min-block-size: 1.4em;
+    text-align: center;
+  }
+
+  /* centred under the doodle by default; --cap-* lets a parent pin it to an
+     edge instead */
+  .cap.float {
+    position: absolute;
+    inset-block-start: calc(100% + 12px);
+    inset-inline-start: var(--cap-left, 50%);
+    inset-inline-end: var(--cap-right, auto);
+    translate: var(--cap-shift, -50%) 0;
+    white-space: nowrap;
+  }
+
+  .face[data-boop-anim="spin"] {
+    animation: boop-spin 900ms var(--ease);
+  }
+  .face[data-boop-anim="wobble"] {
+    animation: boop-wobble 620ms var(--ease);
+  }
+  .face[data-boop-anim="squish"] {
+    animation: boop-squish 560ms var(--ease);
+  }
+  .face[data-boop-anim="flip"] {
+    animation: boop-flip 900ms var(--ease);
+  }
+  .face[data-boop-anim="hop"] {
+    animation: boop-hop 700ms var(--ease);
+  }
+
+  @keyframes boop-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes boop-wobble {
+    20% {
+      transform: rotate(-9deg);
+    }
+    40% {
+      transform: rotate(7deg);
+    }
+    60% {
+      transform: rotate(-5deg);
+    }
+    80% {
+      transform: rotate(3deg);
+    }
+  }
+  @keyframes boop-squish {
+    30% {
+      transform: scale(1.12, 0.88);
+    }
+    55% {
+      transform: scale(0.93, 1.07);
+    }
+    78% {
+      transform: scale(1.04, 0.97);
+    }
+  }
+  @keyframes boop-flip {
+    from {
+      transform: perspective(700px) rotateY(0deg);
+    }
+    to {
+      transform: perspective(700px) rotateY(360deg);
+    }
+  }
+  @keyframes boop-hop {
+    28% {
+      transform: translateY(-16px) rotate(-4deg);
+    }
+    52% {
+      transform: translateY(0) rotate(0deg);
+    }
+    72% {
+      transform: translateY(-7px) rotate(2deg);
+    }
+  }
+</style>
+
+<script>
+  // Each click walks the caption along and provokes one of five reactions at
+  // random — never the same one twice running. Reduced motion gets the caption
+  // and nothing else.
+  const btn = document.querySelector<HTMLButtonElement>("[data-boop]");
+  const face = document.querySelector<HTMLElement>("[data-boop-face]");
+  const label = document.querySelector<HTMLElement>("[data-boop-label]");
+  const LABELS = [
+    "boop!",
+    "again?",
+    "ok, that tickles",
+    "you have a lot of free time",
+    "we're friends now",
+  ];
+  const ANIMS = ["spin", "wobble", "squish", "flip", "hop"];
+
+  if (btn && face && label) {
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let n = 0;
+    let last = "";
+
+    btn.disabled = false;
+    label.hidden = false;
+    face.addEventListener("animationend", () => delete face.dataset.boopAnim);
+
+    btn.addEventListener("click", () => {
+      n += 1;
+      label.textContent = LABELS[n - 1] ?? `${n} boops`;
+      if (still.matches) return;
+
+      let pick = last;
+      while (pick === last) pick = ANIMS[Math.floor(Math.random() * ANIMS.length)];
+      last = pick;
+
+      // clear and force a reflow so a repeat click restarts the animation
+      delete face.dataset.boopAnim;
+      void face.offsetWidth;
+      face.dataset.boopAnim = pick;
+    });
+  }
+</script>

@@ -1,0 +1,83 @@
+---
+/* Who wrote this, at the foot of every article. */
+import { Image } from "astro:assets";
+import SocialRow from "./SocialRow.astro";
+import { SITE, PROFILE } from "../data/site";
+import avatar from "../assets/profile.png";
+---
+
+<aside class="author" aria-label="About the author">
+  <Image class="pic" src={avatar} alt="" width={176} height={176} loading="lazy" />
+  <div class="who">
+    <p class="eyebrow">Written by</p>
+    <p class="name">
+      <a href="/about-me/">{SITE.name}</a>
+    </p>
+    <p class="bio">{PROFILE.shortBio}</p>
+    <SocialRow size={18} limit={5} />
+  </div>
+</aside>
+
+<style>
+  .author {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+    border: 2px solid var(--ink);
+    border-radius: var(--r);
+    padding: 22px 24px;
+  }
+
+  .pic {
+    inline-size: 88px;
+    block-size: 88px;
+    border-radius: 50%;
+    background: oklch(99% 0.003 95);
+    box-shadow: 0 0 0 3px var(--ink);
+  }
+
+  .who {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-inline-size: 0;
+  }
+
+  .name {
+    font-size: 1.375rem;
+    font-weight: 800;
+    font-stretch: 108%;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .name a {
+    text-decoration: none;
+  }
+
+  .name a:hover {
+    text-decoration: underline;
+  }
+
+  .bio {
+    font-size: var(--fs-small);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-inline-size: 60ch;
+    margin-block-end: 4px;
+  }
+
+  @media (max-width: 560px) {
+    .author {
+      grid-template-columns: 56px minmax(0, 1fr);
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .pic {
+      inline-size: 56px;
+      block-size: 56px;
+    }
+  }
+</style>

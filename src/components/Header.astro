@@ -1,0 +1,269 @@
+---
+/* The sign over the door: who this is, and where the five exits lead.
+   Counts come from the collections, so they cannot drift. */
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import avatar from "../assets/profile.png";
+import ThemeToggle from "./ThemeToggle.astro";
+import { NAV, type NavId } from "../data/site";
+
+interface Props {
+  current?: NavId;
+}
+
+const { current } = Astro.props;
+const [posts, appearances] = await Promise.all([
+  getCollection("blog"),
+  getCollection("appearances"),
+]);
+const counts: Partial<Record<NavId, number>> = {
+  writing: posts.length,
+  talks: appearances.length,
+};
+---
+
+<header class="sign">
+  <div class="wrap bar">
+    <a class="brand" href="/">
+      <span class="face">
+        <Image src={avatar} alt="" width={72} height={72} loading="eager" />
+      </span>
+      <span class="word">kelset<span class="tld">.dev</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <ul>
+        {
+          NAV.map((item) => (
+            <li>
+              <a href={item.href} aria-current={item.id === current ? "page" : undefined}>
+                <span class="full">{item.label}</span>
+                <span class="short">{item.short}</span>
+                {counts[item.id] !== undefined && <span class="n">{counts[item.id]}</span>}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="tools">
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<style>
+  .sign {
+    background: var(--sign-bg);
+    color: var(--sign-ink);
+    /* a named element is a stacking context; keep the bar above what follows */
+    position: relative;
+    z-index: 2;
+    view-transition-name: siteheader;
+  }
+
+  .bar {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "brand nav tools";
+    align-items: center;
+    gap: 0 28px;
+    min-block-size: 68px;
+  }
+
+  .brand {
+    grid-area: brand;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    font-stretch: 112%;
+    font-size: 1.1875rem;
+    letter-spacing: -0.02em;
+  }
+
+  .face {
+    inline-size: 36px;
+    block-size: 36px;
+    flex: none;
+    border-radius: 50%;
+    background: oklch(99% 0.003 95);
+    overflow: hidden;
+    transition: transform 240ms var(--ease);
+  }
+
+  .brand:hover .face {
+    transform: rotate(-10deg) scale(1.06);
+  }
+
+  .tld {
+    color: var(--sign-soft);
+  }
+
+  .nav {
+    grid-area: nav;
+    min-inline-size: 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  li {
+    flex: none;
+  }
+
+  /* The exits are stations on one line: the label, and under it a stretch of
+     track with a stop on it. Each link draws its own stretch, so the line is
+     continuous however many exits there are. */
+  .nav a {
+    --track: color-mix(in oklab, var(--sign-ink) 42%, var(--sign-bg));
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 15px 16px 31px;
+    color: var(--sign-soft);
+    font-size: var(--fs-small);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 140ms var(--ease);
+  }
+
+  .nav a:hover,
+  .nav a[aria-current="page"] {
+    color: var(--sign-ink);
+  }
+
+  .nav a::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 15px;
+    block-size: 3px;
+    background: var(--track);
+  }
+
+  /* the line starts at the first stop and ends at the last */
+  li:first-child a::before {
+    inset-inline-start: 50%;
+  }
+
+  li:last-child a::before {
+    inset-inline-end: 50%;
+  }
+
+  .nav a::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: calc(50% - 6.5px);
+    inset-block-end: 10px;
+    inline-size: 13px;
+    block-size: 13px;
+    border-radius: 50%;
+    background: var(--sign-bg);
+    border: 3px solid var(--track);
+    transition:
+      border-color 140ms var(--ease),
+      background 140ms var(--ease),
+      transform 180ms var(--ease);
+  }
+
+  .nav a:hover::after {
+    border-color: var(--sign-ink);
+    transform: scale(1.15);
+  }
+
+  /* you are here: an interchange, filled */
+  .nav a[aria-current="page"]::after {
+    background: var(--sign-ink);
+    border-color: var(--sign-ink);
+    box-shadow:
+      0 0 0 3px var(--sign-bg),
+      0 0 0 5.5px var(--sign-ink);
+    transform: none;
+  }
+
+  .nav a:focus-visible,
+  .brand:focus-visible {
+    outline-color: var(--sign-ink);
+    outline-offset: -3px;
+  }
+
+  .n {
+    font-size: var(--fs-label);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--sign-soft);
+  }
+
+  .short {
+    display: none;
+  }
+
+  .tools {
+    grid-area: tools;
+    display: flex;
+    justify-content: flex-end;
+    /* reserves the toggle's box so the bar doesn't shift when its script
+       reveals it */
+    min-inline-size: 92px;
+  }
+
+  /* ---- narrow: brand and toggle on top, the exits scroll underneath ---- */
+  @media (max-width: 860px) {
+    .bar {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "brand tools"
+        "nav nav";
+      gap: 0 12px;
+      padding-block-start: 10px;
+    }
+
+    .nav {
+      margin-inline: calc(-1 * var(--gutter));
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-block-start: 1px solid var(--sign-rule);
+      margin-block-start: 10px;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    ul {
+      justify-content: flex-start;
+      padding-inline: calc(var(--gutter) - 12px);
+      inline-size: max-content;
+    }
+
+    .nav a {
+      padding: 11px 12px 29px;
+    }
+
+    .nav a::before {
+      inset-block-end: 13px;
+    }
+
+    .nav a::after {
+      inset-block-end: 8px;
+    }
+
+    .full {
+      display: none;
+    }
+
+    .short {
+      display: inline;
+    }
+  }
+</style>

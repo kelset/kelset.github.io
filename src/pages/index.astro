@@ -1,0 +1,399 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import NetworkMap from "../components/NetworkMap.astro";
+import PostRow from "../components/PostRow.astro";
+import AppearanceRow from "../components/AppearanceRow.astro";
+import Arrow from "../components/Arrow.astro";
+import { NOW, SITE, SOCIAL, PROJECTS, PROFILE } from "../data/site";
+import { lineClass, lineOf, readingMinutes } from "../lib/labels";
+
+const [posts, appearances] = await Promise.all([
+  getCollection("blog"),
+  getCollection("appearances"),
+]);
+const latestPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+const latestTalks = appearances
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE.name,
+  alternateName: SITE.handle,
+  url: SITE.url,
+  image: `${SITE.url}/profile.png`,
+  email: `mailto:${SITE.email}`,
+  jobTitle: "Staff Engineer",
+  worksFor: { "@type": "Organization", name: PROFILE.employer },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "Politecnico di Torino" },
+  description: SITE.bio,
+  sameAs: SOCIAL.filter((s) => !s.url.startsWith("mailto:")).map((s) => s.url),
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE.title,
+  url: SITE.url,
+  author: { "@type": "Person", name: SITE.name },
+};
+---
+
+{/* The home page is a landing spot: who, the map, where he is now, and the
+    ways out to everything he has made. It is deliberately not a CV. */}
+<Base title="home" description={SITE.description} current="map" schema={[personSchema, websiteSchema]}>
+  <Hero />
+
+  <div class="wrap">
+    <NetworkMap />
+  </div>
+
+  <section class="sec wrap" id="now" aria-labelledby="now-h">
+    <div class="sec-head">
+      <h2 id="now-h">Now</h2>
+      <p class="sec-note">Current stop, since {NOW.since}</p>
+    </div>
+
+    <div class="now">
+      <div class="plaque">
+        <p class="lines">
+          {
+            NOW.lines.map((l) => (
+              <span class={`bullet ${lineClass(l)}`} title={`${lineOf(l)?.name} line`}>
+                {lineOf(l)?.n}
+              </span>
+            ))
+          }
+        </p>
+        <p class="org">{NOW.org}</p>
+        <p class="role">{NOW.role}</p>
+      </div>
+
+      <div class="about-now ln-agentic">
+        <p class="blurb">{NOW.blurb}</p>
+        <ul class="reads">
+          {
+            NOW.links.map((link) => (
+              <li>
+                <a href={link.href}>
+                  <span class="r-what">{link.label}</span>
+                  <span class="r-where ext">{link.where}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <a class="more" href="/about-me/">More about me <Arrow /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="latest-h">
+    <div class="sec-head">
+      <h2 id="latest-h">Latest</h2>
+      <p class="sec-note">
+        {posts.length} articles · {appearances.length} talks, podcasts and interviews
+      </p>
+    </div>
+
+    <div class="latest">
+      <div>
+        <div class="tt-head">
+          <span class="eyebrow">Writing</span>
+        </div>
+        <ol class="tt compact">
+          {
+            latestPosts.map((p) => (
+              <PostRow
+                href={`/blog/${p.id.replace(/\/index$/, "")}/`}
+                title={p.data.title}
+                date={p.data.date}
+                description={p.data.description}
+                topics={p.data.topics}
+                minutes={readingMinutes(p.body)}
+              />
+            ))
+          }
+        </ol>
+        <a class="more" href="/blog/">All {posts.length} articles <Arrow /></a>
+      </div>
+
+      <div>
+        <div class="tt-head">
+          <span class="eyebrow">Talks &amp; press</span>
+        </div>
+        <ol class="tt compact">
+          {latestTalks.map((entry) => <AppearanceRow entry={entry} />)}
+        </ol>
+        <a class="more" href="/archive/">All {appearances.length} appearances <Arrow /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="quests-h">
+    <div class="sec-head">
+      <h2 id="quests-h">Side quests</h2>
+      <p class="sec-note">Things I made that live on their own domains</p>
+    </div>
+
+    <div class="quests">
+      {
+        PROJECTS.map((p) => (
+          <a class={`quest ${lineClass(p.hue)}`} href={`/side-quests/#${p.id}`}>
+            <span class="q-top">
+              <span class="bullet">{lineOf(p.hue)?.n}</span>
+              <span class="q-kind eyebrow">{p.kind}</span>
+            </span>
+            <span class="q-name">{p.name}</span>
+            <span class="q-blurb">{p.blurb}</span>
+            <Arrow />
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ---- now ---- */
+  .now {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 28px clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+
+  /* a station nameplate: ink in the day, paper at night */
+  .plaque {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: var(--r);
+    padding: clamp(22px, 3vw, 34px);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .plaque .lines {
+    display: flex;
+    gap: 6px;
+    margin-block-end: 14px;
+  }
+
+  .plaque .bullet {
+    font-size: 1rem;
+    box-shadow: none;
+  }
+
+  .org {
+    font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+    font-weight: 900;
+    font-stretch: 122%;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .role {
+    font-size: var(--fs-lede);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-block-start: 8px;
+  }
+
+  .about-now {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .blurb {
+    font-size: var(--fs-lede);
+    font-weight: 500;
+    line-height: 1.4;
+    max-inline-size: 30em;
+    text-wrap: pretty;
+  }
+
+  /* what is public and worth reading about it */
+  .reads {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    inline-size: 100%;
+    border-block-start: 3px solid var(--ink);
+  }
+
+  .reads a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 20px;
+    flex-wrap: wrap;
+    padding: 13px 4px;
+    border-block-end: 1px solid var(--rule);
+    text-decoration: none;
+    transition: background 120ms var(--ease);
+  }
+
+  .reads a:hover {
+    background: var(--surface);
+  }
+
+  .r-what {
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+
+  .reads a:hover .r-what {
+    text-decoration: underline;
+    text-decoration-color: var(--t);
+    text-decoration-thickness: 0.14em;
+  }
+
+  .r-where {
+    font-size: var(--fs-meta);
+    font-stretch: 88%;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  /* ---- latest ---- */
+  .latest {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+
+  .latest .tt-head {
+    display: block;
+    padding-inline: 0;
+  }
+
+  /* half-width columns: the row stacks the way it does on a phone */
+  .latest :global(.tt-row) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 12px;
+    padding-inline-end: 2px;
+  }
+
+  .latest :global(.tt-tags) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .latest :global(.tt-body) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .latest :global(.tt-trail) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .latest .more {
+    margin-block-start: 18px;
+  }
+
+  /* ---- side quests ---- */
+  .quests {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .quest {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-block-size: 230px;
+    padding: clamp(20px, 3vw, 30px);
+    border-radius: var(--r);
+    background: var(--l);
+    color: var(--on);
+    text-decoration: none;
+    transition: transform 220ms var(--ease);
+  }
+
+  .quest:hover {
+    transform: translateY(-4px);
+  }
+
+  .q-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .quest .bullet {
+    background: var(--on);
+    color: var(--l);
+    font-size: 0.9375rem;
+  }
+
+  .q-kind {
+    color: inherit;
+  }
+
+  .q-name {
+    margin-block-start: auto;
+    font-size: clamp(2rem, 1.3rem + 2.6vw, 3.25rem);
+    font-weight: 900;
+    font-stretch: 118%;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+
+  .q-blurb {
+    font-size: var(--fs-body);
+    font-weight: 500;
+    line-height: 1.4;
+    max-inline-size: 34ch;
+  }
+
+  .quest :global(.arrow) {
+    position: absolute;
+    inset-block-start: clamp(22px, 3vw, 32px);
+    inset-inline-end: clamp(20px, 3vw, 30px);
+    inline-size: 30px;
+    block-size: 19px;
+  }
+
+  .quest:focus-visible {
+    outline-offset: 4px;
+  }
+
+  /* ---- narrow ---- */
+  @media (max-width: 860px) {
+    .now,
+    .latest,
+    .quests {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .quest {
+      min-block-size: 190px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .blurb {
+      font-size: 1.125rem;
+    }
+
+    .about-now {
+      gap: 18px;
+    }
+
+    /* two of each is enough on a phone; the link under them has the rest */
+    .latest :global(.tt-row:nth-child(n + 3)) {
+      display: none;
+    }
+  }
+</style>

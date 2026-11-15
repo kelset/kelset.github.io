@@ -1,0 +1,183 @@
+---
+/* The station sign: the header band carries on down the page and the name is
+   set on it, with the lines that "serve this station" listed underneath. */
+import Boop from "../../components/Boop.astro";
+import SocialRow from "../../components/SocialRow.astro";
+import Actions from "../../components/HeroActions.astro";
+import { PROFILE } from "../../data/site";
+import { LINES } from "../../lib/labels";
+---
+
+<section class="hs">
+  <div class="wrap in">
+    <p class="eyebrow k">{PROFILE.role} at {PROFILE.employer} · {PROFILE.location}</p>
+    <h1>Lorenzo <span>Sciandra</span></h1>
+    <ul class="serving" aria-label="Lines">
+      {
+        LINES.map((l) => (
+          <li class={`ln-${l.id}`}>
+            <a href={l.href}>
+              <span class="bullet">{l.n}</span>
+              {l.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="low">
+      <p class="lede">{PROFILE.summary}</p>
+      <div class="acts">
+        <Actions />
+        <SocialRow />
+      </div>
+    </div>
+    <div class="av"><Boop look="ring" caption="hidden" /></div>
+  </div>
+</section>
+
+<style>
+  .hs {
+    background: var(--sign-bg);
+    color: var(--sign-ink);
+    border-block-start: 1px solid var(--sign-rule);
+    margin-block-end: 92px;
+    --social: var(--sign-soft);
+    --social-hi: var(--sign-ink);
+    --boop-size: 168px;
+    --boop-edge: var(--sign-bg);
+  }
+
+  .in {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding-block: clamp(28px, 4vw, 56px) clamp(36px, 5vw, 64px);
+  }
+
+  .k {
+    color: var(--sign-soft);
+  }
+
+  h1 {
+    font-size: min(8.05vw, 6.3rem);
+    font-stretch: 125%;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    white-space: nowrap;
+  }
+
+  .serving {
+    list-style: none;
+    margin: 0;
+    padding: 14px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 26px;
+    border-block: 1px solid var(--sign-rule);
+  }
+
+  .serving a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-block-size: 32px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .serving a:hover {
+    text-decoration: underline;
+  }
+
+  .low {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: 20px 56px;
+    align-items: start;
+    padding-inline-end: 200px;
+  }
+
+  .lede {
+    color: var(--sign-ink);
+    max-inline-size: 36em;
+  }
+
+  .acts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* the buttons flip to the sign's colours */
+  .hs :global(.btn) {
+    background: var(--sign-ink);
+    border-color: var(--sign-ink);
+    color: var(--sign-bg);
+  }
+
+  .hs :global(.btn:hover),
+  .hs :global(.btn--ghost) {
+    background: transparent;
+    color: var(--sign-ink);
+  }
+
+  .hs :global(.btn--ghost:hover) {
+    background: var(--sign-ink);
+    color: var(--sign-bg);
+  }
+
+  .hs :global(:focus-visible) {
+    outline-color: var(--sign-ink);
+  }
+
+  /* the doodle straddles the bottom edge of the sign */
+  .av {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-end: -84px;
+  }
+
+  @media (max-width: 860px) {
+    .low {
+      grid-template-columns: minmax(0, 1fr);
+      padding-inline-end: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hs {
+      margin-block-end: 58px;
+      --boop-size: 92px;
+    }
+
+    .in {
+      gap: 16px;
+      padding-block: 22px 60px;
+    }
+
+    h1 {
+      font-size: calc((100vw - 2 * var(--gutter)) * 0.178);
+      white-space: normal;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .serving {
+      gap: 4px 16px;
+      padding: 10px 0;
+      font-size: var(--fs-small);
+    }
+
+    .lede {
+      font-size: 1.125rem;
+    }
+
+    .av {
+      inset-block-end: -46px;
+    }
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+/* One row of the talks timetable — same shape as PostRow (see global.css).
+   Every appearance is on the speaking line, so the tag is always that colour
+   and says which kind it was. The description is the entry's `detail` with
+   its links intact; several carry slides or a transcript worth keeping. */
+import type { CollectionEntry } from "astro:content";
+import { dayOf, detailOf, kindLabel, venueOf } from "../lib/labels";
+import { renderInlineMd } from "../lib/inline-md";
+
+interface Props {
+  entry: CollectionEntry<"appearances">;
+}
+
+const { entry } = Astro.props;
+const { title, date, kind, url, lang } = entry.data;
+const detail = detailOf(entry);
+---
+
+<li class="tt-row ln-speaking" data-kind={kind}>
+  <time class="tt-when" datetime={date.toISOString().slice(0, 10)}>{dayOf(date)}</time>
+  <span class="tt-tags">
+    <span class="tag ln-speaking">{kindLabel(kind)}</span>
+    {lang && <span class="tag ln-neutral">{lang}</span>}
+  </span>
+  <div class="tt-body">
+    <a class="tt-title ext" href={url}>{title}</a>
+    {detail && <p class="tt-desc" set:html={renderInlineMd(detail)} />}
+  </div>
+  <span class="tt-trail">{venueOf(entry)}</span>
+</li>

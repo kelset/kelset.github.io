@@ -1,0 +1,12 @@
+# URL continuity from the previous (Hugo) version of the site
+/posts/*  /archive/  301
+/tags/talk/  /archive/?kind=talk  301
+/tags/podcast/  /archive/?kind=podcast  301
+/tags/interview/  /archive/?kind=interview  301
+/tags/guest-post/  /archive/?kind=guest-post  301
+/tags/github-collection/  /archive/?kind=collection  301
+/tags/*  /archive/  301
+/index.xml  /rss.xml  301
+/blog/index.xml  /rss.xml  301
+/blog/page/*  /blog/  301
+/sitemap.xml  /sitemap-index.xml  301

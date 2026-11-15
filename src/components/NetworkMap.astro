@@ -1,0 +1,1058 @@
+---
+/* The network map: thirteen years drawn the way a transit authority would.
+
+   The main line is the jobs, one station each, and every stretch of it takes
+   the colour of the line that job was on. Threads branch off at 45°, run
+   beside it, and either merge back in (React Native into Sovereign Tech),
+   stop at a terminus (ProvidedAsIs, debug:mind) or run off the edge with an
+   arrow (speaking, and the main line itself).
+
+   It is a schematic and says so: columns are events, not months, so a busy
+   year gets room and an empty one gets none. Everything is computed here at
+   build time from data/career.ts — no measuring, no client JS.
+
+   Both SVGs are aria-hidden. Their text alternative is the visually hidden
+   list right after the description: every stop and its dates, nothing more.
+   A station is a link only when there is something public to read about it
+   (`href` in the data); those links are mouse conveniences with
+   tabindex="-1", and every one of them is reachable elsewhere on the site. */
+import { ROLES, THREADS, MARKS, fmt, monthOf, yearOf, months, type Span } from "../data/career";
+import { LINES } from "../lib/labels";
+
+/* ---- geometry ---- */
+const COL = 64; // between two events — sized so the whole map fits a 1200px page
+const TAIL = 134; // from the last event to "now": room for a spur and its name flag
+const PAD_L = 50;
+const PAD_R = 46;
+const LANE = 92; // main line → a thread
+const SPUR = 36; // a thread → its spur
+const TOP = 54;
+const Y0 = TOP + SPUR + LANE; // the main line
+const AXIS = Y0 + LANE + SPUR + 40; // month labels
+const H = AXIS + 40;
+const R = 16; // bend radius
+const TILT = -32; // station names
+
+/* Where each thread runs. `from` is what it branches off; `into` is the main
+   line station it merges back into. Parents come before their spurs. */
+const LAYOUT: Record<string, { y: number; from?: string; into?: string; cap?: boolean }> = {
+  rn: { y: -LANE, into: "sta" },
+  providedasis: { y: -LANE - SPUR, from: "rn" },
+  speaking: { y: LANE },
+  debugmind: { y: LANE + SPUR, from: "speaking" },
+  /* a spur off the main line. `cap` draws it with an end stop like the other
+     spurs rather than an arrow, even though it is still running — Lorenzo's
+     call, so the three side projects read as one family */
+  agentsparty: { y: -SPUR, cap: true },
+};
+
+/* Station names sit above the line, rising to the right. These two have a
+   branch leaving upward from the same point, so theirs hang below instead. */
+const BELOW = new Set(["etv", "drivetribe"]);
+
+/* ---- columns: one per distinct event date, then "now" ---- */
+const dates = new Set<string>();
+for (const r of ROLES) dates.add(r.start);
+for (const t of THREADS) {
+  dates.add(t.start);
+  if (t.end && !LAYOUT[t.id]?.into) dates.add(t.end);
+}
+for (const m of MARKS) dates.add(m.at);
+const cols = [...dates].sort((a, b) => months(a) - months(b));
+const NOW = cols.length;
+const colOf = (ym: string) => cols.indexOf(ym);
+/* "now" sits TAIL beyond the last event rather than one column on */
+const x = (col: number) =>
+  col >= NOW ? PAD_L + (NOW - 1) * COL + TAIL : PAD_L + col * COL;
+const W = x(NOW) + PAD_R;
+
+/* ---- drawing helpers ---- */
+type Pt = [number, number];
+const f = (n: number) => Math.round(n * 10) / 10;
+
+/** A polyline with every interior corner rounded to radius R. */
+function route(pts: Pt[]): string {
+  let d = `M${f(pts[0][0])} ${f(pts[0][1])}`;
+  for (let i = 1; i < pts.length - 1; i++) {
+    const [px, py] = pts[i - 1];
+    const [cx, cy] = pts[i];
+    const [nx, ny] = pts[i + 1];
+    const d1 = Math.hypot(cx - px, cy - py);
+    const d2 = Math.hypot(nx - cx, ny - cy);
+    const r = Math.min(R, d1 / 2, d2 / 2);
+    d += ` L${f(cx - ((cx - px) / d1) * r)} ${f(cy - ((cy - py) / d1) * r)}`;
+    d += ` Q${f(cx)} ${f(cy)} ${f(cx + ((nx - cx) / d2) * r)} ${f(cy + ((ny - cy) / d2) * r)}`;
+  }
+  const last = pts[pts.length - 1];
+  return `${d} L${f(last[0])} ${f(last[1])}`;
+}
+
+const arrowAt = (ax: number, ay: number) =>
+  `M${f(ax - 2)} ${f(ay - 9)} L${f(ax + 12)} ${f(ay)} L${f(ax - 2)} ${f(ay + 9)}Z`;
+
+/* ---- the main line ---- */
+const roles = [...ROLES].sort((a, b) => months(a.start) - months(b.start));
+const trunk = roles.map((role, i) => {
+  const next = roles[i + 1];
+  const x1 = x(colOf(role.start));
+  const x2 = next ? x(colOf(next.start)) : x(NOW);
+  /* a stretch with nobody on it: the role ended well before the next began */
+  const gap = !!next && !!role.end && months(next.start) - months(role.end) > 3;
+  return {
+    role,
+    x1,
+    x2,
+    hue: gap ? "neutral" : role.hue,
+    dashed: gap || !!role.aside,
+    open: !next,
+  };
+});
+const roleById = new Map(roles.map((r) => [r.id, r]));
+
+/* ---- threads ---- */
+const laneY = (id: string) => Y0 + LAYOUT[id].y;
+const threads = THREADS.filter((t) => LAYOUT[t.id]).map((t) => {
+  const lay = LAYOUT[t.id];
+  const y = laneY(t.id);
+  const fromY = lay.from ? laneY(lay.from) : Y0;
+  const sx = x(colOf(t.start));
+  const rise = Math.abs(y - fromY);
+  const pts: Pt[] = [
+    [sx, fromY],
+    [sx + rise, y],
+  ];
+  let endX: number;
+  if (lay.into) {
+    const tx = x(colOf(roleById.get(lay.into)!.start));
+    const drop = Math.abs(y - Y0);
+    pts.push([tx - drop, y], [tx, Y0]);
+    endX = tx - drop;
+  } else {
+    endX = t.end ? x(colOf(t.end)) : x(NOW);
+    pts.push([endX, y]);
+  }
+  return {
+    t,
+    y,
+    d: route(pts),
+    runFrom: sx + rise,
+    runTo: endX,
+    open: !t.end && !lay.cap,
+    terminus: (!!t.end && !lay.into) || !!lay.cap,
+    endX,
+  };
+});
+
+/* Name flags ride on the line itself, so they never collide with a station
+   name. `at` is the centre, in columns; widths are set by hand to the text
+   and textLength pins the glyphs to them, so the pill always fits. */
+const FLAGS: Record<string, { label: string; at?: number; w: number }> = {
+  rn: { label: "React Native", at: 6.5, w: 98 },
+  providedasis: { label: "ProvidedAsIs", at: 6.02, w: 88 },
+  /* no `at`: centred on its own run, which starts after the last column */
+  agentsparty: { label: "agents party", w: 90 },
+  speaking: { label: "Speaking", at: 6.5, w: 74 },
+  debugmind: { label: "debug:mind", at: 10.02, w: 86 },
+};
+
+/* main line stations that a thread leaves from or arrives at */
+const interchanges = new Set<string>();
+for (const t of THREADS) {
+  const lay = LAYOUT[t.id];
+  if (!lay) continue;
+  if (lay.into) interchanges.add(lay.into);
+  if (!lay.from) {
+    const at = roles.find((r) => r.start === t.start);
+    if (at) interchanges.add(at.id);
+  }
+}
+
+const current = roles[roles.length - 1];
+
+/* ---- zones: one band per year that has an event, plus "now" ---- */
+const zones: { year: string; x1: number; x2: number; shade: boolean }[] = [];
+cols.forEach((ym, i) => {
+  const year = String(yearOf(ym));
+  const last = zones[zones.length - 1];
+  if (last && last.year === year) last.x2 = x(i) + COL / 2;
+  else zones.push({ year, x1: x(i) - COL / 2, x2: x(i) + COL / 2, shade: zones.length % 2 === 0 });
+});
+zones[0].x1 = 0;
+zones[zones.length - 1].x2 = x(NOW) - COL / 2;
+zones.push({ year: "now", x1: x(NOW) - COL / 2, x2: W, shade: zones.length % 2 === 0 });
+
+const lineName = (hue: string) => LINES.find((l) => l.id === hue)?.name ?? "";
+const lineNo = (hue: string) => LINES.find((l) => l.id === hue)?.n ?? "";
+const stationTitle = (s: Span) => (s.id === "tororosso" ? "Toro Rosso F1" : s.title);
+
+/* ================= the portrait map =================
+   A phone can't show the landscape map without panning, and a panned sliver
+   of it shows one station and a lot of nothing. So narrow screens get the
+   same network turned on its side: now at the top, 2013 at the bottom, the
+   main line nearest the names, threads stacked to its left. Same data, same
+   rules, one row per event. */
+const VW = 340;
+const V_ROW = 46; // a row with a name on it
+const V_GAP = 24; // a row that only ends a thread
+const V_NOW = 24; // y of the arrowheads
+const V_FIRST = 46; // top of the first row
+const V_LABEL = 150; // where names start
+const VX: Record<string, number> = {
+  trunk: 126,
+  rn: 98,
+  /* reuses the lane React Native left free in 2024 */
+  agentsparty: 98,
+  providedasis: 72,
+  speaking: 46,
+  debugmind: 20,
+};
+
+type VRow =
+  | { kind: "role"; ym: string; role: Span }
+  | { kind: "thread"; ym: string; thread: Span }
+  | { kind: "mark"; ym: string; mark: (typeof MARKS)[number] }
+  | { kind: "end"; ym: string; thread: Span };
+
+const vrows: (VRow & { y: number })[] = [];
+{
+  const list: VRow[] = [
+    ...roles.map((role) => ({ kind: "role" as const, ym: role.start, role })),
+    ...THREADS.filter((t) => LAYOUT[t.id]).flatMap((thread) => [
+      { kind: "thread" as const, ym: thread.start, thread },
+      ...(thread.end && !LAYOUT[thread.id].into
+        ? [{ kind: "end" as const, ym: thread.end, thread }]
+        : []),
+    ]),
+    ...MARKS.filter((m) => LAYOUT[m.on]).map((mark) => ({ kind: "mark" as const, ym: mark.at, mark })),
+  ];
+  /* newest first; on a shared date the thread sits above the job it left from */
+  const rank = { thread: 0, mark: 1, end: 2, role: 3 };
+  list.sort((a, b) => months(b.ym) - months(a.ym) || rank[a.kind] - rank[b.kind]);
+  let cursor = V_FIRST;
+  for (const row of list) {
+    const h = row.kind === "end" ? V_GAP : V_ROW;
+    vrows.push({ ...row, y: cursor + h / 2 });
+    cursor += h;
+  }
+}
+const VH = vrows[vrows.length - 1].y + V_ROW / 2 + 6;
+const vRoleY = (id: string) => vrows.find((r) => r.kind === "role" && r.role.id === id)!.y;
+const vThreadY = (id: string) => vrows.find((r) => r.kind === "thread" && r.thread.id === id)!.y;
+
+const arrowUp = (ax: number, ay: number) =>
+  `M${f(ax - 9)} ${f(ay + 2)} L${f(ax)} ${f(ay - 12)} L${f(ax + 9)} ${f(ay + 2)}Z`;
+
+const vtrunk = trunk.map((seg, i) => ({
+  ...seg,
+  y1: vRoleY(seg.role.id),
+  y2: trunk[i + 1] ? vRoleY(trunk[i + 1].role.id) : V_NOW,
+}));
+
+const vthreads = THREADS.filter((t) => LAYOUT[t.id]).map((t) => {
+  const lay = LAYOUT[t.id];
+  const lx = VX[t.id];
+  const px = lay.from ? VX[lay.from] : VX.trunk;
+  /* a thread off the main line leaves from the job that shares its start
+     date; a spur leaves its parent on its own row */
+  const anchor = lay.from ? undefined : roles.find((r) => r.start === t.start);
+  const ya = anchor ? vRoleY(anchor.id) : vThreadY(t.id);
+  const pts: Pt[] = [
+    [px, ya],
+    [lx, ya - Math.abs(px - lx)],
+  ];
+  let endY: number;
+  if (lay.into) {
+    const ty = vRoleY(lay.into);
+    const run = Math.abs(VX.trunk - lx);
+    pts.push([lx, ty + run], [VX.trunk, ty]);
+    endY = ty;
+  } else {
+    /* a capped spur stops just short of "now", so its bar clears the main
+       line's arrowhead */
+    endY = t.end
+      ? vrows.find((r) => r.kind === "end" && r.thread.id === t.id)!.y
+      : V_NOW + (lay.cap ? 13 : 0);
+    pts.push([lx, endY]);
+  }
+  return {
+    t,
+    lx,
+    d: route(pts),
+    open: !t.end && !lay.cap,
+    terminus: (!!t.end && !lay.into) || !!lay.cap,
+    endY,
+  };
+});
+---
+
+<section class="net" aria-labelledby="net-h">
+  <header class="strip-head">
+    <h2 id="net-h">Network map</h2>
+    <p class="eyebrow fine">
+      <span>2013 to now</span>
+      <span class="nts">Not to scale</span>
+      <span class="pan">Pan sideways</span>
+    </p>
+  </header>
+
+  <div class="visually-hidden">
+    <p id="net-desc">
+      A schematic map of Lorenzo's career from 2013 to today: a main line of jobs, with open
+      source, speaking and the debug:mind podcast branching off it. The stops, newest first:
+    </p>
+    <ol>
+      {
+        [...roles].reverse().map((r) => (
+          <li>
+            {r.title}, {fmt(r.start)} to {fmt(r.end)}
+          </li>
+        ))
+      }
+    </ol>
+    <p>Alongside the jobs:</p>
+    <ul>
+      {
+        THREADS.map((t) => (
+          <li>
+            {t.title}, {fmt(t.start)} to {fmt(t.end)}
+          </li>
+        ))
+      }
+      {
+        MARKS.map((m) => (
+          <li>
+            {m.title}, {fmt(m.at)}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="scroll" tabindex="0" role="group" aria-labelledby="net-h" aria-describedby="net-desc">
+    <svg
+      class="map"
+      viewBox={`0 0 ${W} ${H}`}
+      width={W}
+      height={H}
+      aria-hidden="true"
+      style={`--w:${W}px`}
+    >
+      <g class="zones">
+        {
+          zones.map((z) => (
+            <>
+              {z.shade && <rect x={f(z.x1)} y="0" width={f(z.x2 - z.x1)} height={H} />}
+              <text class="year" x={f(Math.max(z.x1, PAD_L - COL / 2) + (Math.min(z.x2, x(NOW) + COL / 2) - Math.max(z.x1, PAD_L - COL / 2)) / 2)} y={AXIS + 20}>
+                {z.year}
+              </text>
+            </>
+          ))
+        }
+        {
+          cols.map((ym, i) => (
+            <text class="month" x={x(i)} y={AXIS}>
+              {monthOf(ym)}
+            </text>
+          ))
+        }
+      </g>
+
+      <g class="ink">
+        {/* threads first, so the main line's stations sit on top of the joins */}
+        {
+          threads.map(({ t, d, open, terminus, endX, y }) => (
+            <g class={`ln-${t.hue}`} data-line={t.hue}>
+              <path class="case" d={d} />
+              <path class="track" d={d} />
+              {open && <path class="head" d={arrowAt(endX, y)} />}
+              {terminus && <path class="bar" d={`M${f(endX)} ${f(y - 10)}V${f(y + 10)}`} />}
+            </g>
+          ))
+        }
+
+        {
+          trunk.map((s) => (
+            <g class={`ln-${s.hue}`} data-line={s.hue}>
+              <path
+                class:list={["track", { dashed: s.dashed }]}
+                d={`M${f(s.x1)} ${Y0}H${f(s.x2)}`}
+              />
+              {s.open && <path class="head" d={arrowAt(s.x2, Y0)} />}
+            </g>
+          ))
+        }
+
+        {/* name flags on the threads */}
+        {
+          threads.map(({ t, y, runFrom, runTo }) => {
+            const flag = FLAGS[t.id];
+            if (!flag) return null;
+            const cx = flag.at === undefined ? (runFrom + runTo) / 2 : x(flag.at);
+            const Tag = t.href ? "a" : "g";
+            return (
+              <Tag
+                class={`flag ln-${t.hue}`}
+                data-line={t.hue}
+                href={t.href}
+                tabindex={t.href ? "-1" : undefined}
+              >
+                <rect x={f(cx - flag.w / 2)} y={y - 11} width={flag.w} height="22" rx="11" />
+                <text x={f(cx)} y={y + 4.5} textLength={flag.w - 22} lengthAdjust="spacingAndGlyphs">
+                  {flag.label}
+                </text>
+              </Tag>
+            );
+          })
+        }
+
+        {/* marks: single stations on a thread */}
+        {
+          MARKS.filter((m) => LAYOUT[m.on]).map((m) => (
+            <g class={`mark ln-${m.hue}`} data-line={m.hue}>
+              <circle cx={x(colOf(m.at))} cy={laneY(m.on)} r="6" />
+              <text x={x(colOf(m.at)) + 8} y={laneY(m.on) - 13} transform={`rotate(${TILT} ${x(colOf(m.at)) + 8} ${laneY(m.on) - 13})`}>
+                {m.title}
+              </text>
+            </g>
+          ))
+        }
+
+        {/* the pulse on the stop he is at now */}
+        <circle class={`pulse ln-${current.hue}`} cx={x(colOf(current.start))} cy={Y0} r="10" />
+
+        {/* main line stations */}
+        {
+          roles.map((role) => {
+            const sx = x(colOf(role.start));
+            const below = BELOW.has(role.id);
+            const tx = below ? sx - 9 : sx + 9;
+            const ty = below ? Y0 + 25 : Y0 - 16;
+            const Tag = role.href ? "a" : "g";
+            return (
+              <Tag
+                class:list={[
+                  "station",
+                  `ln-${role.hue}`,
+                  { aside: role.aside, hub: interchanges.has(role.id), here: role === current },
+                ]}
+                href={role.href}
+                tabindex={role.href ? "-1" : undefined}
+                data-line={role.hue}
+              >
+                <title>{`${role.title} — ${lineName(role.hue)} line`}</title>
+                <circle cx={sx} cy={Y0} r={role.aside ? 5.5 : interchanges.has(role.id) ? 10 : 7.5} />
+                <text
+                  x={tx}
+                  y={ty}
+                  text-anchor={below ? "end" : "start"}
+                  transform={`rotate(${TILT} ${tx} ${ty})`}
+                >
+                  {stationTitle(role)}
+                </text>
+              </Tag>
+            );
+          })
+        }
+      </g>
+    </svg>
+  </div>
+
+  {/* the portrait map: phones only */}
+  <svg class="map-v" viewBox={`0 0 ${VW} ${f(VH)}`} width={VW} height={f(VH)} aria-hidden="true">
+    <g class="ink">
+      {
+        vthreads.map(({ t, d, open, terminus, lx, endY }) => (
+          <g class={`ln-${t.hue}`} data-line={t.hue}>
+            <path class="case" d={d} />
+            <path class="track" d={d} />
+            {open && <path class="head" d={arrowUp(lx, endY)} />}
+            {terminus && <path class="bar" d={`M${f(lx - 9)} ${f(endY)}H${f(lx + 9)}`} />}
+          </g>
+        ))
+      }
+
+      {
+        vtrunk.map((seg) => (
+          <g class={`ln-${seg.hue}`} data-line={seg.hue}>
+            <path
+              class:list={["track", { dashed: seg.dashed }]}
+              d={`M${VX.trunk} ${f(seg.y1)}V${f(seg.y2)}`}
+            />
+            {seg.open && <path class="head" d={arrowUp(VX.trunk, seg.y2)} />}
+          </g>
+        ))
+      }
+
+      <text class="vnow" x={V_LABEL} y={V_NOW + 2}>now</text>
+
+      <circle class={`pulse ln-${current.hue}`} cx={VX.trunk} cy={vRoleY(current.id)} r="10" />
+
+      {
+        vrows.map((row) => {
+          if (row.kind === "role") {
+            const { role } = row;
+            const Tag = role.href ? "a" : "g";
+            return (
+              <Tag
+                class:list={[
+                  "vstation",
+                  "vrole",
+                  `ln-${role.hue}`,
+                  { aside: role.aside, hub: interchanges.has(role.id), here: role === current },
+                ]}
+                href={role.href}
+                tabindex={role.href ? "-1" : undefined}
+                data-line={role.hue}
+              >
+                <circle
+                  cx={VX.trunk}
+                  cy={f(row.y)}
+                  r={role.aside ? 5.5 : interchanges.has(role.id) ? 10 : 7.5}
+                />
+                <text class="vname" x={V_LABEL} y={f(row.y - 1)}>
+                  {stationTitle(role)}
+                </text>
+                <text class="vwhen" x={V_LABEL} y={f(row.y + 14)}>
+                  {fmt(role.start)} – {fmt(role.end)}
+                </text>
+              </Tag>
+            );
+          }
+          if (row.kind === "thread" || row.kind === "mark") {
+            const item = row.kind === "thread" ? row.thread : row.mark;
+            const when =
+              row.kind === "thread"
+                ? `${fmt(row.thread.start)} – ${fmt(row.thread.end)}`
+                : fmt(row.mark.at);
+            const Tag = item.href ? "a" : "g";
+            return (
+              <Tag
+                class={`vstation vbranch ln-${item.hue}`}
+                href={item.href}
+                tabindex={item.href ? "-1" : undefined}
+                data-line={item.hue}
+              >
+                {row.kind === "mark" && (
+                  <circle class="vmark" cx={VX[row.mark.on]} cy={f(row.y)} r="5.5" />
+                )}
+                <circle class="vdisc" cx={V_LABEL + 8} cy={f(row.y - 6)} r="8.5" />
+                <text class="vno" x={V_LABEL + 8} y={f(row.y - 2)}>
+                  {lineNo(item.hue)}
+                </text>
+                <text class="vname" x={V_LABEL + 23} y={f(row.y - 1)}>
+                  {item.title}
+                </text>
+                <text class="vwhen" x={V_LABEL + 23} y={f(row.y + 14)}>
+                  {when}
+                </text>
+              </Tag>
+            );
+          }
+          return null;
+        })
+      }
+    </g>
+  </svg>
+
+  <ul class="legend">
+    {
+      LINES.map((line) => (
+        <li>
+          <a class={`key ln-${line.id}`} href={line.href} data-line={line.id}>
+            <span class="bullet">{line.n}</span>
+            <span class="what">
+              <span class="name">{line.name}</span>
+              <span class="about">{line.about}</span>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .net {
+    --map-bg: var(--surface);
+    --zone: color-mix(in oklab, var(--ink) 4.5%, transparent);
+    border: 2px solid var(--ink);
+    border-radius: var(--r);
+    overflow: clip;
+    background: var(--map-bg);
+  }
+
+  /* the title strip */
+  .strip-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 20px;
+    flex-wrap: wrap;
+    padding: 12px 20px;
+    background: var(--sign-bg);
+    color: var(--sign-ink);
+  }
+
+  .strip-head h2 {
+    font-size: 1.0625rem;
+    font-stretch: 118%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  .fine {
+    display: flex;
+    gap: 18px;
+    color: var(--sign-soft);
+  }
+
+  .pan {
+    display: none;
+  }
+
+  /* direction: rtl parks a too-narrow viewport at the right-hand end — at
+     "now" — without a line of script. The SVG switches it back. */
+  .scroll {
+    overflow-x: auto;
+    direction: rtl;
+    overscroll-behavior-x: contain;
+  }
+
+  .scroll:focus-visible {
+    outline-offset: -4px;
+  }
+
+  .map {
+    direction: ltr;
+    inline-size: 100%;
+    min-inline-size: var(--w);
+    block-size: auto;
+    font-family: var(--font);
+  }
+
+  /* ---- zones and the date axis ---- */
+  .zones rect {
+    fill: var(--zone);
+  }
+
+  .year,
+  .month {
+    text-anchor: middle;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .month {
+    font-size: 11px;
+    font-stretch: 84%;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    fill: var(--ink-muted);
+  }
+
+  .year {
+    font-size: 15px;
+    font-weight: 800;
+    font-stretch: 106%;
+    fill: var(--ink);
+  }
+
+  /* ---- lines ---- */
+  .track,
+  .case,
+  .bar {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .track {
+    stroke: var(--l);
+    stroke-width: 9;
+  }
+
+  .track.dashed {
+    stroke-width: 5;
+    stroke-dasharray: 1 10;
+  }
+
+  /* keeps a line off whatever it passes, and gives yellow its day-time edge */
+  .case {
+    stroke: var(--map-bg);
+    stroke-width: 15;
+  }
+
+  .ln-speaking .case {
+    stroke: light-dark(var(--ink), var(--map-bg));
+    stroke-width: 12;
+  }
+
+  .bar {
+    stroke: var(--l);
+    stroke-width: 9;
+  }
+
+  .head {
+    fill: var(--l);
+    stroke: var(--l);
+    stroke-width: 3;
+    stroke-linejoin: round;
+  }
+
+  .ln-speaking .head {
+    paint-order: stroke;
+    stroke: light-dark(var(--ink), var(--l));
+    stroke-width: 1.5;
+  }
+
+  /* ---- stations ---- */
+  .station circle,
+  .mark circle {
+    fill: var(--map-bg);
+    stroke: var(--ink);
+    stroke-width: 3.5;
+  }
+
+  .station.hub circle {
+    stroke-width: 4.5;
+  }
+
+  .station.aside circle {
+    stroke-width: 3;
+  }
+
+  .station.here circle {
+    fill: var(--l);
+  }
+
+  .station text,
+  .mark text {
+    font-size: 13.5px;
+    font-stretch: 84%;
+    font-weight: 700;
+    fill: var(--ink);
+  }
+
+  .station.aside text,
+  .mark text {
+    font-weight: 600;
+    fill: var(--ink-soft);
+  }
+
+  .station.here text {
+    font-weight: 800;
+    font-size: 15px;
+  }
+
+  /* only a station with somewhere to go behaves like a link */
+  a.station,
+  a.flag {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a.station:hover text {
+    text-decoration: underline;
+  }
+
+  a.station:hover circle {
+    fill: var(--l);
+  }
+
+  a.flag:hover rect {
+    filter: brightness(1.12);
+  }
+
+
+  /* ---- name flags ---- */
+  .flag rect {
+    fill: var(--l);
+  }
+
+  .flag.ln-speaking rect {
+    stroke: var(--case-speaking);
+    stroke-width: 1.5;
+  }
+
+  .flag text {
+    text-anchor: middle;
+    font-size: 12px;
+    font-stretch: 88%;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    fill: var(--on);
+  }
+
+  /* ---- the pulse: this is where he is ---- */
+  .pulse {
+    fill: none;
+    stroke: var(--l);
+    stroke-width: 3;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse 2.4s var(--ease) infinite;
+  }
+
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    70%,
+    to {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  /* ---- hover a line in the key, and the rest of the map steps back ---- */
+  .ink [data-line] {
+    transition: opacity 180ms var(--ease);
+  }
+
+  .net:has(.key[data-line="mobile"]:is(:hover, :focus-visible)) .ink [data-line]:not([data-line="mobile"]),
+  .net:has(.key[data-line="oss"]:is(:hover, :focus-visible)) .ink [data-line]:not([data-line="oss"]),
+  .net:has(.key[data-line="speaking"]:is(:hover, :focus-visible)) .ink [data-line]:not([data-line="speaking"]),
+  .net:has(.key[data-line="mind"]:is(:hover, :focus-visible)) .ink [data-line]:not([data-line="mind"]),
+  .net:has(.key[data-line="agentic"]:is(:hover, :focus-visible)) .ink [data-line]:not([data-line="agentic"]) {
+    opacity: 0.16;
+  }
+
+  /* ---- the key ---- */
+  .legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border-block-start: 2px solid var(--ink);
+    background: var(--bg);
+  }
+
+  .legend li + li {
+    border-inline-start: 1px solid var(--rule);
+  }
+
+  .key {
+    display: flex;
+    gap: 12px;
+    block-size: 100%;
+    padding: 16px 18px 18px;
+    text-decoration: none;
+    transition: background 140ms var(--ease);
+  }
+
+  .key:hover {
+    background: var(--surface);
+  }
+
+  .key:focus-visible {
+    outline-offset: -4px;
+  }
+
+  .key .bullet {
+    font-size: 0.875rem;
+    margin-block-start: 1px;
+  }
+
+  .what {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-inline-size: 0;
+  }
+
+  .name {
+    font-weight: 800;
+    font-stretch: 106%;
+    line-height: 1.3;
+  }
+
+  .about {
+    font-size: var(--fs-meta);
+    font-stretch: 92%;
+    line-height: 1.4;
+    color: var(--ink-soft);
+  }
+
+  /* ---- the portrait map ---- */
+  .map-v {
+    display: none;
+    inline-size: 100%;
+    block-size: auto;
+    font-family: var(--font);
+  }
+
+  a.vstation {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a.vstation:hover .vname {
+    text-decoration: underline;
+  }
+
+  .vrole circle {
+    fill: var(--map-bg);
+    stroke: var(--ink);
+    stroke-width: 3.5;
+  }
+
+  .vrole.hub circle {
+    stroke-width: 4.5;
+  }
+
+  .vrole.aside circle {
+    stroke-width: 3;
+  }
+
+  .vrole.here circle {
+    fill: var(--l);
+  }
+
+  .vname {
+    font-size: 14.5px;
+    font-stretch: 90%;
+    font-weight: 700;
+    fill: var(--ink);
+  }
+
+  .vwhen {
+    font-size: 11.5px;
+    font-stretch: 86%;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    fill: var(--ink-muted);
+  }
+
+  .vrole.aside .vname {
+    font-weight: 600;
+    fill: var(--ink-soft);
+  }
+
+  .vrole.here .vname {
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  .vnow {
+    font-size: 12px;
+    font-stretch: 84%;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    fill: var(--ink-muted);
+  }
+
+  .vdisc {
+    fill: var(--l);
+    stroke: var(--case-speaking);
+    stroke-width: 0;
+  }
+
+  .ln-speaking .vdisc {
+    stroke-width: 1.5;
+  }
+
+  .vno {
+    text-anchor: middle;
+    font-size: 11px;
+    font-weight: 800;
+    fill: var(--on);
+  }
+
+  .vmark {
+    fill: var(--map-bg);
+    stroke: var(--ink);
+    stroke-width: 3;
+  }
+
+  /* ---- the lines draw themselves in, once, where the map fits whole ---- */
+  @media (min-width: 1280px) and (prefers-reduced-motion: no-preference) {
+    .ink {
+      animation: draw 1.5s var(--ease) both;
+    }
+
+    @keyframes draw {
+      from {
+        clip-path: inset(0 100% 0 0);
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+  }
+
+  @media (max-width: 1279px) {
+    .pan {
+      display: inline;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .legend {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .legend li + li {
+      border-inline-start: 0;
+      border-block-start: 1px solid var(--rule);
+    }
+
+    .key {
+      padding: 13px 16px;
+    }
+
+    .nts {
+      display: none;
+    }
+  }
+
+  /* ---- phones: the portrait map, and a key that is just the five names ---- */
+  @media (max-width: 640px) {
+    .scroll,
+    .pan {
+      display: none;
+    }
+
+    .map-v {
+      display: block;
+    }
+
+    .strip-head {
+      padding: 11px 16px;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 6px;
+      padding: 12px 12px 14px;
+    }
+
+    .legend li + li {
+      border: 0;
+    }
+
+    .key {
+      align-items: center;
+      gap: 8px;
+      min-block-size: 40px;
+      padding: 4px 12px 4px 6px;
+      border-radius: var(--r-pill);
+    }
+
+    .key .bullet {
+      margin: 0;
+    }
+
+    .name {
+      font-size: var(--fs-small);
+      font-stretch: 100%;
+    }
+
+    .about {
+      display: none;
+    }
+  }
+</style>

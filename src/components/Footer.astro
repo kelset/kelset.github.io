@@ -1,0 +1,153 @@
+---
+/* The sign at the far end of the platform: where else you can go, and exactly
+   which build you are looking at. */
+import SocialRow from "./SocialRow.astro";
+import { NAV, SITE } from "../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="sign">
+  {/* all five lines run in from the left and stop */}
+  <div class="terminus" aria-hidden="true">
+    <span class="tracks"></span>
+    <span class="buffer"></span>
+  </div>
+
+  <div class="wrap inner">
+    <div class="top">
+      <p class="end">End of the line.</p>
+      <SocialRow />
+    </div>
+
+    <nav aria-label="Footer">
+      <ul class="links">
+        {
+          NAV.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+        <li><a href="/rss.xml">RSS</a></li>
+        <li><a href="/llms.txt">llms.txt</a></li>
+      </ul>
+    </nav>
+
+    <p class="fine">
+      Built with <a href="https://astro.build">Astro</a>, deployed on
+      <a href="https://www.netlify.com/">Netlify</a>. No trackers, no cookies, no third-party
+      requests.
+      <span class="build num">
+        Build <a href={`${SITE.repo}/commit/${__GIT_HASH__}`}>{__GIT_HASH__}</a> · {__BUILD_DATE__}
+        · © 2022–{year}
+        {SITE.name}
+      </span>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .sign {
+    margin-block-start: clamp(40px, 6vw, 80px);
+    background: var(--sign-bg);
+    color: var(--sign-ink);
+    view-transition-name: sitefooter;
+    --social: var(--sign-soft);
+    --social-hi: var(--sign-ink);
+  }
+
+  .terminus {
+    display: flex;
+    align-items: center;
+    padding-block-start: clamp(30px, 4vw, 48px);
+  }
+
+  .tracks {
+    flex: 0 1 min(64%, 880px);
+    block-size: 46px;
+    background: linear-gradient(
+      to bottom,
+      var(--l-agentic) 0 6px,
+      transparent 6px 10px,
+      var(--l-mobile) 10px 16px,
+      transparent 16px 20px,
+      var(--l-oss) 20px 26px,
+      transparent 26px 30px,
+      var(--l-speaking) 30px 36px,
+      transparent 36px 40px,
+      var(--l-mind) 40px 46px
+    );
+  }
+
+  .buffer {
+    inline-size: 10px;
+    block-size: 68px;
+    border-radius: 5px;
+    background: var(--sign-ink);
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding-block: clamp(22px, 3vw, 34px) 28px;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 32px;
+    flex-wrap: wrap;
+  }
+
+  .end {
+    font-size: clamp(1.75rem, 1.2rem + 2.6vw, 3.25rem);
+    font-weight: 800;
+    font-stretch: 118%;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 18px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 26px;
+    border-block-start: 1px solid var(--sign-rule);
+  }
+
+  .links a {
+    display: inline-block;
+    padding-block: 8px;
+    font-weight: 700;
+    font-size: var(--fs-small);
+    text-decoration: none;
+  }
+
+  .links a:hover {
+    text-decoration: underline;
+  }
+
+  .fine {
+    font-size: var(--fs-meta);
+    font-stretch: 90%;
+    line-height: 1.6;
+    color: var(--sign-soft);
+  }
+
+  .fine a {
+    color: var(--sign-ink);
+  }
+
+  .build {
+    display: block;
+  }
+
+  a:focus-visible {
+    outline-color: var(--sign-ink);
+  }
+</style>

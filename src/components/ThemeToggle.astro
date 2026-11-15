@@ -1,0 +1,104 @@
+---
+/* Day service / night service. Hidden until its script has run, so it is never
+   a button that does nothing; without JS the site simply follows the OS. */
+---
+
+<button class="theme" type="button" id="theme-toggle" hidden>
+  <svg class="sun" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+    <circle cx="10" cy="10" r="4" fill="currentColor"></circle>
+    <path
+      d="M10 1v3M10 16v3M1 10h3M16 10h3M3.6 3.6l2.1 2.1M14.3 14.3l2.1 2.1M3.6 16.4l2.1-2.1M14.3 5.7l2.1-2.1"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"></path>
+  </svg>
+  <svg class="moon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+    <path d="M16.5 12.4A7.5 7.5 0 0 1 7.6 3.5a7.5 7.5 0 1 0 8.9 8.9Z" fill="currentColor"></path>
+  </svg>
+  <span class="label" data-label>Night</span>
+</button>
+
+<style>
+  .theme {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-block-size: 40px;
+    padding: 6px 12px;
+    border: 2px solid var(--sign-rule);
+    border-radius: var(--r-pill);
+    background: transparent;
+    color: var(--sign-ink);
+    font-size: var(--fs-meta);
+    font-weight: 700;
+    font-stretch: 90%;
+    cursor: pointer;
+    transition: border-color 140ms var(--ease);
+  }
+
+  .theme:hover {
+    border-color: var(--sign-ink);
+  }
+
+  .theme:focus-visible {
+    outline-color: var(--sign-ink);
+  }
+
+  /* the icon shows where the button takes you */
+  .sun {
+    display: none;
+  }
+
+  :global(:root[data-theme="dark"]) .sun {
+    display: block;
+  }
+
+  :global(:root[data-theme="dark"]) .moon {
+    display: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) .sun {
+      display: block;
+    }
+
+    :global(:root:not([data-theme="light"])) .moon {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Flip between the two themes and remember the choice. The no-flash snippet
+  // in Base.astro applies it before first paint on the next page.
+  const btn = document.getElementById("theme-toggle") as HTMLButtonElement | null;
+  if (btn) {
+    const root = document.documentElement;
+    const label = btn.querySelector<HTMLElement>("[data-label]")!;
+    const system = window.matchMedia("(prefers-color-scheme: dark)");
+    const current = () => root.dataset.theme ?? (system.matches ? "dark" : "light");
+    const paint = () => {
+      const next = current() === "dark" ? "light" : "dark";
+      const name = next === "dark" ? "Night" : "Day";
+      label.textContent = name;
+      // the accessible name has to contain the word on the button (WCAG 2.5.3),
+      // or "click Night" does nothing for someone using voice control
+      btn.setAttribute("aria-label", `Switch to the ${name.toLowerCase()} theme`);
+    };
+
+    btn.addEventListener("click", () => {
+      const next = current() === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem("theme", next);
+      } catch {
+        /* private mode: the choice just doesn't outlive the page */
+      }
+      paint();
+    });
+
+    system.addEventListener("change", paint);
+    paint();
+    btn.hidden = false;
+  }
+</script>

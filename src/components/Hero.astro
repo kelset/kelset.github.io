@@ -1,0 +1,161 @@
+---
+/* The top of the home page: the name, and under it all five lines crossing
+   the page edge to edge, with the doodle as the interchange where they meet.
+   The band is the map's own vocabulary, so the hero and the map below read as
+   one thing. Chosen from the lab (src/lab/experiments.ts, "hero"). */
+import Boop from "./Boop.astro";
+import SocialRow from "./SocialRow.astro";
+import Actions from "./HeroActions.astro";
+import { PROFILE } from "../data/site";
+---
+
+<section class="hl">
+  <div class="wrap top">
+    <p class="eyebrow">{PROFILE.role} at {PROFILE.employer} · {PROFILE.location}</p>
+    <h1>Lorenzo <span>Sciandra</span></h1>
+  </div>
+
+  <div class="band">
+    <div class="wrap rail">
+      <div class="hub"><Boop look="disc" caption="float" /></div>
+    </div>
+  </div>
+
+  <div class="wrap low">
+    <p class="lede">{PROFILE.summary}</p>
+    <div class="acts">
+      <Actions />
+      <SocialRow />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hl {
+    padding-block: clamp(28px, 4.5vw, 60px) clamp(28px, 4vw, 52px);
+    --boop-size: 164px;
+    --boop-halo: var(--bg);
+    overflow-x: clip;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  h1 {
+    font-size: min(8.05vw, 6.3rem);
+    font-stretch: 125%;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    white-space: nowrap;
+  }
+
+  /* five tracks, edge to edge. Yellow gets its day-time casing. */
+  .band {
+    block-size: 82px;
+    /* the doodle overhangs the band by 41px each way, and its caption sits
+       under that */
+    margin-block: clamp(46px, 5vw, 62px) 78px;
+    background: linear-gradient(
+      to bottom,
+      var(--l-agentic) 0 10px,
+      transparent 10px 18px,
+      var(--l-mobile) 18px 28px,
+      transparent 28px 36px,
+      var(--l-oss) 36px 46px,
+      transparent 46px 52.5px,
+      var(--case-speaking) 52.5px 54px,
+      var(--l-speaking) 54px 64px,
+      var(--case-speaking) 64px 65.5px,
+      transparent 65.5px 72px,
+      var(--l-mind) 72px 82px
+    );
+  }
+
+  .rail {
+    position: relative;
+    block-size: 100%;
+  }
+
+  /* centred on the band; the caption hangs under it without moving it */
+  .hub {
+    position: absolute;
+    inset-inline-end: 7%;
+    inset-block-start: calc(50% - var(--boop-size) / 2);
+  }
+
+  .low {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: 20px 56px;
+    align-items: start;
+  }
+
+  .lede {
+    color: var(--ink);
+    max-inline-size: 36em;
+  }
+
+  .acts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  @media (max-width: 860px) {
+    .low {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    /* on a phone the caption lines up with the doodle's right edge, so a
+       long one grows inward instead of off the screen */
+    .hl {
+      padding-block: 22px 26px;
+      --boop-size: 96px;
+      --cap-left: auto;
+      --cap-right: 0;
+      --cap-shift: 0;
+    }
+
+    .top {
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: calc((100vw - 2 * var(--gutter)) * 0.178);
+      white-space: normal;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .band {
+      block-size: 62px;
+      margin-block: 40px 54px;
+      background: linear-gradient(
+        to bottom,
+        var(--l-agentic) 0 8px,
+        transparent 8px 13.5px,
+        var(--l-mobile) 13.5px 21.5px,
+        transparent 21.5px 27px,
+        var(--l-oss) 27px 35px,
+        transparent 35px 39px,
+        var(--case-speaking) 39px 40.5px,
+        var(--l-speaking) 40.5px 48.5px,
+        var(--case-speaking) 48.5px 50px,
+        transparent 50px 54px,
+        var(--l-mind) 54px 62px
+      );
+    }
+
+    .lede {
+      font-size: 1.125rem;
+    }
+  }
+</style>

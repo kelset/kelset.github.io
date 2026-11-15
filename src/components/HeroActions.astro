@@ -1,0 +1,30 @@
+---
+/* The two hero buttons. Shared by the home page hero and by the variants in
+   the lab, so they are always compared with the same calls to action. */
+import Arrow from "./Arrow.astro";
+import { SITE } from "../data/site";
+---
+
+<div class="actions">
+  <a class="btn" href="/#now">
+    What I'm working on
+    <Arrow />
+  </a>
+  <a class="btn btn--ghost" href={`mailto:${SITE.email}`}>Get in touch</a>
+</div>
+
+<style>
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 640px) {
+    .btn {
+      flex: 1 1 auto;
+      padding-inline: 10px;
+      white-space: nowrap;
+    }
+  }
+</style>
