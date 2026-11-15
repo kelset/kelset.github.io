@@ -21,6 +21,6 @@
     "esbuild@0.28.1": true
   },
   "devDependencies": {
-    "subset-font": "^2.5.0"
+    "subset-font": "^2.9.0"
   }
 }
